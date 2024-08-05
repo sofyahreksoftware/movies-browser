@@ -1,3 +1,4 @@
+import { toMovieList } from "../../core/routes";
 import { ReactComponent as DangerIcon } from "../../assets/danger.svg";
 import { Container, StyledHeader, StyledParagraph, StyledLink } from "./styled";
 
@@ -8,6 +9,6 @@ export const ErrorPage = () => (
     <StyledParagraph>
       Please check your network connection and try again
     </StyledParagraph>
-    <StyledLink to="/movies">Back to home page</StyledLink>
+    <StyledLink to={toMovieList()}>Back to home page</StyledLink>
   </Container>
 );

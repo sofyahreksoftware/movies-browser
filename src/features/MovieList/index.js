@@ -17,7 +17,14 @@ import { useQueryParam } from "../../Navigation/queryParam";
 import paginationParamName from "../../Pagination/paginationParamName";
 import searchQueryName from "../../Navigation/searchQueryName";
 import { NoResultsPage } from "../../common/NoResultsPage";
-import { StyledMain, StyledHeader, StyledList, StyledLink, Item } from "../styled";
+import {
+  StyledMain,
+  StyledHeader,
+  StyledList,
+  StyledLink,
+  Item,
+} from "../styled";
+import { toMovieDetails } from "../../core/routes";
 
 export const MovieList = () => {
   const dispatch = useDispatch();
@@ -56,7 +63,10 @@ export const MovieList = () => {
           <StyledList>
             {movieList.map((movie) => (
               <Item key={nanoid()}>
-                <StyledLink to={`/movies/${movie.id}`} key={nanoid()}>
+                <StyledLink
+                  to={toMovieDetails({ movieId: movie.id })}
+                  key={nanoid()}
+                >
                   <MovieTile
                     poster={`https://image.tmdb.org/t/p/w342/${movie.poster_path}`}
                     title={movie.title}

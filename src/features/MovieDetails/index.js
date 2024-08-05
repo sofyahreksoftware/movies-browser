@@ -10,6 +10,7 @@ import {
   selectCredits,
   selectFetchMovieStatus,
 } from "./movieSlice";
+import { toPersonDetails } from "../../core/routes";
 import { MovieTile } from "../../common/MovieTile";
 import { PersonTile } from "../../common/PersonTile";
 import { LoadingPage } from "../../common/LoadingPage";
@@ -91,7 +92,10 @@ export const MovieDetails = () => {
             <StyledHeader as="h2">Cast</StyledHeader>
             <StyledList $people>
               {credits.cast?.map((person) => (
-                <StyledLink to={`/people/${person.id}`} key={nanoid()}>
+                <StyledLink
+                  to={toPersonDetails({ personId: person.id })}
+                  key={nanoid()}
+                >
                   <Item key={nanoid()}>
                     <PersonTile
                       {...(person.profile_path && {
@@ -110,7 +114,10 @@ export const MovieDetails = () => {
             <StyledHeader as="h2">Crew</StyledHeader>
             <StyledList $people>
               {credits.crew?.map((person) => (
-                <StyledLink to={`/people/${person.id}`} key={nanoid()}>
+                <StyledLink
+                  to={toPersonDetails({ personId: person.id })}
+                  key={nanoid()}
+                >
                   <Item key={nanoid()}>
                     <PersonTile
                       key={nanoid()}

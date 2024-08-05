@@ -1,5 +1,6 @@
 import { useLocation } from "react-router";
 
+import { toMovieList, toPeopleList } from "../core/routes";
 import { Search } from "./Search";
 import {
   Container,
@@ -23,16 +24,16 @@ export const Navigation = () => {
     <NavigationBar>
       <Wrapper>
         <Container>
-          <LogoLink to="/movies">
+          <LogoLink to={toMovieList()}>
             <Sygnet />
             <LogoTyp>Movies&nbsp;Browser</LogoTyp>
           </LogoLink>
           <NavigationList>
             <NavigationItem>
-              <StyledNavLink to="/movies">Movies</StyledNavLink>
+              <StyledNavLink to={toMovieList()}>Movies</StyledNavLink>
             </NavigationItem>
             <NavigationItem>
-              <StyledNavLink to="/people">People</StyledNavLink>
+              <StyledNavLink to={toPeopleList()}>People</StyledNavLink>
             </NavigationItem>
           </NavigationList>
         </Container>

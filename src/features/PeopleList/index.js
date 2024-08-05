@@ -12,6 +12,12 @@ import {
 import { LoadingPage } from "../../common/LoadingPage";
 import { ErrorPage } from "../../common/ErrorPage";
 import { PersonTile } from "../../common/PersonTile";
+import { Pagination } from "../../Pagination";
+import { useQueryParam } from "../../Navigation/queryParam";
+import paginationParamName from "../../Pagination/paginationParamName";
+import searchQueryName from "../../Navigation/searchQueryName";
+import { NoResultsPage } from "../../common/NoResultsPage";
+import { toPersonDetails } from "../../core/routes";
 import {
   StyledMain,
   StyledHeader,
@@ -19,11 +25,6 @@ import {
   StyledLink,
   Item,
 } from "../styled";
-import { Pagination } from "../../Pagination";
-import { useQueryParam } from "../../Navigation/queryParam";
-import paginationParamName from "../../Pagination/paginationParamName";
-import searchQueryName from "../../Navigation/searchQueryName";
-import { NoResultsPage } from "../../common/NoResultsPage";
 
 export const PeopleList = () => {
   const dispatch = useDispatch();
@@ -59,12 +60,15 @@ export const PeopleList = () => {
         <>
           <StyledHeader>{title}</StyledHeader>
           <StyledList $people>
-            {peopleList.map((people) => (
-              <StyledLink to={`/people/${people.id}`} key={nanoid()}>
+            {peopleList.map((person) => (
+              <StyledLink
+                to={toPersonDetails({ personId: person.id })}
+                key={nanoid()}
+              >
                 <Item key={nanoid()}>
                   <PersonTile
-                    poster={`https://image.tmdb.org/t/p/w185/${people.profile_path}`}
-                    personName={people.name}
+                    poster={`https://image.tmdb.org/t/p/w185/${person.profile_path}`}
+                    personName={person.name}
                   />
                 </Item>
               </StyledLink>

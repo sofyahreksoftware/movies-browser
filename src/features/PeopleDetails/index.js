@@ -13,7 +13,7 @@ import {
 import { LoadingPage } from "../../common/LoadingPage";
 import { ErrorPage } from "../../common/ErrorPage";
 import { Tile } from "./Tile";
-import { MovieList } from "./MovieList";
+import { MovieList } from "./MoviesList";
 import { StyledMain } from "../styled";
 
 const formatDate = (dateString) => {
