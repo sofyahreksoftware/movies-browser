@@ -1,4 +1,5 @@
 import { takeEvery, delay, put, call, takeLatest } from "redux-saga/effects";
+
 import {
   fetchPeopleList,
   fetchPeopleListSuccess,

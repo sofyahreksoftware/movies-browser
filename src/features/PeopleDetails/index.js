@@ -1,6 +1,7 @@
-import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router";
+import { useEffect } from "react";
+
 import {
   fetchPeopleDetails,
   selectFetchDataStatus,
@@ -11,8 +12,8 @@ import {
 } from "./peopleDetailsSlice";
 import { LoadingPage } from "../../common/LoadingPage";
 import { ErrorPage } from "../../common/ErrorPage";
-import { PersonPage } from "./PersonPage";
-import { MoviesList } from "./MoviesList";
+import { Tile } from "./Tile";
+import { MovieList } from "./MovieList";
 import { StyledMain } from "../styled";
 
 const formatDate = (dateString) => {
@@ -21,7 +22,7 @@ const formatDate = (dateString) => {
   return `${day}.${month}.${year}`;
 };
 
-export const PeopleDetails = () => {
+export const PersonDetails = () => {
   const dispatch = useDispatch();
   const personId = useParams();
   const fetchDataStatus = useSelector(selectFetchDataStatus);
@@ -40,19 +41,19 @@ export const PeopleDetails = () => {
       {fetchDataStatus === "error" && <ErrorPage />}
       {fetchDataStatus === "success" && (
         <>
-          <PersonPage
+          <Tile
             poster={`https://image.tmdb.org/t/p/h632/${personDetails.profile_path}`}
             name={personDetails.name}
             birthDate={formatDate(personDetails.birthday)}
             birthPlace={personDetails.place_of_birth}
             biography={personDetails.biography}
           />
-          <MoviesList
+          <MovieList
             header={`Movies - cast`}
             moviesList={moviesCast}
             genreList={genreList}
           />
-          <MoviesList
+          <MovieList
             header={`Movies - crew`}
             moviesList={moviesCrew}
             genreList={genreList}

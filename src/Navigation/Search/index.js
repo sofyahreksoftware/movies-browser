@@ -1,10 +1,11 @@
-import { useQueryParam, useReplaceQueryParam } from "../queryParam";
-import { SearchBox, SearchForm, SearchIcon } from "./styled";
-import searchQueryName from "../searchQueryName";
 import { useRef } from "react";
 import { useLocation, useNavigate } from "react-router";
+
+import searchQueryName from "../searchQueryName";
+import { useQueryParam, useReplaceQueryParam } from "../queryParam";
 import { usePageButton } from "../../Pagination/usePageButton";
 import paginationParamName from "../../Pagination/paginationParamName";
+import { SearchBox, SearchIcon, SearchForm } from "./styled";
 
 export const Search = ({ placeholder }) => {
   const query = useQueryParam(searchQueryName);
@@ -38,6 +39,7 @@ export const Search = ({ placeholder }) => {
       setPageToFirst();
     }
   };
+
   return (
     <SearchBox>
       <SearchIcon />

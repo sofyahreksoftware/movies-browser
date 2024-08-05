@@ -1,8 +1,9 @@
-import { nanoid } from "@reduxjs/toolkit";
-import { useEffect } from "react";
 import { useParams } from "react-router";
 import { useDispatch } from "react-redux";
+import { useEffect } from "react";
 import { useSelector } from "react-redux";
+import { nanoid } from "@reduxjs/toolkit";
+
 import {
   fetchMovieDataFromApi,
   selectMovie,
@@ -19,7 +20,7 @@ import {
   StyledMoviePage,
   PosterBackground,
   Poster,
-  MovieMainData,
+  MetaData,
   MovieTitle,
   VotesContainer,
   StyledStarIcon,
@@ -31,7 +32,7 @@ import {
   Article,
 } from "./styled";
 
-export const MoviePage = () => {
+export const MovieDetails = () => {
   const movieId = useParams();
   const dispatch = useDispatch();
 
@@ -55,7 +56,7 @@ export const MoviePage = () => {
               <Poster
                 backdrop={`https://image.tmdb.org/t/p/w1280${movie?.backdrop_path}`}
               >
-                <MovieMainData>
+                <MetaData>
                   <MovieTitle>{movie?.original_title}</MovieTitle>
                   <VotesContainer>
                     <StyledStarIcon />
@@ -65,7 +66,7 @@ export const MoviePage = () => {
                     </MarkContainer>
                     <VotesNumber>{movie?.vote_count} votes</VotesNumber>
                   </VotesContainer>
-                </MovieMainData>
+                </MetaData>
               </Poster>
             </>
           )}

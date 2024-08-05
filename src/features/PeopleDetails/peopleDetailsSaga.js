@@ -1,4 +1,5 @@
 import { takeEvery, delay, put, call } from "redux-saga/effects";
+
 import { getDataFromApi } from "../getDataFromApi";
 import {
   fetchPeopleDetails,

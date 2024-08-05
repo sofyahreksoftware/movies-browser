@@ -1,6 +1,6 @@
 import styled, { css } from "styled-components";
 
-export const StyledPersonPage = styled.section`
+export const Wrapper = styled.section`
   margin-top: 56px;
   padding: 40px;
   background-color: ${({ theme }) => theme.colors.white};

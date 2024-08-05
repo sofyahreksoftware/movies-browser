@@ -1,8 +1,9 @@
 import { nanoid } from "@reduxjs/toolkit";
+
 import { MovieTile } from "../../../common/MovieTile";
 import { StyledHeader, StyledList, StyledLink } from "../../styled";
 
-export const MoviesList = ({ header, moviesList, genreList }) => {
+export const MovieList = ({ header, moviesList, genreList }) => {
   return (
     <>
       {moviesList.length !== 0 && (

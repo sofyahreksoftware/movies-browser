@@ -1,4 +1,5 @@
 import styled, { css } from "styled-components";
+
 import { ReactComponent as prevArrow } from "../assets/prevArrow.svg";
 import { ReactComponent as nextArrow } from "../assets/nextArrow.svg";
 

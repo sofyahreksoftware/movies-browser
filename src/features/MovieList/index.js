@@ -12,12 +12,12 @@ import {
 import { LoadingPage } from "../../common/LoadingPage";
 import { ErrorPage } from "../../common/ErrorPage";
 import { MovieTile } from "../../common/MovieTile";
-import { StyledMain, StyledHeader, StyledList, StyledLink, Item } from "../styled";
 import { Pagination } from "../../Pagination";
 import { useQueryParam } from "../../Navigation/queryParam";
 import paginationParamName from "../../Pagination/paginationParamName";
 import searchQueryName from "../../Navigation/searchQueryName";
 import { NoResultsPage } from "../../common/NoResultsPage";
+import { StyledMain, StyledHeader, StyledList, StyledLink, Item } from "../styled";
 
 export const MovieList = () => {
   const dispatch = useDispatch();

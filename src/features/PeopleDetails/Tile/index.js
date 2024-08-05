@@ -1,7 +1,7 @@
-import { ReactComponent as PlaceholderIcon } from "../../../assets/placeholderActorIcon.svg";
 import { ImagePlaceholder } from "../../../common/ImagePlaceholder/styled";
+import { ReactComponent as PlaceholderIcon } from "../../../assets/placeholderActorIcon.svg";
 import {
-  StyledPersonPage,
+  Wrapper,
   StyledDataContainer,
   StyledImage,
   StyledHeader,
@@ -11,7 +11,7 @@ import {
   StyledDescriptionsMobile,
 } from "./styled";
 
-export const PersonPage = ({
+export const Tile = ({
   poster,
   name,
   birthDate,
@@ -19,7 +19,7 @@ export const PersonPage = ({
   biography,
 }) => {
   return (
-    <StyledPersonPage>
+    <Wrapper>
       <StyledDataContainer>
         {poster !== "https://image.tmdb.org/t/p/h632/null" ? (
           <StyledImage width={399} src={poster} alt="Selected actor" />
@@ -51,6 +51,6 @@ export const PersonPage = ({
       {biography && (
         <StyledDescriptionsMobile>{biography}</StyledDescriptionsMobile>
       )}
-    </StyledPersonPage>
+    </Wrapper>
   );
 };

@@ -1,3 +1,4 @@
+import { usePageButton } from "./usePageButton";
 import {
   Button,
   ButtonText,
@@ -6,8 +7,7 @@ import {
   PageNumbers,
   PrevArrowIcon,
   Wrapper,
-} from "./style";
-import { usePageButton } from "./usePageButton";
+} from "./styled";
 
 export const Pagination = () => {
   const {

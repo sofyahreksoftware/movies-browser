@@ -91,7 +91,7 @@ export const Poster = styled.div`
   }
 `;
 
-export const MovieMainData = styled.div`
+export const MetaData = styled.div`
   color: ${({ theme }) => theme.colors.white};
   position: absolute;
   bottom: 15%;

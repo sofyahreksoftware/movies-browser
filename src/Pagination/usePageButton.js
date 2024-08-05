@@ -1,9 +1,10 @@
 import { useSelector } from "react-redux";
 import { selectMoviePage } from "../features/MovieList/moviesSlice";
 import { useEffect, useState } from "react";
+import { useLocation } from "react-router";
+
 import paginationParamName from "./paginationParamName";
 import { useQueryParam, useReplaceQueryParam } from "../Navigation/queryParam";
-import { useLocation } from "react-router";
 import { selectPeoplePage } from "../features/PeopleList/peopleSlice";
 
 export const usePageButton = () => {
