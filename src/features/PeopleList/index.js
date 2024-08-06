@@ -60,17 +60,17 @@ export const PeopleList = () => {
         <>
           <StyledHeader>{title}</StyledHeader>
           <StyledList $people>
-            {peopleList.map((person) => (
+            {peopleList.map(({id, profile_path, name}) => (
               <StyledLink
-                to={toPersonDetails({ personId: person.id })}
+                to={toPersonDetails({ personId: id })}
                 key={nanoid()}
               >
                 <Item key={nanoid()}>
                   <PersonTile
-                    {...(person.profile_path && {
-                      poster: `https://image.tmdb.org/t/p/w185/${person.profile_path}`,
+                    {...(profile_path && {
+                      poster: `https://image.tmdb.org/t/p/w185/${profile_path}`,
                     })}
-                    personName={person.name}
+                    personName={name}
                   />
                 </Item>
               </StyledLink>
