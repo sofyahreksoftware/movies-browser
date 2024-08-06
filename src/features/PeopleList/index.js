@@ -67,7 +67,9 @@ export const PeopleList = () => {
               >
                 <Item key={nanoid()}>
                   <PersonTile
-                    poster={`https://image.tmdb.org/t/p/w185/${person.profile_path}`}
+                    {...(person.profile_path && {
+                      poster: `https://image.tmdb.org/t/p/w185/${person.profile_path}`,
+                    })}
                     personName={person.name}
                   />
                 </Item>
