@@ -1,7 +1,6 @@
 import styled, { css } from "styled-components";
 
-import { ReactComponent as prevArrow } from "../assets/prevArrow.svg";
-import { ReactComponent as nextArrow } from "../assets/nextArrow.svg";
+import { ReactComponent as Arrow } from "../assets/arrowIcon.svg";
 
 export const Wrapper = styled.div`
   display: flex;
@@ -19,9 +18,9 @@ export const Button = styled.button`
   background-color: ${({ theme }) => theme.colors.pattensBlue};
   border: none;
   border-radius: 5px;
-  cursor: pointer;
   color: ${({ theme }) => theme.colors.mineShaft};
   transition: background-color 0.5s;
+  cursor: pointer;
 
   &:hover {
     background-color: ${({ theme }) => theme.colors.pattensBlue2};
@@ -38,14 +37,9 @@ export const Button = styled.button`
   }
 `;
 
-export const PrevArrowIcon = styled(prevArrow)`
+export const ArrowIcon = styled(Arrow)`
   margin: 0 2px 0 4px;
   color: ${({ theme }) => theme.colors.cornflowerBlue};
-  ${({ ismobile }) =>
-    ismobile &&
-    css`
-      display: none;
-    `};
 
   *:disabled & {
     color: ${({ theme }) => theme.colors.waterloo};
@@ -54,25 +48,12 @@ export const PrevArrowIcon = styled(prevArrow)`
   @media (max-width: ${({ theme }) => theme.media.mobile}px) {
     display: block;
   }
-`;
 
-export const NextArrowIcon = styled(nextArrow)`
-  margin: 0 2px 0 4px;
-  color: ${({ theme }) => theme.colors.cornflowerBlue};
-
-  ${({ ismobile }) =>
-    ismobile &&
+  ${({ $toNextPage }) =>
+    $toNextPage &&
     css`
-      display: none;
-    `};
-
-  *:disabled & {
-    color: ${({ theme }) => theme.colors.waterloo};
-  }
-
-  @media (max-width: ${({ theme }) => theme.media.mobile}px) {
-    display: block;
-  }
+      transform: rotate(180deg);
+    `}
 `;
 
 export const ButtonText = styled.p`
