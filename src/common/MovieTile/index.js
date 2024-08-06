@@ -83,7 +83,9 @@ export const MovieTile = ({
           <StyledStarIcon />
           <Mark $main={$main}>{mark}</Mark>
           <MaxMark $main={$main}>/10</MaxMark>
-          <VotesNumber $main={$main}>{votes} votes</VotesNumber>
+          <VotesNumber $main={$main}>
+            {votes ? `${votes} vote${votes === 1 ? "" : "s"}` : "No votes yet"}
+          </VotesNumber>
         </VotesContainer>
         {description && <Description>{description}</Description>}
       </DataContainer>
