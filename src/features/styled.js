@@ -59,14 +59,6 @@ export const StyledList = styled.ul`
 
 export const StyledLink = styled(Link)`
   text-decoration: none;
-
-  &:link {
-    color: ${({ theme }) => theme.colors.black};
-  }
-
-  &:visited {
-    color: ${({ theme }) => theme.colors.black};
-  }
 `;
 
 export const Item = styled.li`

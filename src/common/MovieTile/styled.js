@@ -94,7 +94,6 @@ export const DataContainer = styled.div`
 
 export const StyledLink = styled(Link)`
   text-decoration: none;
-  color: ${({ theme }) => theme.colors.black};
 `;
 
 export const Title = styled.h2`
