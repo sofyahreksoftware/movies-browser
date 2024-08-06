@@ -17,7 +17,13 @@ import { useQueryParam } from "../../Navigation/queryParam";
 import paginationParamName from "../../Pagination/paginationParamName";
 import searchQueryName from "../../Navigation/searchQueryName";
 import { NoResultsPage } from "../../common/NoResultsPage";
-import { StyledMain, StyledHeader, StyledList, StyledLink, Item } from "../styled";
+import {
+  StyledMain,
+  StyledHeader,
+  StyledList,
+  StyledLink,
+  Item,
+} from "../styled";
 
 export const MovieList = () => {
   const dispatch = useDispatch();
@@ -64,7 +70,7 @@ export const MovieList = () => {
                     genres={movie.genre_ids.map((id) =>
                       genreList.find((genre) => genre.id === id)
                     )}
-                    mark={movie.vote_average.toFixed(1)}
+                    mark={movie.vote_average.toFixed(1).replace(".", ",")}
                     votes={movie.vote_count}
                   />
                 </StyledLink>
