@@ -1,18 +1,18 @@
 import { takeEvery, delay, put, call, takeLatest } from "redux-saga/effects";
 
+import { getPeopleList } from "./getPeopleListFromApi";
+import { getSearchData } from "../../common/getSearchData";
 import {
   fetchPeopleList,
   fetchPeopleListSuccess,
   fetchPeopleListError,
   fetchPeopleSearch,
 } from "./peopleSlice";
-import { getPeopleListFromApi } from "./getPeopleListFromApi";
-import { getSearchData } from "../../Navigation/Search/getSearchData";
 
 function* fetchPeopleListHandler({ payload: page }) {
   try {
     yield delay(1000);
-    const peopleList = yield call(getPeopleListFromApi, page);
+    const peopleList = yield call(getPeopleList, page);
     yield put(fetchPeopleListSuccess(peopleList));
   } catch (error) {
     yield put(fetchPeopleListError());
@@ -22,12 +22,8 @@ function* fetchPeopleListHandler({ payload: page }) {
 function* fetchPeopleSearchHandler({ payload: options }) {
   try {
     yield delay(1000);
-    const peopleList = yield call(
-      getSearchData,
-      options.query,
-      options.page,
-      options.type
-    );
+    const { query, page, type } = options;
+    const peopleList = yield call(getSearchData, query, page, type);
     yield put(fetchPeopleListSuccess(peopleList));
   } catch (error) {
     yield put(fetchPeopleListError());
