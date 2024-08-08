@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { nanoid } from "@reduxjs/toolkit";
 
+import { getImageUrl} from "../../common/getImageUrl";
 import {
   fetchMovieDataFromApi,
   selectMovie,
@@ -55,7 +56,10 @@ export const MovieDetails = () => {
             <>
               <PosterBackground />
               <Poster
-                backdrop={`https://image.tmdb.org/t/p/w1280${movie?.backdrop_path}`}
+                backdrop={getImageUrl({
+                  size: "/w1280",
+                  path: `${movie?.backdrop_path}`,
+                })}
               >
                 <MetaData>
                   <MovieTitle>{movie?.original_title}</MovieTitle>
@@ -76,7 +80,10 @@ export const MovieDetails = () => {
             <MovieTile
               $main
               key={nanoid()}
-              poster={`https://image.tmdb.org/t/p/w342${movie?.poster_path}.jpg`}
+              poster={getImageUrl({
+                size: "/w342",
+                path: `${movie?.poster_path}.jpg`,
+              })}
               title={movie?.title}
               year={movie.release_date?.split("-")[0]}
               productionPlaces={movie?.production_countries}
@@ -99,7 +106,10 @@ export const MovieDetails = () => {
                   <Item key={nanoid()}>
                     <PersonTile
                       {...(person.profile_path && {
-                        poster: `https://image.tmdb.org/t/p/w342${person.profile_path}.jpg`,
+                        poster: getImageUrl({
+                          size: "/w342",
+                          path: `${person.profile_path}.jpg`,
+                        }),
                       })}
                       personName={person.name}
                       role={person.character}
@@ -122,7 +132,10 @@ export const MovieDetails = () => {
                     <PersonTile
                       key={nanoid()}
                       {...(person.profile_path && {
-                        poster: `https://image.tmdb.org/t/p/w342${person.profile_path}.jpg`,
+                        poster: getImageUrl({
+                          size: "/w342",
+                          path: `${person.profile_path}.jpg`,
+                        }),
                       })}
                       personName={person.name}
                       role={person.job}

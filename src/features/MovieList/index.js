@@ -1,6 +1,8 @@
 import { nanoid } from "@reduxjs/toolkit";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+
+import { getImageUrl } from "../../common/getImageUrl";
 import {
   fetchMovieList,
   selectFetchDataStatus,
@@ -68,7 +70,10 @@ export const MovieList = () => {
                   key={nanoid()}
                 >
                   <MovieTile
-                    poster={`https://image.tmdb.org/t/p/w342/${movie.poster_path}`}
+                    poster={getImageUrl({
+                      path: `/${movie.poster_path}`,
+                      size: "/w342",
+                    })}
                     title={movie.title}
                     year={movie.release_date.split("-")[0]}
                     genres={movie.genre_ids.map((id) =>

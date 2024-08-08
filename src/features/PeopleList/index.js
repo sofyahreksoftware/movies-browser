@@ -2,6 +2,7 @@ import { nanoid } from "@reduxjs/toolkit";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
+import { getImageUrl } from "../../common/getImageUrl";
 import {
   fetchPeopleList,
   fetchPeopleSearch,
@@ -60,15 +61,15 @@ export const PeopleList = () => {
         <>
           <StyledHeader>{title}</StyledHeader>
           <StyledList $people>
-            {peopleList.map(({id, profile_path, name}) => (
-              <StyledLink
-                to={toPersonDetails({ personId: id })}
-                key={nanoid()}
-              >
+            {peopleList.map(({ id, profile_path, name }) => (
+              <StyledLink to={toPersonDetails({ personId: id })} key={nanoid()}>
                 <Item key={nanoid()}>
                   <PersonTile
                     {...(profile_path && {
-                      poster: `https://image.tmdb.org/t/p/w185/${profile_path}`,
+                      poster: getImageUrl({
+                        size: "/w185",
+                        path: `/${profile_path}`,
+                      }),
                     })}
                     personName={name}
                   />

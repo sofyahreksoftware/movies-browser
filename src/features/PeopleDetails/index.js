@@ -10,6 +10,7 @@ import {
   selectPersonMovieCrew,
   selectGenreList,
 } from "./peopleDetailsSlice";
+import { getImageUrl } from "../../common/getImageUrl";
 import { LoadingPage } from "../../common/LoadingPage";
 import { ErrorPage } from "../../common/ErrorPage";
 import { Tile } from "./Tile";
@@ -26,10 +27,11 @@ export const PersonDetails = () => {
   const dispatch = useDispatch();
   const personId = useParams();
   const fetchDataStatus = useSelector(selectFetchDataStatus);
-  const personDetails = useSelector(selectPersonDetails);
   const moviesCast = useSelector(selectPersonMovieCast);
   const moviesCrew = useSelector(selectPersonMovieCrew);
   const genreList = useSelector(selectGenreList);
+  const { profile_path, name, birthday, place_of_birth, biography } =
+    useSelector(selectPersonDetails);
 
   useEffect(() => {
     dispatch(fetchPeopleDetails(personId));
@@ -42,11 +44,14 @@ export const PersonDetails = () => {
       {fetchDataStatus === "success" && (
         <>
           <Tile
-            poster={`https://image.tmdb.org/t/p/h632/${personDetails.profile_path}`}
-            name={personDetails.name}
-            birthDate={formatDate(personDetails.birthday)}
-            birthPlace={personDetails.place_of_birth}
-            biography={personDetails.biography}
+            poster={getImageUrl({
+              size: "/h632",
+              path: `/${profile_path}`,
+            })}
+            name={name}
+            birthDate={formatDate(birthday)}
+            birthPlace={place_of_birth}
+            biography={biography}
           />
           <MovieList
             header={`Movies - cast`}

@@ -1,5 +1,6 @@
 import { nanoid } from "@reduxjs/toolkit";
 
+import { getImageUrl } from "../../../common/getImageUrl";
 import { toMovieDetails } from "../../../core/routes";
 import { MovieTile } from "../../../common/MovieTile";
 import { StyledHeader, StyledList, StyledLink } from "../../styled";
@@ -17,7 +18,10 @@ export const MovieList = ({ header, moviesList, genreList }) => {
           <li key={nanoid()}>
             <StyledLink to={toMovieDetails({ movieId: movie.id })}>
               <MovieTile
-                poster={`https://image.tmdb.org/t/p/w342/${movie.poster_path}`}
+                poster={getImageUrl({
+                  size: "/w342",
+                  path: `${movie.poster_path}`,
+                })}
                 title={movie.title}
                 year={movie.release_date?.split("-")[0]}
                 genres={movie.genre_ids?.map((id) =>
