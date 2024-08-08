@@ -10,7 +10,7 @@ import {
 function* fetchPeopleDetailsHandler(action) {
   try {
     yield delay(1000);
-    const { id: personId } = action.payload;
+    const { personId } = action.payload;
     const personDetailsApi = `https://api.themoviedb.org/3/person/${personId}?api_key=5808b0503fd4aaf8a5636df1649fe0dc`;
     const personMovieCreditsApi = `https://api.themoviedb.org/3/person/${personId}/movie_credits?api_key=5808b0503fd4aaf8a5636df1649fe0dc`;
     const genreListApi =
