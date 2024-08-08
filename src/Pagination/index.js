@@ -2,10 +2,9 @@ import { usePageButton } from "./usePageButton";
 import {
   Button,
   ButtonText,
-  NextArrowIcon,
   PageCounter,
   PageNumbers,
-  PrevArrowIcon,
+  ArrowIcon,
   Wrapper,
 } from "./styled";
 
@@ -18,17 +17,19 @@ export const Pagination = () => {
     setFirstPage,
     setLastPage,
   } = usePageButton();
+  
   const isFirstPage = page === 1;
   const isLastPage = page === totalPages;
+
   return (
     <Wrapper>
       <Button onClick={setFirstPage} disabled={isFirstPage}>
-        <PrevArrowIcon ismobile="true" disabled={isFirstPage} />
-        <PrevArrowIcon disabled={isFirstPage} />
+        <ArrowIcon disabled={isFirstPage} />
+        <ArrowIcon disabled={isFirstPage} />
         <ButtonText>First</ButtonText>
       </Button>
       <Button onClick={setPreviousPage} disabled={isFirstPage}>
-        <PrevArrowIcon disabled={isFirstPage} />
+        <ArrowIcon disabled={isFirstPage} />
         <ButtonText>Previous</ButtonText>
       </Button>
       <PageCounter>
@@ -37,12 +38,12 @@ export const Pagination = () => {
       </PageCounter>
       <Button onClick={setNextPage} disabled={isLastPage}>
         <ButtonText>Next</ButtonText>
-        <NextArrowIcon disabled={isLastPage} />
+        <ArrowIcon disabled={isLastPage} $toNextPage />
       </Button>
       <Button onClick={setLastPage} disabled={isLastPage}>
         <ButtonText>Last</ButtonText>
-        <NextArrowIcon disabled={isLastPage} />
-        <NextArrowIcon ismobile="true" disabled={isLastPage} />
+        <ArrowIcon disabled={isLastPage} $toNextPage />
+        <ArrowIcon disabled={isLastPage} $toNextPage />
       </Button>
     </Wrapper>
   );

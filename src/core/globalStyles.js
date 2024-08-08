@@ -14,7 +14,13 @@ const GlobalStyle = createGlobalStyle`
 
   body {
   font-family: "Poppins", sans-serif;
-  background-color: ${({ theme }) => theme.colors.whisper}
+  background-color: ${({ theme }) => theme.colors.whisper};
+  overflow-wrap: anyway;
+  overflow-y: scroll;
+  }
+
+  a {
+    color: inherit
   }
 `;
 

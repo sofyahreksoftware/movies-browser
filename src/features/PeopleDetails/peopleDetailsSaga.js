@@ -1,6 +1,8 @@
 import { takeEvery, delay, put, call } from "redux-saga/effects";
 
-import { getDataFromApi } from "../getDataFromApi";
+import { getPersonDetails } from "./getPersonDetails";
+import { getPersonMovieCredits } from "./getPersonMovieCredits";
+import { getGenreList } from "./getGenreList";
 import {
   fetchPeopleDetails,
   fetchPeopleDetailsSuccess,
@@ -11,16 +13,9 @@ function* fetchPeopleDetailsHandler(action) {
   try {
     yield delay(1000);
     const { personId } = action.payload;
-    const personDetailsApi = `https://api.themoviedb.org/3/person/${personId}?api_key=5808b0503fd4aaf8a5636df1649fe0dc`;
-    const personMovieCreditsApi = `https://api.themoviedb.org/3/person/${personId}/movie_credits?api_key=5808b0503fd4aaf8a5636df1649fe0dc`;
-    const genreListApi =
-      "https://api.themoviedb.org/3/genre/movie/list?api_key=5808b0503fd4aaf8a5636df1649fe0dc";
-    const personDetails = yield call(getDataFromApi, personDetailsApi);
-    const personMovieCredits = yield call(
-      getDataFromApi,
-      personMovieCreditsApi
-    );
-    const genreList = yield call(getDataFromApi, genreListApi);
+    const personDetails = yield call(getPersonDetails, personId);
+    const personMovieCredits = yield call(getPersonMovieCredits, personId);
+    const genreList = yield call(getGenreList);
     yield put(
       fetchPeopleDetailsSuccess({
         personDetails,

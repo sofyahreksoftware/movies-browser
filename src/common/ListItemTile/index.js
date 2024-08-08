@@ -21,7 +21,7 @@ import {
   Description2,
 } from "./styled";
 
-export const MovieTile = ({
+export const ListItemTile = ({
   poster,
   title,
   year,
@@ -36,16 +36,16 @@ export const MovieTile = ({
   $main,
 }) => (
   <>
-    <StyledMovieTile $main={$main}>
+    <StyledTile >
       {poster !== "https://image.tmdb.org/t/p/w342/null" ? (
-        <Image $main={$main} src={poster} alt="Movie Poster" />
+        <Image  src={poster} alt="Movie Poster" />
       ) : (
-        <ImagePlaceholder $main={$main}>
+        <ImagePlaceholder >
           <PlaceholderIcon />
         </ImagePlaceholder>
       )}
-      <DataContainer $main={$main}>
-        {title && <Title $main={$main}>{title}</Title>}
+      <DataContainer >
+        {title && <Title >{title}</Title>}
         {character || job ? (
           <StyledInfo>
             {character && <span>{character}</span>}
@@ -53,7 +53,7 @@ export const MovieTile = ({
             {year && <span> ({year})</span>}
           </StyledInfo>
         ) : (
-          year && <StyledInfo $main={$main}>{year}</StyledInfo>
+          year && <StyledInfo >{year}</StyledInfo>
         )}
         {productionPlaces && (
           <Container>
@@ -73,7 +73,7 @@ export const MovieTile = ({
           </Container>
         )}
         {genres && (
-          <Genres $main={$main}>
+          <Genres >
             {genres.map((genre) => (
               <Genre key={nanoid()}>{genre.name}</Genre>
             ))}
@@ -81,15 +81,15 @@ export const MovieTile = ({
         )}
         <VotesContainer>
           <StyledStarIcon />
-          <Mark $main={$main}>{mark}</Mark>
-          <MaxMark $main={$main}>/10</MaxMark>
-          <VotesNumber $main={$main}>
+          <Mark >{mark}</Mark>
+          <MaxMark >/10</MaxMark>
+          <VotesNumber >
             {votes ? `${votes} vote${votes === 1 ? "" : "s"}` : "No votes yet"}
           </VotesNumber>
         </VotesContainer>
         {description && <Description>{description}</Description>}
       </DataContainer>
-    </StyledMovieTile>
+    </StyledTile>
     {description && <Description2>{description}</Description2>}
   </>
 );
