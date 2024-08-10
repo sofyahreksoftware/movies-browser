@@ -14,29 +14,20 @@ export const StyledMoviePage = styled.section`
   }
 `;
 
-export const PosterBackground = styled.div`
-  width: 100%;
-  margin: 0;
+export const Background = styled.div`
   background-color: ${({ theme }) => theme.colors.black};
-  height: 770px;
-  position: absolute;
+  width: 100%;
   top: 0;
-
-  @media (max-width: ${({ theme }) => theme.media.forPoster.tablet}px) {
-    height: 525px;
-  }
-
-  @media (max-width: ${({ theme }) => theme.media.forPoster.mobile}px) {
-    height: 400px;
-  }
+  height: auto;
+  position: absolute;
+  margin: 0;
 `;
 
 export const Poster = styled.div`
   width: 100%;
-  display: inline-block;
+
   height: 770px;
   position: relative;
-  top: 0;
   background-image: linear-gradient(
       270deg,
       rgba(${({ theme }) => theme.colors.darkRGB}) 14.11%,
@@ -72,22 +63,12 @@ export const Poster = styled.div`
       rgba(${({ theme }) => theme.colors.darkRGB}, 1) 92.87%
     ),
     url(${({ backdrop }) => backdrop});
-  background-size: 1920px 770px, 1920px 770px, 1920px 770px, 1920px 770px,
-    1368px 769px;
+  background-size: cover;
   background-repeat: no-repeat;
-  background-position: top center;
+  background-position: center center;
 
   @media (max-width: ${({ theme }) => theme.media.forPoster.tablet}px) {
-    background-size: 1366px 525px, 1366px 525px, 1366px 525px, 1366px 525px,
-      1024px 525px;
-    height: 525px;
-  }
-
-  @media (max-width: ${({ theme }) => theme.media.forPoster.mobile}px) {
-    background-size: 1040px 400px, 1040px 400px, 1040px 400px, 1040px 400px,
-      776px 400px;
-    background-position: center top;
-    height: 400px;
+    height: 55vw;
   }
 `;
 
