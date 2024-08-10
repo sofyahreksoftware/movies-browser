@@ -30,8 +30,7 @@ export const PersonDetails = () => {
   const moviesCast = useSelector(selectPersonMovieCast);
   const moviesCrew = useSelector(selectPersonMovieCrew);
   const genreList = useSelector(selectGenreList);
-  const { profile_path, name, birthday, place_of_birth, biography } =
-    useSelector(selectPersonDetails);
+  const person = useSelector(selectPersonDetails);
 
   useEffect(() => {
     dispatch(fetchPeopleDetails(personId));
@@ -46,12 +45,12 @@ export const PersonDetails = () => {
           <Tile
             poster={getImageUrl({
               size: "/h632",
-              path: `/${profile_path}`,
+              path: `/${person.profile_path}`,
             })}
-            name={name}
-            birthDate={formatDate(birthday)}
-            birthPlace={place_of_birth}
-            biography={biography}
+            name={person.name}
+            birthDate={formatDate(person.birthday)}
+            birthPlace={person.place_of_birth}
+            biography={person.biography}
           />
           <MovieList
             header={`Movies - cast`}
