@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { nanoid } from "@reduxjs/toolkit";
 
-import { getImageUrl} from "../../common/getImageUrl";
+import { getImageUrl } from "../../common/getImageUrl";
 import {
   fetchMovieDataFromApi,
   selectMovie,
@@ -20,7 +20,7 @@ import { ErrorPage } from "../../common/ErrorPage";
 import { StyledHeader, StyledList, StyledLink, Item } from "../styled";
 import {
   StyledMoviePage,
-  PosterBackground,
+  Background,
   Poster,
   MetaData,
   MovieTitle,
@@ -54,7 +54,7 @@ export const MovieDetails = () => {
         <StyledMoviePage>
           {movie?.backdrop_path && (
             <>
-              <PosterBackground />
+              <Background />
               <Poster
                 backdrop={getImageUrl({
                   size: "/w1280",
