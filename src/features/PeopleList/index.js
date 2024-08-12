@@ -10,14 +10,14 @@ import {
   selectPeopleList,
   selectPeopleResult,
 } from "./peopleSlice";
-import { LoadingPage } from "../../common/LoadingPage";
-import { ErrorPage } from "../../common/ErrorPage";
+import { LoadingPage } from "../../common/statusPages/LoadingPage";
+import { ErrorPage } from "../../common/statusPages/ErrorPage";
 import { PersonTile } from "../../common/PersonTile";
 import { Pagination } from "../../Pagination";
 import { useQueryParam } from "../../Navigation/queryParam";
 import paginationParamName from "../../Pagination/paginationParamName";
 import searchQueryName from "../../Navigation/searchQueryName";
-import { NoResultsPage } from "../../common/NoResultsPage";
+import { NoResultsPage } from "../../common/statusPages/NoResultsPage";
 import { toPersonDetails } from "../../core/routes";
 import {
   StyledMain,

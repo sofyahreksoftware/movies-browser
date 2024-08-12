@@ -14,8 +14,8 @@ import {
 import { toPersonDetails } from "../../core/routes";
 import { MovieTile } from "../../common/MovieTile";
 import { PersonTile } from "../../common/PersonTile";
-import { LoadingPage } from "../../common/LoadingPage";
-import { ErrorPage } from "../../common/ErrorPage";
+import { LoadingPage } from "../../common/statusPages/statusPages/LoadingPage";
+import { ErrorPage } from "../../common/statusPages/ErrorPage";
 
 import { StyledHeader, StyledList, StyledLink, Item } from "../styled";
 import {

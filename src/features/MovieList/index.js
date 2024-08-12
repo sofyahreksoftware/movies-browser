@@ -11,14 +11,14 @@ import {
   fetchMovieSearch,
   selectMovieResult,
 } from "./moviesSlice";
-import { LoadingPage } from "../../common/LoadingPage";
-import { ErrorPage } from "../../common/ErrorPage";
+import { LoadingPage } from "../../common/statusPages/LoadingPage";
+import { ErrorPage } from "../../common/statusPages/ErrorPage";
 import { MovieTile } from "../../common/MovieTile";
 import { Pagination } from "../../Pagination";
 import { useQueryParam } from "../../Navigation/queryParam";
 import paginationParamName from "../../Pagination/paginationParamName";
 import searchQueryName from "../../Navigation/searchQueryName";
-import { NoResultsPage } from "../../common/NoResultsPage";
+import { NoResultsPage } from "../../common/statusPages/NoResultsPage";
 import {
   StyledMain,
   StyledHeader,

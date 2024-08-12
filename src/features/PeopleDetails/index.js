@@ -11,8 +11,8 @@ import {
   selectGenreList,
 } from "./peopleDetailsSlice";
 import { getImageUrl } from "../../common/api/getImageUrl";
-import { LoadingPage } from "../../common/LoadingPage";
-import { ErrorPage } from "../../common/ErrorPage";
+import { LoadingPage } from "../../common/statusPages/LoadingPage";
+import { ErrorPage } from "../../common/statusPages/ErrorPage";
 import { Tile } from "./Tile";
 import { MovieList } from "./MoviesList";
 import { StyledMain } from "../styled";
