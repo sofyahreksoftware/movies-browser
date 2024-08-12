@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { nanoid } from "@reduxjs/toolkit";
 
-import { getImageUrl } from "../../common/getImageUrl";
+import { getImageUrl } from "../../common/api/getImageUrl";
 import {
   fetchMovieDataFromApi,
   selectMovie,

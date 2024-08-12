@@ -2,7 +2,7 @@ import { takeEvery, delay, put, call, takeLatest } from "redux-saga/effects";
 
 import { getMovieList } from "./getMovieListFromApi";
 import { getGenres } from "./getGenres";
-import { getSearchData } from "../../common/getSearchData";
+import { getSearchData } from "../../common/api/getSearchData";
 import {
   fetchMovieList,
   fetchMovieListSuccess,

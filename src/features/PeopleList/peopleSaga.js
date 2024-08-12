@@ -1,7 +1,7 @@
 import { takeEvery, delay, put, call, takeLatest } from "redux-saga/effects";
 
 import { getPeopleList } from "./getPeopleListFromApi";
-import { getSearchData } from "../../common/getSearchData";
+import { getSearchData } from "../../common/api/getSearchData";
 import {
   fetchPeopleList,
   fetchPeopleListSuccess,

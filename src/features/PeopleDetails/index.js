@@ -10,7 +10,7 @@ import {
   selectPersonMovieCrew,
   selectGenreList,
 } from "./peopleDetailsSlice";
-import { getImageUrl } from "../../common/getImageUrl";
+import { getImageUrl } from "../../common/api/getImageUrl";
 import { LoadingPage } from "../../common/LoadingPage";
 import { ErrorPage } from "../../common/ErrorPage";
 import { Tile } from "./Tile";

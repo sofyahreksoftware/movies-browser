@@ -1,6 +1,6 @@
 import { nanoid } from "@reduxjs/toolkit";
 
-import { getImageUrl } from "../../../common/getImageUrl";
+import { getImageUrl } from "../../../common/api/getImageUrl";
 import { toMovieDetails } from "../../../core/routes";
 import { MovieTile } from "../../../common/MovieTile";
 import { StyledHeader, StyledList, StyledLink } from "../../styled";
