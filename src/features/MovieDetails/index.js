@@ -97,7 +97,7 @@ export const MovieDetails = () => {
 
           <Article>
             <StyledHeader as="h2">Cast</StyledHeader>
-            <StyledList $people>
+            <StyledList $small>
               {credits.cast?.map((person) => (
                 <StyledLink
                   to={toPersonDetails({ personId: person.id })}
@@ -122,7 +122,7 @@ export const MovieDetails = () => {
 
           <Article>
             <StyledHeader as="h2">Crew</StyledHeader>
-            <StyledList $people>
+            <StyledList $small>
               {credits.crew?.map((person) => (
                 <StyledLink
                   to={toPersonDetails({ personId: person.id })}

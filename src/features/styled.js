@@ -45,8 +45,8 @@ export const StyledList = styled.ul`
     grid-template-columns: repeat(auto-fill, minmax(288px, 1fr));
   }
 
-  ${({ $people }) =>
-    $people &&
+  ${({ $small }) =>
+    $small &&
     css`
       grid-template-columns: repeat(auto-fill, minmax(208px, 1fr));
 

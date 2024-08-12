@@ -28,6 +28,8 @@ import {
 } from "../styled";
 import { toMovieDetails } from "../../core/routes";
 
+import { ListItemTile } from "../../common/ListItemTile";
+
 export const MovieList = () => {
   const dispatch = useDispatch();
   const fetchDataStatus = useSelector(selectFetchDataStatus);
@@ -87,6 +89,66 @@ export const MovieList = () => {
             ))}
           </StyledList>
           <Pagination />
+          <StyledList>
+            <ListItemTile
+              title={"For movie"}
+              year="2022"
+              releaseDate={"20.08.2006"}
+              genres={[28, 12, 878].map((id) =>
+                genreList.find((genre) => genre.id === id)
+              )}
+              mark={2.8}
+              votes={444}
+            />
+            <ListItemTile
+              poster={getImageUrl({
+                size: "/w342",
+                path: "/iIvjwrDPQHCU4NjbbKpNs88uk6G.jpg",
+              })}
+              title={"For movie"}
+              year="2022"
+              releaseDate={"20.08.2006"}
+              genres={[28, 12, 878].map((id) =>
+                genreList.find((genre) => genre.id === id)
+              )}
+              mark={2.8}
+              votes={444}
+            />
+          </StyledList>
+          <StyledList $small>
+            <ListItemTile
+              title={"For person"}
+              role="Böri Khan"
+              $small
+            />
+            <ListItemTile
+              poster={getImageUrl({
+                size: "/w342",
+                path: "/iIvjwrDPQHCU4NjbbKpNs88uk6G.jpg",
+              })}
+              title={"For person"}
+              role="Böri Khan"
+              $small
+            />
+            <ListItemTile
+              poster={getImageUrl({
+                size: "/w342",
+                path: "/iIvjwrDPQHCU4NjbbKpNs88uk6G.jpg",
+              })}
+              title={"For person"}
+              role="Böri Khan"
+              $small
+            />
+            <ListItemTile
+              poster={getImageUrl({
+                size: "/w342",
+                path: "/iIvjwrDPQHCU4NjbbKpNs88uk6G.jpg",
+              })}
+              title={"For person"}
+              role="Böri Khan"
+              $small
+            />
+          </StyledList>
         </>
       )}
     </StyledMain>

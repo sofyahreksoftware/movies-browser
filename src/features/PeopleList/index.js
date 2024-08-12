@@ -60,7 +60,7 @@ export const PeopleList = () => {
       {fetchDataStatus === "success" && totalResult !== 0 && (
         <>
           <StyledHeader>{title}</StyledHeader>
-          <StyledList $people>
+          <StyledList $small>
             {peopleList.map(({ id, profile_path, name }) => (
               <StyledLink to={toPersonDetails({ personId: id })} key={nanoid()}>
                 <Item key={nanoid()}>
