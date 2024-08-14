@@ -13,7 +13,7 @@ import {
 } from "./moviesSlice";
 import { LoadingPage } from "../../common/LoadingPage";
 import { ErrorPage } from "../../common/ErrorPage";
-import { MovieTile } from "../../common/MovieTile";
+import { ListItemTile } from "../../common/ListItemTile";
 import { Pagination } from "../../Pagination";
 import { useQueryParam } from "../../Navigation/queryParam";
 import paginationParamName from "../../Pagination/paginationParamName";
@@ -28,7 +28,7 @@ import {
 } from "../styled";
 import { toMovieDetails } from "../../core/routes";
 
-import { ListItemTile } from "../../common/ListItemTile";
+
 
 export const MovieList = () => {
   const dispatch = useDispatch();
@@ -71,7 +71,7 @@ export const MovieList = () => {
                   to={toMovieDetails({ movieId: movie.id })}
                   key={nanoid()}
                 >
-                  <MovieTile
+                  <ListItemTile
                     poster={getImageUrl({
                       path: `/${movie.poster_path}`,
                       size: "/w342",
@@ -89,66 +89,6 @@ export const MovieList = () => {
             ))}
           </StyledList>
           <Pagination />
-          <StyledList>
-            <ListItemTile
-              title={"For movie"}
-              year="2022"
-              releaseDate={"20.08.2006"}
-              genres={[28, 12, 878].map((id) =>
-                genreList.find((genre) => genre.id === id)
-              )}
-              mark={2.8}
-              votes={444}
-            />
-            <ListItemTile
-              poster={getImageUrl({
-                size: "/w342",
-                path: "/iIvjwrDPQHCU4NjbbKpNs88uk6G.jpg",
-              })}
-              title={"For movie"}
-              year="2022"
-              releaseDate={"20.08.2006"}
-              genres={[28, 12, 878].map((id) =>
-                genreList.find((genre) => genre.id === id)
-              )}
-              mark={2.8}
-              votes={444}
-            />
-          </StyledList>
-          <StyledList $small>
-            <ListItemTile
-              title={"For person"}
-              role="Böri Khan"
-              $small
-            />
-            <ListItemTile
-              poster={getImageUrl({
-                size: "/w342",
-                path: "/iIvjwrDPQHCU4NjbbKpNs88uk6G.jpg",
-              })}
-              title={"For person"}
-              role="Böri Khan"
-              $small
-            />
-            <ListItemTile
-              poster={getImageUrl({
-                size: "/w342",
-                path: "/iIvjwrDPQHCU4NjbbKpNs88uk6G.jpg",
-              })}
-              title={"For person"}
-              role="Böri Khan"
-              $small
-            />
-            <ListItemTile
-              poster={getImageUrl({
-                size: "/w342",
-                path: "/iIvjwrDPQHCU4NjbbKpNs88uk6G.jpg",
-              })}
-              title={"For person"}
-              role="Böri Khan"
-              $small
-            />
-          </StyledList>
         </>
       )}
     </StyledMain>
