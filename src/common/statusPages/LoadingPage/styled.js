@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { ReactComponent as LoadingIcon } from "../../assets/loadingIcon.svg";
+import { ReactComponent as LoadingIcon } from "../../../assets/loadingIcon.svg";
 
 export const Container = styled.div`
   padding: 16px;

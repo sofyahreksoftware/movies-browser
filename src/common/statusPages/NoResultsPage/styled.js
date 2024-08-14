@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { ReactComponent as NoResultsImage } from "../../assets/noResultsImage.svg";
+import { ReactComponent as NoResultsImage } from "../../../assets/noResultsImage.svg";
 
 export const Container = styled.div`
   padding: 16px;
