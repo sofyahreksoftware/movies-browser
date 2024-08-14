@@ -2,24 +2,20 @@ import { takeEvery, call, put, delay } from "redux-saga/effects";
 
 import { getMovie } from "./getMovie";
 import { getCredits } from "./getCredits";
-import {
-  fetchMovieDataFromApi,
-  fetchMovieSuccess,
-  fetchMovieError,
-} from "./movieSlice";
+import { fetch, fetchSuccess, fetchError } from "./movieDetailsSlice";
 
 function* watchFetchMovieHandler(action) {
   try {
     yield delay(1000);
     const { movieId } = action.payload;
-    const movieData = yield call(getMovie, movieId);
+    const detailsData = yield call(getMovie, movieId);
     const creditsData = yield call(getCredits, movieId);
-    yield put(fetchMovieSuccess({ movieData, creditsData }));
+    yield put(fetchSuccess({ detailsData, creditsData }));
   } catch (error) {
-    yield put(fetchMovieError());
+    yield put(fetchError());
   }
 }
 
 export function* watchFetchMovieSaga() {
-  yield takeEvery(fetchMovieDataFromApi.type, watchFetchMovieHandler);
+  yield takeEvery(fetch.type, watchFetchMovieHandler);
 }

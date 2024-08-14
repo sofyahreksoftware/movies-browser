@@ -5,16 +5,18 @@ import { useSelector } from "react-redux";
 import { nanoid } from "@reduxjs/toolkit";
 
 import { getImageUrl } from "../../common/api/getImageUrl";
+
 import {
-  fetchMovieDataFromApi,
-  selectMovie,
+  fetch,
+  selectMovieDetails,
   selectCredits,
-  selectFetchMovieStatus,
-} from "./movieSlice";
+  selectStatus,
+} from "./movieDetailsSlice";
+
 import { toPersonDetails } from "../../core/routes";
 import { MovieTile } from "../../common/MovieTile";
 import { PersonTile } from "../../common/PersonTile";
-import { LoadingPage } from "../../common/statusPages/statusPages/LoadingPage";
+import { LoadingPage } from "../../common/statusPages/LoadingPage";
 import { ErrorPage } from "../../common/statusPages/ErrorPage";
 
 import { StyledHeader, StyledList, StyledLink, Item } from "../styled";
@@ -39,18 +41,18 @@ export const MovieDetails = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchMovieDataFromApi(movieId));
+    dispatch(fetch(movieId));
   }, [dispatch, movieId]);
 
-  const movie = useSelector(selectMovie);
+  const status = useSelector(selectStatus);
+  const movie = useSelector(selectMovieDetails);
   const credits = useSelector(selectCredits);
-  const fetchMovieStatus = useSelector(selectFetchMovieStatus);
 
   return (
     <>
-      {fetchMovieStatus === "loading" && <LoadingPage />}
-      {fetchMovieStatus === "error" && <ErrorPage />}
-      {fetchMovieStatus === "success" && (
+      {status === "loading" && <LoadingPage />}
+      {status === "error" && <ErrorPage />}
+      {status === "success" && (
         <StyledMoviePage>
           {movie?.backdrop_path && (
             <>
@@ -82,7 +84,7 @@ export const MovieDetails = () => {
               key={nanoid()}
               poster={getImageUrl({
                 size: "/w342",
-                path: `${movie?.poster_path}.jpg`,
+                path: `${movie?.poster_path}`,
               })}
               title={movie?.title}
               year={movie.release_date?.split("-")[0]}
@@ -108,7 +110,7 @@ export const MovieDetails = () => {
                       {...(person.profile_path && {
                         poster: getImageUrl({
                           size: "/w342",
-                          path: `${person.profile_path}.jpg`,
+                          path: `${person.profile_path}`,
                         }),
                       })}
                       personName={person.name}
@@ -134,7 +136,7 @@ export const MovieDetails = () => {
                       {...(person.profile_path && {
                         poster: getImageUrl({
                           size: "/w342",
-                          path: `${person.profile_path}.jpg`,
+                          path: `${person.profile_path}`,
                         }),
                       })}
                       personName={person.name}
