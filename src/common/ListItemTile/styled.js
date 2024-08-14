@@ -5,16 +5,21 @@ export const Wrapper = styled.article`
   grid-template-areas:
     "picture"
     "data";
+  grid-template-rows: 60vh auto;
   gap: 16px;
   width: 100%;
   height: 100%;
   border-radius: 5px;
-  padding: 16px;
+  padding: 16px 16px 79px;
   background-color: ${({ theme }) => theme.colors.white};
   box-shadow: 0px 4px 12px 0px ${({ theme }) => theme.colors.heather};
+  position: relative;
 
   @media (max-width: ${({ theme }) => theme.media.mobile}px) {
     grid-template-areas: "picture data";
+    grid-template-rows: 169px;
+    grid-template-columns: 114px auto;
+    padding: 16px;
   }
 
   ${({ $small }) =>
@@ -23,22 +28,24 @@ export const Wrapper = styled.article`
       border-radius: unset;
       box-shadow: unset;
       gap: 12px;
+      grid-template-rows: 32vh auto;
+      padding: 16px;
 
       @media (max-width: ${({ theme }) => theme.media.mobile}px) {
+        grid-template-columns: unset;
         grid-template-areas:
           "picture"
           "data";
-          gap: 8px;
+        gap: 8px;
+        padding: 8px;
       }
     `}
 `;
 
 export const Poster = styled.div`
   grid-area: picture;
-  padding-top: calc(100% * 434 / 292);
   margin: 0 auto;
   width: 100%;
-  min-height: 264px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -52,15 +59,7 @@ export const Poster = styled.div`
     $noImage &&
     css`
       background-color: ${({ theme }) => theme.colors.silver};
+      padding-top: unset;
+      width: 100%;
     `}
-
-  ${({ $small }) =>
-    $small &&
-    css`
-      padding-top: calc(100% * 264 / 177);
-    `}
-
-  @media (max-width: ${({ theme }) => theme.media.mobile}px) {
-    padding-top: calc(100% * 169 / 114);
-  }
 `;

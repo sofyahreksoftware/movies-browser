@@ -4,15 +4,13 @@ import { ReactComponent as Star } from "../../../assets/starIcon.svg";
 
 export const Wrapper = styled.div`
   display: flex;
-  align-items: center;
-  position: relative;
   bottom: 16px;
-  margin-top: 39px;
   gap: 12px;
+  position: absolute;
+  bottom: 16px;
 
   @media (max-width: ${({ theme }) => theme.media.mobile}px) {
     position: static;
-    margin: 8px 0 0;
   }
 `;
 
