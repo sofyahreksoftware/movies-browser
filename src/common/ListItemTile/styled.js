@@ -30,6 +30,7 @@ export const Wrapper = styled.article`
       gap: 12px;
       grid-template-rows: 32vh auto;
       padding: 16px;
+      text-align: center;
 
       @media (max-width: ${({ theme }) => theme.media.mobile}px) {
         grid-template-columns: unset;
