@@ -12,7 +12,7 @@ import {
 } from "./peopleSlice";
 import { LoadingPage } from "../../common/LoadingPage";
 import { ErrorPage } from "../../common/ErrorPage";
-import { PersonTile } from "../../common/PersonTile";
+import { ListItemTile } from "../../common/ListItemTile";
 import { Pagination } from "../../Pagination";
 import { useQueryParam } from "../../Navigation/queryParam";
 import paginationParamName from "../../Pagination/paginationParamName";
@@ -64,14 +64,15 @@ export const PeopleList = () => {
             {peopleList.map(({ id, profile_path, name }) => (
               <StyledLink to={toPersonDetails({ personId: id })} key={nanoid()}>
                 <Item key={nanoid()}>
-                  <PersonTile
+                  <ListItemTile
+                    $small
                     {...(profile_path && {
                       poster: getImageUrl({
                         size: "/w185",
                         path: `/${profile_path}`,
                       }),
                     })}
-                    personName={name}
+                    title={name}
                   />
                 </Item>
               </StyledLink>
