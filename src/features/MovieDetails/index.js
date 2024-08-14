@@ -13,6 +13,7 @@ import {
 } from "./movieSlice";
 import { toPersonDetails } from "../../core/routes";
 import { MovieTile } from "../../common/MovieTile";
+import { ListItemTile } from "../../common/ListItemTile";
 import { PersonTile } from "../../common/PersonTile";
 import { LoadingPage } from "../../common/LoadingPage";
 import { ErrorPage } from "../../common/ErrorPage";
@@ -104,14 +105,15 @@ export const MovieDetails = () => {
                   key={nanoid()}
                 >
                   <Item key={nanoid()}>
-                    <PersonTile
+                    <ListItemTile
+                      $small
                       {...(person.profile_path && {
                         poster: getImageUrl({
                           size: "/w342",
                           path: `${person.profile_path}.jpg`,
                         }),
                       })}
-                      personName={person.name}
+                      title={person.name}
                       role={person.character}
                     />
                   </Item>
@@ -129,7 +131,8 @@ export const MovieDetails = () => {
                   key={nanoid()}
                 >
                   <Item key={nanoid()}>
-                    <PersonTile
+                    <ListItemTile
+                      $small
                       key={nanoid()}
                       {...(person.profile_path && {
                         poster: getImageUrl({
