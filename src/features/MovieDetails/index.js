@@ -140,7 +140,7 @@ export const MovieDetails = () => {
                           path: `${person.profile_path}.jpg`,
                         }),
                       })}
-                      personName={person.name}
+                      title={person.name}
                       role={person.job}
                     />
                   </Item>
