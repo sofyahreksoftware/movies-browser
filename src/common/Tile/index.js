@@ -1,7 +1,9 @@
+import { ReactComponent as PlaceholderPersonIcon } from "../../assets/placeholderActorIcon.svg";
+import { ReactComponent as PlaceholderMovieIcon } from "../../assets/placeholderMovieIcon.svg";
+
 import { Wrapper, Poster } from "./styled";
 import { MetaData } from "./MetaData";
 import { Description } from "./Description";
-import { ReactComponent as PlaceholderIcon } from "../../assets/placeholderActorIcon.svg";
 
 export const Tile = ({
   poster,
@@ -31,7 +33,8 @@ export const Tile = ({
           $small={$small}
           $detailed={$detailed}
         >
-          {$noImage && <PlaceholderIcon />}
+          {$noImage &&
+            ($small ? <PlaceholderPersonIcon /> : <PlaceholderMovieIcon />)}
         </Poster>
 
         <MetaData
