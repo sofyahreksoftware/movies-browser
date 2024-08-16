@@ -1,6 +1,6 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
-import { ReactComponent as Star } from "../../../assets/starIcon.svg";
+import { ReactComponent as Star } from "../../../../assets/starIcon.svg";
 
 export const Wrapper = styled.div`
   display: flex;
@@ -8,10 +8,18 @@ export const Wrapper = styled.div`
   gap: 12px;
   position: absolute;
   bottom: 16px;
+  align-items: center;
 
   @media (max-width: ${({ theme }) => theme.media.mobile}px) {
-    position: static;
+    position: unset;
   }
+
+  ${({ $detailed }) =>
+    $detailed &&
+    css`
+      position: unset;
+      margin: 0;
+    `}
 `;
 
 export const StarIcon = styled(Star)`
@@ -35,6 +43,16 @@ export const Rating = styled.em`
   }
 `;
 
+export const MaxRating = styled.b`
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 1.2;
+
+  @media (max-width: ${({ theme }) => theme.media.mobile}px) {
+    display: none;
+  }
+`;
+
 export const TotalVotes = styled.b`
   font-weight: 400;
   font-size: 16px;
@@ -48,4 +66,14 @@ export const TotalVotes = styled.b`
     line-height: 1.3;
     white-space: nowrap;
   }
+
+  ${({ $detailed }) =>
+    $detailed &&
+    css`
+      color: ${({ theme }) => theme.colors.black};
+
+      @media (max-width: ${({ theme }) => theme.media.mobile}px) {
+        color: ${({ theme }) => theme.colors.waterloo};
+      }
+    `}
 `;

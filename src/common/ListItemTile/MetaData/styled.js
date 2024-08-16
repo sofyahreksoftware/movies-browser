@@ -1,8 +1,14 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 export const Wrapper = styled.div`
   grid-area: data;
-  align-items: start;
+
+  ${({ $detailed }) =>
+    $detailed &&
+    css`
+      display: grid;
+      align-content: stretch;
+    `}
 `;
 
 export const Title = styled.h2`
@@ -14,6 +20,15 @@ export const Title = styled.h2`
   @media (max-width: ${({ theme }) => theme.media.mobile}px) {
     font-size: 16px;
   }
+
+  ${({ $detailed }) =>
+    $detailed &&
+    css`
+      font-weight: 600;
+      font-size: 36px;
+      line-height: 1.2;
+      margin: 8px 0 0;
+    `}
 `;
 
 export const Year = styled.span`
@@ -28,6 +43,20 @@ export const Year = styled.span`
     line-height: 1.3;
     margin: 4px 0 0;
   }
+
+  ${({ $detailed }) =>
+    $detailed &&
+    css`
+      font-size: 22px;
+      line-height: 1.2;
+      margin: 24px 0;
+      color: ${({ theme }) => theme.colors.black};
+
+      @media (max-width: ${({ theme }) => theme.media.mobile}px) {
+        color: ${({ theme }) => theme.colors.waterloo};
+        margin: 4px 0 8px;
+      }
+    `}
 `;
 
 export const Role = styled(Year)`
@@ -49,11 +78,17 @@ export const Genres = styled.ul`
   list-style-type: none;
   padding: 0;
   gap: 8px;
-  margin: 8px 0 0;
+  margin: 8px 0;
 
-  @media (max-width: ${({ theme }) => theme.media.mobile}px) {
-    max-width: 130px;
-  }
+  ${({ $detailed }) =>
+    $detailed &&
+    css`
+      margin: 0 0 24px;
+
+      @media (max-width: ${({ theme }) => theme.media.mobile}px) {
+        margin: 0 0 8px;
+      }
+    `}
 `;
 
 export const Genre = styled.li`
@@ -64,6 +99,7 @@ export const Genre = styled.li`
   border-radius: 5px;
   background-color: ${({ theme }) => theme.colors.mystic};
   color: ${({ theme }) => theme.colors.black};
+  font-size: 14px;
 
   @media (max-width: ${({ theme }) => theme.media.mobile}px) {
     padding: 4px 8px;
