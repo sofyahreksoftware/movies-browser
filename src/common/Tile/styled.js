@@ -29,19 +29,19 @@ export const Wrapper = styled.article`
     css`
       border-radius: unset;
       box-shadow: unset;
-      gap: 12px 0;
-       grid-template-columns: 1fr;  
-      grid-template-rows: 32vh auto; 
+      gap: 0;
+      grid-template-columns: 1fr;
+      grid-template-rows: unset;
       padding: 16px;
       text-align: center;
 
       @media (max-width: ${({ theme }) => theme.media.mobile}px) {
         grid-template-columns: 1fr;
-        grid-template-rows: 32vh auto;
+        grid-template-rows: unset;
         grid-template-areas:
           "picture"
           "data";
-        gap: 8px 0;
+        gap: 0;
         padding: 8px;
       }
     `}
@@ -84,6 +84,12 @@ export const Poster = styled.div`
   background-size: cover;
   background-repeat: no-repeat;
 
+  ${({ $small }) =>
+    $small &&
+    css`
+      padding-top: calc(100% * 178 / 120);
+    `}
+
   ${({ $noImage }) =>
     $noImage &&
     css`
@@ -91,7 +97,13 @@ export const Poster = styled.div`
       padding-top: unset;
       width: 100%;
     `}
-
+ 
+  ${({ $noImage, $small }) =>
+    ($noImage, $small) &&
+    css`
+      aspect-ratio: 120 / 178;
+    `}
+    
   ${({ $detailed }) =>
     $detailed &&
     css`

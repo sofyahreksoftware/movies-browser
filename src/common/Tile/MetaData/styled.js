@@ -21,6 +21,16 @@ export const Title = styled.h2`
     font-size: 16px;
   }
 
+  ${({ $small }) =>
+    $small &&
+    css`
+      margin: 12px 0 0;
+
+      @media (max-width: ${({ theme }) => theme.media.mobile}px) {
+        margin: 8px 0 0;
+      }
+    `};
+
   ${({ $detailed }) =>
     $detailed &&
     css`
