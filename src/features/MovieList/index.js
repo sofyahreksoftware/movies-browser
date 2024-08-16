@@ -13,7 +13,7 @@ import {
 } from "./moviesSlice";
 import { LoadingPage } from "../../common/LoadingPage";
 import { ErrorPage } from "../../common/ErrorPage";
-import { ListItemTile } from "../../common/ListItemTile";
+import { Tile } from "../../common/Tile";
 import { Pagination } from "../../Pagination";
 import { useQueryParam } from "../../Navigation/queryParam";
 import paginationParamName from "../../Pagination/paginationParamName";
@@ -71,7 +71,7 @@ export const MovieList = () => {
                   to={toMovieDetails({ movieId: movie.id })}
                   key={nanoid()}
                 >
-                  <ListItemTile
+                  <Tile
                     poster={getImageUrl({
                       path: `/${movie.poster_path}`,
                       size: "/w342",

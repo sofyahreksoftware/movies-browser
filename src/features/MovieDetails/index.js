@@ -13,8 +13,7 @@ import {
 } from "./movieSlice";
 import { toPersonDetails } from "../../core/routes";
 import { MovieTile } from "../../common/MovieTile";
-import { ListItemTile } from "../../common/ListItemTile";
-import { PersonTile } from "../../common/PersonTile";
+import { Tile } from "../../common/Tile";
 import { LoadingPage } from "../../common/LoadingPage";
 import { ErrorPage } from "../../common/ErrorPage";
 
@@ -96,6 +95,22 @@ export const MovieDetails = () => {
             />
           </TileContainer>
 
+          <Tile
+            $detailed
+            poster={getImageUrl({
+              size: "/w342",
+              path: `${movie?.poster_path}.jpg`,
+            })}
+            title={movie?.title}
+            year={movie.release_date?.split("-")[0]}
+            productionPlaces={movie?.production_countries}
+            releaseDate={movie.release_date?.split("-").reverse().join(".")}
+            genres={movie?.genres}
+            mark={movie?.vote_average?.toFixed(1)}
+            votes={movie?.vote_count}
+            description={movie?.overview}
+          />
+
           <Article>
             <StyledHeader as="h2">Cast</StyledHeader>
             <StyledList $small>
@@ -105,7 +120,7 @@ export const MovieDetails = () => {
                   key={nanoid()}
                 >
                   <Item key={nanoid()}>
-                    <ListItemTile
+                    <Tile
                       $small
                       {...(person.profile_path && {
                         poster: getImageUrl({
@@ -131,7 +146,7 @@ export const MovieDetails = () => {
                   key={nanoid()}
                 >
                   <Item key={nanoid()}>
-                    <ListItemTile
+                    <Tile
                       $small
                       key={nanoid()}
                       {...(person.profile_path && {

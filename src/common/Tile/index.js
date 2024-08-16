@@ -3,7 +3,7 @@ import { MetaData } from "./MetaData";
 import { Description } from "./Description";
 import { ReactComponent as PlaceholderIcon } from "../../assets/placeholderActorIcon.svg";
 
-export const ListItemTile = ({
+export const Tile = ({
   poster,
   title,
   role,

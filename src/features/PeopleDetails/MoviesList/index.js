@@ -2,7 +2,7 @@ import { nanoid } from "@reduxjs/toolkit";
 
 import { getImageUrl } from "../../../common/getImageUrl";
 import { toMovieDetails } from "../../../core/routes";
-import { ListItemTile } from "../../../common/ListItemTile";
+import { Tile } from "../../../common/Tile";
 import { StyledHeader, StyledList, StyledLink } from "../../styled";
 
 export const MovieList = ({ header, moviesList, genreList }) => {
@@ -17,7 +17,7 @@ export const MovieList = ({ header, moviesList, genreList }) => {
         {moviesList.map((movie) => (
           <li key={nanoid()}>
             <StyledLink to={toMovieDetails({ movieId: movie.id })}>
-              <ListItemTile
+              <Tile
                 poster={getImageUrl({
                   size: "/w342",
                   path: `${movie.poster_path}`,
