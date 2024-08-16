@@ -30,7 +30,6 @@ import {
   Mark,
   MaxMark,
   VotesNumber,
-  TileContainer,
   Article,
 } from "./styled";
 
@@ -75,25 +74,6 @@ export const MovieDetails = () => {
               </Poster>
             </>
           )}
-
-          <TileContainer>
-            <MovieTile
-              $main
-              key={nanoid()}
-              poster={getImageUrl({
-                size: "/w342",
-                path: `${movie?.poster_path}.jpg`,
-              })}
-              title={movie?.title}
-              year={movie.release_date?.split("-")[0]}
-              productionPlaces={movie?.production_countries}
-              releaseDate={movie.release_date?.split("-").reverse().join(".")}
-              genres={movie?.genres}
-              mark={movie?.vote_average?.toFixed(1)}
-              votes={movie?.vote_count}
-              description={movie?.overview}
-            />
-          </TileContainer>
 
           <Tile
             $detailed
