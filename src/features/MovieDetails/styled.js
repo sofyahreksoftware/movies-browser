@@ -11,6 +11,7 @@ export const StyledMoviePage = styled.section`
     display: grid;
     grid-template-columns: 1fr;
     gap: 16px;
+    padding: 0 16px;
   }
 `;
 
@@ -159,26 +160,11 @@ export const VotesNumber = styled.b`
   }
 `;
 
-export const TileContainer = styled.div`
-  background-color: ${({ theme }) => theme.colors.white};
-  box-shadow: 0 4px 12px #bac7d5;
-  max-width: 1368px;
-  margin: 64px auto;
-  padding: 40px;
-
-  @media (max-width: ${({ theme }) => theme.media.mobile}px) {
-    max-width: 288px;
-    padding: 16px;
-    margin: 16px auto;
-  }
-`;
-
 export const Article = styled.article`
   margin: 64px auto;
   max-width: 1368px;
 
   @media (max-width: ${({ theme }) => theme.media.mobile}px) {
     margin: 0;
-    padding-left: 16px;
   }
 `;
