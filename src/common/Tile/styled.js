@@ -66,7 +66,6 @@ export const Wrapper = styled.article`
           "picture data"
           "description description";
         grid-template-columns: 114px auto;
-        gap: 16px;
       }
     `}
 `;
