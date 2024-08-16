@@ -17,7 +17,11 @@ export const MetaData = ({
   $detailed,
 }) => (
   <Wrapper $detailed={$detailed}>
-    {title && <Title $detailed={$detailed}>{title}</Title>}
+    {title && (
+      <Title $small={$small} $detailed={$detailed}>
+        {title}
+      </Title>
+    )}
     {role && <Role>{role}</Role>}
     {year && <Year $detailed={$detailed}> {year}</Year>}
 
@@ -29,9 +33,7 @@ export const MetaData = ({
     {genres && (
       <Genres $detailed={$detailed}>
         {genres.map((genre) => (
-          <Genre key={nanoid()}>
-            {genre.name}
-          </Genre>
+          <Genre key={nanoid()}>{genre.name}</Genre>
         ))}
       </Genres>
     )}
