@@ -10,12 +10,15 @@ export const Tile = ({
   year,
   productionPlaces,
   releaseDate,
+  dateOfBirth,
+  placeOfBirth,
   genres,
   mark,
   votes,
   description,
   $small,
   $detailed,
+  $personDetailed,
 }) => {
   const $noImage = !poster || poster === "https://image.tmdb.org/t/p/w342/null";
 
@@ -37,14 +40,17 @@ export const Tile = ({
           year={year}
           productionPlaces={productionPlaces}
           releaseDate={releaseDate}
+          dateOfBirth={dateOfBirth}
+          placeOfBirth={placeOfBirth}
           genres={genres}
           mark={mark}
           votes={votes}
           $small={$small}
           $detailed={$detailed}
+          $personDetailed={$personDetailed}
         />
 
-        <Description description={description}/>
+        <Description description={description} />
       </Wrapper>
     </>
   );

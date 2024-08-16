@@ -13,7 +13,8 @@ import {
 import { getImageUrl } from "../../common/getImageUrl";
 import { LoadingPage } from "../../common/LoadingPage";
 import { ErrorPage } from "../../common/ErrorPage";
-import { Tile } from "./Tile";
+import { Tile } from "../../common/Tile";
+
 import { MovieList } from "./MoviesList";
 import { StyledMain } from "../styled";
 
@@ -43,14 +44,16 @@ export const PersonDetails = () => {
       {fetchDataStatus === "success" && (
         <>
           <Tile
+            $personDetailed
+            $detailed
             poster={getImageUrl({
               size: "/h632",
               path: `/${person.profile_path}`,
             })}
-            name={person.name}
-            birthDate={formatDate(person.birthday)}
-            birthPlace={person.place_of_birth}
-            biography={person.biography}
+            title={person.name}
+            dateOfBirth={formatDate(person.birthday)}
+            placeOfBirth={person.place_of_birth}
+            description={person.biography}
           />
           <MovieList
             header={`Movies - cast`}

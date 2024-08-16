@@ -10,15 +10,22 @@ export const MetaData = ({
   year,
   productionPlaces,
   releaseDate,
+  dateOfBirth,
+  placeOfBirth,
   genres,
   mark,
   votes,
   $small,
   $detailed,
+  $personDetailed,
 }) => (
-  <Wrapper $detailed={$detailed}>
+  <Wrapper $detailed={$detailed} $personDetailed={$personDetailed}>
     {title && (
-      <Title $small={$small} $detailed={$detailed}>
+      <Title
+        $small={$small}
+        $detailed={$detailed}
+        $personDetailed={$personDetailed}
+      >
         {title}
       </Title>
     )}
@@ -28,6 +35,9 @@ export const MetaData = ({
     <DetailedData
       productionPlaces={productionPlaces}
       releaseDate={releaseDate}
+      dateOfBirth={dateOfBirth}
+      placeOfBirth={placeOfBirth}
+      $personDetailed={$personDetailed}
     />
 
     {genres && (
@@ -42,6 +52,7 @@ export const MetaData = ({
       votes={votes}
       $small={$small}
       $detailed={$detailed}
+      $personDetailed={$personDetailed}
     />
   </Wrapper>
 );

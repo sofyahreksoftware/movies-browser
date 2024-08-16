@@ -7,8 +7,15 @@ export const Wrapper = styled.div`
     $detailed &&
     css`
       display: grid;
-      align-content: stretch;
-    `}
+    `};
+
+  ${({ $personDetailed }) =>
+    $personDetailed &&
+    css`
+      @media (max-width: ${({ theme }) => theme.media.mobile}px) {
+        display: unset;
+      }
+    `};
 `;
 
 export const Title = styled.h2`
@@ -37,7 +44,19 @@ export const Title = styled.h2`
       font-weight: 600;
       font-size: 36px;
       line-height: 1.2;
-      margin: 8px 0 0;
+      margin: 8px 0 24px;
+
+      @media (max-width: ${({ theme }) => theme.media.mobile}px) {
+        margin: 8px 0 4px;
+      }
+    `}
+
+  ${({ $personDetailed }) =>
+    $personDetailed &&
+    css`
+      @media (max-width: ${({ theme }) => theme.media.mobile}px) {
+        margin: 8px 0 16px;
+      }
     `}
 `;
 
@@ -59,12 +78,12 @@ export const Year = styled.span`
     css`
       font-size: 22px;
       line-height: 1.2;
-      margin: 24px 0;
+      margin: 0 0 24px;
       color: ${({ theme }) => theme.colors.black};
 
       @media (max-width: ${({ theme }) => theme.media.mobile}px) {
         color: ${({ theme }) => theme.colors.waterloo};
-        margin: 4px 0 8px;
+        margin: 0 0 8px;
       }
     `}
 `;

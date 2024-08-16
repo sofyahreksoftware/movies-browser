@@ -1,7 +1,7 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 export const Detail = styled.dl`
-  margin: 0 0 16px;
+  margin: 0 0 8px;
   display: flex;
   gap: 4px;
   flex-direction: row;
@@ -11,7 +11,6 @@ export const Detail = styled.dl`
   line-height: 1.2;
 
   @media (max-width: ${({ theme }) => theme.media.mobile}px) {
-    margin: 0 0 8px;
     font-size: 12px;
     line-height: 0.8;
   }
@@ -19,16 +18,20 @@ export const Detail = styled.dl`
 
 export const DetailLabel = styled.dt`
   color: ${({ theme }) => theme.colors.stormGray};
+  white-space: nowrap;
 
   @media (max-width: ${({ theme }) => theme.media.mobile}px) {
-    display: none;
+    ${({ $personDetailed }) =>
+      !$personDetailed &&
+      css`
+        display: none;
+      `}
   }
 `;
 
 export const DetailValue = styled.dd`
   color: ${({ theme }) => theme.colors.black};
   margin-left: 10px;
-  white-space: nowrap;
 
   @media (max-width: ${({ theme }) => theme.media.mobile}px) {
     margin-left: unset;
