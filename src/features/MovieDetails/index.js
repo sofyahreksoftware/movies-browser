@@ -12,7 +12,6 @@ import {
   selectFetchMovieStatus,
 } from "./movieSlice";
 import { toPersonDetails } from "../../core/routes";
-import { MovieTile } from "../../common/MovieTile";
 import { Tile } from "../../common/Tile";
 import { LoadingPage } from "../../common/LoadingPage";
 import { ErrorPage } from "../../common/ErrorPage";
