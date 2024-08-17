@@ -18,13 +18,19 @@ export const MetaData = ({
   $small,
   $detailed,
   $personDetailed,
+  $backdrop,
 }) => (
-  <Wrapper $detailed={$detailed} $personDetailed={$personDetailed}>
+  <Wrapper
+    $detailed={$detailed}
+    $personDetailed={$personDetailed}
+    $backdrop={$backdrop}
+  >
     {title && (
       <Title
         $small={$small}
         $detailed={$detailed}
         $personDetailed={$personDetailed}
+        $backdrop={$backdrop}
       >
         {title}
       </Title>
@@ -53,6 +59,7 @@ export const MetaData = ({
       $small={$small}
       $detailed={$detailed}
       $personDetailed={$personDetailed}
+      $backdrop={$backdrop}
     />
   </Wrapper>
 );

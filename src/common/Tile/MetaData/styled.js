@@ -16,6 +16,18 @@ export const Wrapper = styled.div`
         display: unset;
       }
     `};
+
+  ${({ $backdrop }) =>
+    $backdrop &&
+    css`
+      position: absolute;
+      bottom: 20%;
+      left: 10%;
+
+      @media (max-width: ${({ theme }) => theme.media.mobile}px) {
+        bottom: 5%;
+      }
+    `};
 `;
 
 export const Title = styled.h2`
@@ -58,10 +70,24 @@ export const Title = styled.h2`
         margin: 8px 0 16px;
       }
     `}
+
+    ${({ $backdrop }) =>
+    $backdrop &&
+    css`
+      font-weight: 600;
+      font-size: 64px;
+      line-height: 1.2;
+      color: ${({ theme }) => theme.colors.white};
+      margin: 0 0 24px;
+
+      @media (max-width: ${({ theme }) => theme.media.mobile}px) {
+        font-size: 24px;
+        margin: 0 0 4px;
+      }
+    `};
 `;
 
 export const Year = styled.span`
-  font-weight: 400;
   font-size: 16px;
   line-height: 1.5;
   margin: 8px 0 0;

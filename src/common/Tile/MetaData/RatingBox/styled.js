@@ -4,6 +4,7 @@ import { ReactComponent as Star } from "../../../../assets/starIcon.svg";
 
 export const Wrapper = styled.div`
   display: flex;
+  flex-wrap: wrap;
   bottom: 16px;
   gap: 12px;
   position: absolute;
@@ -20,13 +21,27 @@ export const Wrapper = styled.div`
       position: unset;
       margin: 0;
     `}
+
+  ${({ $backdrop }) =>
+    $backdrop &&
+    css`
+      position: unset;
+      margin: 0;
+    `}
 `;
 
 export const StarIcon = styled(Star)`
+  height: auto;
+
   @media (max-width: ${({ theme }) => theme.media.mobile}px) {
     width: 16px;
-    height: auto;
   }
+
+  ${({ $backdrop }) =>
+    $backdrop &&
+    css`
+      width: 40px;
+    `}
 `;
 
 export const Rating = styled.em`
@@ -41,6 +56,19 @@ export const Rating = styled.em`
     line-height: 1.3;
     white-space: nowrap;
   }
+
+  ${({ $backdrop }) =>
+    $backdrop &&
+    css`
+      color: ${({ theme }) => theme.colors.white};
+      font-weight: 500;
+      font-size: 30px;
+      line-height: 1.3;
+
+      @media (max-width: ${({ theme }) => theme.media.mobile}px) {
+        font-size: 14px;
+      }
+    `}
 `;
 
 export const MaxRating = styled.b`
@@ -49,8 +77,20 @@ export const MaxRating = styled.b`
   line-height: 1.2;
 
   @media (max-width: ${({ theme }) => theme.media.mobile}px) {
+    font-size: 10px;
     display: none;
   }
+
+  ${({ $backdrop }) =>
+    $backdrop &&
+    css`
+      color: ${({ theme }) => theme.colors.white};
+      font-size: 16px;
+
+      @media (max-width: ${({ theme }) => theme.media.mobile}px) {
+        display: unset;
+      }
+    `}
 `;
 
 export const TotalVotes = styled.b`
@@ -74,6 +114,22 @@ export const TotalVotes = styled.b`
 
       @media (max-width: ${({ theme }) => theme.media.mobile}px) {
         color: ${({ theme }) => theme.colors.waterloo};
+      }
+    `}
+
+  ${({ $backdrop }) =>
+    $backdrop &&
+    css`
+      color: ${({ theme }) => theme.colors.white};
+      display: block;
+      width: 100%;
+
+      @media (max-width: ${({ theme }) => theme.media.mobile}px) {
+        font-size: 10px;
+        line-height: 1.2;
+        display: unset;
+        width: unset;
+        color: ${({ theme }) => theme.colors.white};
       }
     `}
 `;

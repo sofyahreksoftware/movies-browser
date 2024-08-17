@@ -17,20 +17,9 @@ import { LoadingPage } from "../../common/LoadingPage";
 import { ErrorPage } from "../../common/ErrorPage";
 
 import { StyledHeader, StyledList, StyledLink, Item } from "../styled";
-import {
-  StyledMoviePage,
-  Background,
-  Poster,
-  MetaData,
-  MovieTitle,
-  VotesContainer,
-  StyledStarIcon,
-  MarkContainer,
-  Mark,
-  MaxMark,
-  VotesNumber,
-  Article,
-} from "./styled";
+import { MetaData } from "../../common/Tile/MetaData";
+
+import { StyledMoviePage, Background, Poster, Article } from "./styled";
 
 export const MovieDetails = () => {
   const movieId = useParams();
@@ -50,29 +39,21 @@ export const MovieDetails = () => {
       {fetchMovieStatus === "error" && <ErrorPage />}
       {fetchMovieStatus === "success" && (
         <StyledMoviePage>
-          {movie?.backdrop_path && (
-            <>
-              <Background />
-              <Poster
-                backdrop={getImageUrl({
-                  size: "/w1280",
-                  path: `${movie?.backdrop_path}`,
-                })}
-              >
-                <MetaData>
-                  <MovieTitle>{movie?.original_title}</MovieTitle>
-                  <VotesContainer>
-                    <StyledStarIcon />
-                    <MarkContainer>
-                      <Mark>{movie.vote_average?.toFixed(1)}</Mark>
-                      <MaxMark>/ 10</MaxMark>
-                    </MarkContainer>
-                    <VotesNumber>{movie?.vote_count} votes</VotesNumber>
-                  </VotesContainer>
-                </MetaData>
-              </Poster>
-            </>
-          )}
+          <Background />
+          <Poster
+            backdrop={getImageUrl({
+              size: "/w1280",
+              path: `${movie?.backdrop_path}`,
+            })}
+          >
+            <MetaData
+              $detailed
+              $backdrop
+              title={movie?.original_title}
+              mark={movie.vote_average}
+              votes={movie.vote_average}
+            />
+          </Poster>
 
           <Tile
             $detailed
