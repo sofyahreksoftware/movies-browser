@@ -28,8 +28,6 @@ import {
 } from "../styled";
 import { toMovieDetails } from "../../core/routes";
 
-
-
 export const MovieList = () => {
   const dispatch = useDispatch();
   const fetchDataStatus = useSelector(selectFetchDataStatus);

@@ -2,7 +2,6 @@ import { useParams } from "react-router";
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
-import { nanoid } from "@reduxjs/toolkit";
 
 import { getImageUrl } from "../../common/getImageUrl";
 import {
@@ -11,15 +10,13 @@ import {
   selectCredits,
   selectFetchMovieStatus,
 } from "./movieSlice";
-import { toPersonDetails } from "../../core/routes";
-import { Tile } from "../../common/Tile";
+
 import { LoadingPage } from "../../common/LoadingPage";
 import { ErrorPage } from "../../common/ErrorPage";
+import { Backdrop } from "./Backdrop";
+import { Tile } from "../../common/Tile";
 
-import { StyledHeader, StyledList, StyledLink, Item } from "../styled";
-import { MetaData } from "../../common/Tile/MetaData";
-
-import { StyledMoviePage, Background, Poster, Article } from "./styled";
+import { Article } from "./Article";
 
 export const MovieDetails = () => {
   const movieId = useParams();
@@ -38,22 +35,8 @@ export const MovieDetails = () => {
       {fetchMovieStatus === "loading" && <LoadingPage />}
       {fetchMovieStatus === "error" && <ErrorPage />}
       {fetchMovieStatus === "success" && (
-        <StyledMoviePage>
-          <Background />
-          <Poster
-            backdrop={getImageUrl({
-              size: "/w1280",
-              path: `${movie?.backdrop_path}`,
-            })}
-          >
-            <MetaData
-              $detailed
-              $backdrop
-              title={movie?.original_title}
-              mark={movie.vote_average}
-              votes={movie.vote_average}
-            />
-          </Poster>
+        <section>
+          <Backdrop movie={movie} />
 
           <Tile
             $detailed
@@ -71,59 +54,10 @@ export const MovieDetails = () => {
             description={movie?.overview}
           />
 
-          <Article>
-            <StyledHeader as="h2">Cast</StyledHeader>
-            <StyledList $small>
-              {credits.cast?.map((person) => (
-                <StyledLink
-                  to={toPersonDetails({ personId: person.id })}
-                  key={nanoid()}
-                >
-                  <Item key={nanoid()}>
-                    <Tile
-                      $small
-                      {...(person.profile_path && {
-                        poster: getImageUrl({
-                          size: "/w342",
-                          path: `${person.profile_path}.jpg`,
-                        }),
-                      })}
-                      title={person.name}
-                      role={person.character}
-                    />
-                  </Item>
-                </StyledLink>
-              ))}
-            </StyledList>
-          </Article>
+          <Article title="Cast" people={credits.cast} />
 
-          <Article>
-            <StyledHeader as="h2">Crew</StyledHeader>
-            <StyledList $small>
-              {credits.crew?.map((person) => (
-                <StyledLink
-                  to={toPersonDetails({ personId: person.id })}
-                  key={nanoid()}
-                >
-                  <Item key={nanoid()}>
-                    <Tile
-                      $small
-                      key={nanoid()}
-                      {...(person.profile_path && {
-                        poster: getImageUrl({
-                          size: "/w342",
-                          path: `${person.profile_path}.jpg`,
-                        }),
-                      })}
-                      title={person.name}
-                      role={person.job}
-                    />
-                  </Item>
-                </StyledLink>
-              ))}
-            </StyledList>
-          </Article>
-        </StyledMoviePage>
+          <Article title="Crew" people={credits.cast} />
+        </section>
       )}
     </>
   );
