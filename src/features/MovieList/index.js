@@ -2,7 +2,6 @@ import { nanoid } from "@reduxjs/toolkit";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import { getImageUrl } from "../../common/getImageUrl";
 import {
   fetchMovieList,
   selectFetchDataStatus,
@@ -11,27 +10,18 @@ import {
   fetchMovieSearch,
   selectMovieResult,
 } from "./moviesSlice";
-import { toMovieDetails } from "../../core/routes";
 
 import { LoadingPage } from "../../common/LoadingPage";
 import { NoResultsPage } from "../../common/NoResultsPage";
 import { ErrorPage } from "../../common/ErrorPage";
 import { Page } from "../../common/Page";
 import { Article } from "../../common/Article";
-import { Tile } from "../../common/Tile";
 
 import { Pagination } from "../../Pagination";
 import { useQueryParam } from "../../Navigation/queryParam";
 import paginationParamName from "../../Pagination/paginationParamName";
 import searchQueryName from "../../Navigation/searchQueryName";
 
-import {
-  StyledMain,
-  StyledHeader,
-  StyledList,
-  StyledLink,
-  Item,
-} from "../styled";
 
 export const MovieList = () => {
   const dispatch = useDispatch();
