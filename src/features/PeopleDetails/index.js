@@ -29,6 +29,8 @@ export const PersonDetails = () => {
   const personId = useParams();
   const person = useSelector(selectPersonDetails);
   const fetchDataStatus = useSelector(selectFetchDataStatus);
+
+  const genreList = useSelector(selectGenreList);
   const moviesCast = useSelector(selectPersonMovieCast);
   const moviesCrew = useSelector(selectPersonMovieCrew);
 
@@ -51,14 +53,21 @@ export const PersonDetails = () => {
             })}
             title={person.name}
             dateOfBirth={formatDate(person.birthday)}
-            xd
             placeOfBirth={person.place_of_birth}
             description={person.biography}
           />
 
-          <Article title="Movies - cast" movies={moviesCast} />
+          <Article
+            title="Movies - cast"
+            movies={moviesCast}
+            genreList={genreList}
+          />
 
-          <Article title="Movies - crew" people={moviesCrew} />
+          <Article
+            title="Movies - crew"
+            movies={moviesCrew}
+            genreList={genreList}
+          />
         </Page>
       )}
     </section>

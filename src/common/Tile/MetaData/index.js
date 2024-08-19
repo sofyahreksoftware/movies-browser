@@ -49,7 +49,7 @@ export const MetaData = ({
     {genres && (
       <Genres $detailed={$detailed}>
         {genres.map((genre) => (
-          <Genre key={nanoid()}>{genre.name}</Genre>
+          <Genre key={nanoid()}>{genre?.name}</Genre>
         ))}
       </Genres>
     )}
