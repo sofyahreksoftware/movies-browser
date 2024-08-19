@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { nanoid } from "@reduxjs/toolkit";
 
-import { getImageUrl } from "../../getImageUrl";
+import { getImageUrl } from "../../../common/api/getImageUrl";
 import { toPersonDetails, toMovieDetails } from "../../../core/routes";
 
 import { Tile } from "../../Tile";

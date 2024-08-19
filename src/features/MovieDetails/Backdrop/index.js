@@ -1,4 +1,4 @@
-import { getImageUrl } from "../../../common/getImageUrl";
+import { getImageUrl } from "../../../common/api/getImageUrl";
 
 import { MetaData } from "../../../common/Tile/MetaData";
 import { Background, Poster } from "./styled";
