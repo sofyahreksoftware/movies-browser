@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router";
 import { useEffect } from "react";
 
+import { getImageUrl } from "../../common/api/getImageUrl";
 import {
   fetchPeopleDetails,
   selectFetchDataStatus,
@@ -10,12 +11,12 @@ import {
   selectPersonMovieCrew,
   selectGenreList,
 } from "./peopleDetailsSlice";
-import { getImageUrl } from "../../common/api/getImageUrl";
+
 import { LoadingPage } from "../../common/statusPages/LoadingPage";
 import { ErrorPage } from "../../common/statusPages/ErrorPage";
-import { Tile } from "./Tile";
-import { MovieList } from "./MoviesList";
-import { StyledMain } from "../styled";
+import { Page } from "../../common/Page";
+import { Tile } from "../../common/Tile";
+import { Article } from "../../common/Article";
 
 const formatDate = (dateString) => {
   if (!dateString) return "";
@@ -26,44 +27,49 @@ const formatDate = (dateString) => {
 export const PersonDetails = () => {
   const dispatch = useDispatch();
   const personId = useParams();
+  const person = useSelector(selectPersonDetails);
   const fetchDataStatus = useSelector(selectFetchDataStatus);
+
+  const genreList = useSelector(selectGenreList);
   const moviesCast = useSelector(selectPersonMovieCast);
   const moviesCrew = useSelector(selectPersonMovieCrew);
-  const genreList = useSelector(selectGenreList);
-  const person = useSelector(selectPersonDetails);
 
   useEffect(() => {
     dispatch(fetchPeopleDetails(personId));
   }, [dispatch, personId]);
 
   return (
-    <StyledMain>
+    <section>
       {fetchDataStatus === "loading" && <LoadingPage />}
       {fetchDataStatus === "error" && <ErrorPage />}
       {fetchDataStatus === "success" && (
-        <>
+        <Page>
           <Tile
+            $personDetailed
+            $detailed
             poster={getImageUrl({
               size: "/h632",
               path: `/${person.profile_path}`,
             })}
-            name={person.name}
-            birthDate={formatDate(person.birthday)}
-            birthPlace={person.place_of_birth}
-            biography={person.biography}
+            title={person.name}
+            dateOfBirth={formatDate(person.birthday)}
+            placeOfBirth={person.place_of_birth}
+            description={person.biography}
           />
-          <MovieList
-            header={`Movies - cast`}
-            moviesList={moviesCast}
+
+          <Article
+            title="Movies - cast"
+            movies={moviesCast}
             genreList={genreList}
           />
-          <MovieList
-            header={`Movies - crew`}
-            moviesList={moviesCrew}
+
+          <Article
+            title="Movies - crew"
+            movies={moviesCrew}
             genreList={genreList}
           />
-        </>
+        </Page>
       )}
-    </StyledMain>
+    </section>
   );
 };

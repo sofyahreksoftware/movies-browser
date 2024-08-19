@@ -20,7 +20,8 @@ const GlobalStyle = createGlobalStyle`
   }
 
   a {
-    color: inherit
+    color: inherit;
+    text-decoration: none;
   }
 `;
 
