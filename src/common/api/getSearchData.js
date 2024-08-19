@@ -1,4 +1,4 @@
-import { fetchFromApi } from "./fetchFromApi";
+import { fetchFromApi } from "../api/fetchFromApi";
 
 export const getSearchData = (query, page, type) => {
   return fetchFromApi({

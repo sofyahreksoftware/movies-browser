@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
 
-import { getImageUrl } from "../../common/getImageUrl";
+import { getImageUrl } from "../../common/api/getImageUrl";
 import {
   fetchMovieDataFromApi,
   selectMovie,
@@ -11,8 +11,8 @@ import {
   selectFetchMovieStatus,
 } from "./movieSlice";
 
-import { LoadingPage } from "../../common/LoadingPage";
-import { ErrorPage } from "../../common/ErrorPage";
+import { LoadingPage } from "../../common/statusPages/LoadingPage";
+import { ErrorPage } from "../../common/statusPages/ErrorPage";
 import { Backdrop } from "./Backdrop";
 import { Page } from "../../common/Page";
 import { Tile } from "../../common/Tile";

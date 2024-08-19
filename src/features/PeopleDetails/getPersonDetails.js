@@ -1,4 +1,4 @@
-import { fetchFromApi } from "../../common/fetchFromApi";
+import { fetchFromApi } from "../../common/api/fetchFromApi";
 
 export const getPersonDetails = (personId) => {
   return fetchFromApi({

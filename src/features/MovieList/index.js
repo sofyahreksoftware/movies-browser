@@ -1,4 +1,3 @@
-import { nanoid } from "@reduxjs/toolkit";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -11,9 +10,9 @@ import {
   selectMovieResult,
 } from "./moviesSlice";
 
-import { LoadingPage } from "../../common/LoadingPage";
-import { NoResultsPage } from "../../common/NoResultsPage";
-import { ErrorPage } from "../../common/ErrorPage";
+import { LoadingPage } from "../../common/statusPages/LoadingPage";
+import { NoResultsPage } from "../../common/statusPages/NoResultsPage";
+import { ErrorPage } from "../../common/statusPages/ErrorPage";
 import { Page } from "../../common/Page";
 import { Article } from "../../common/Article";
 
@@ -21,7 +20,6 @@ import { Pagination } from "../../Pagination";
 import { useQueryParam } from "../../Navigation/queryParam";
 import paginationParamName from "../../Pagination/paginationParamName";
 import searchQueryName from "../../Navigation/searchQueryName";
-
 
 export const MovieList = () => {
   const dispatch = useDispatch();

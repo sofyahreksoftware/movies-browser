@@ -9,9 +9,9 @@ import {
   selectPeopleResult,
 } from "./peopleSlice";
 
-import { LoadingPage } from "../../common/LoadingPage";
-import { ErrorPage } from "../../common/ErrorPage";
-import { NoResultsPage } from "../../common/NoResultsPage";
+import { LoadingPage } from "../../common/statusPages/LoadingPage";
+import { ErrorPage } from "../../common/statusPages/ErrorPage";
+import { NoResultsPage } from "../../common/statusPages/NoResultsPage";
 import { Page } from "../../common/Page";
 import { Article } from "../../common/Article";
 import { Pagination } from "../../Pagination";

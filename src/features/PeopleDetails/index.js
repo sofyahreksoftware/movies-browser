@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router";
 import { useEffect } from "react";
 
-import { getImageUrl } from "../../common/getImageUrl";
+import { getImageUrl } from "../../common/api/getImageUrl";
 import {
   fetchPeopleDetails,
   selectFetchDataStatus,
@@ -12,8 +12,8 @@ import {
   selectGenreList,
 } from "./peopleDetailsSlice";
 
-import { LoadingPage } from "../../common/LoadingPage";
-import { ErrorPage } from "../../common/ErrorPage";
+import { LoadingPage } from "../../common/statusPages/LoadingPage";
+import { ErrorPage } from "../../common/statusPages/ErrorPage";
 import { Page } from "../../common/Page";
 import { Tile } from "../../common/Tile";
 import { Article } from "../../common/Article";
