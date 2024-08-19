@@ -43,6 +43,7 @@ export const Wrapper = styled.article`
           "data";
         gap: 0;
         border-radius: 5px;
+        box-shadow: 0 4px 12px #bac7d5;
         padding: 8px;
       }
     `}
