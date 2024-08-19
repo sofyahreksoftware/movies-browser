@@ -42,6 +42,7 @@ export const Wrapper = styled.article`
           "picture"
           "data";
         gap: 0;
+        border-radius: 5px;
         padding: 8px;
       }
     `}
