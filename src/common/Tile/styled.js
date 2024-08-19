@@ -15,6 +15,11 @@ export const Wrapper = styled.article`
   background-color: ${({ theme }) => theme.colors.white};
   box-shadow: 0px 4px 12px 0px ${({ theme }) => theme.colors.heather};
   position: relative;
+  transition: transform 0.5s linear;
+
+  &:hover {
+    transform: scale(1.03);
+  }
 
   @media (max-width: ${({ theme }) => theme.media.mobile}px) {
     grid-template-areas: "picture data";
@@ -62,6 +67,11 @@ export const Wrapper = styled.article`
       box-shadow: 0 4px 12px #bac7d5;
       padding: 40px;
       border-radius: unset;
+      transition: unset;
+      
+      &:hover {
+        transform: unset;
+      }
 
       @media (max-width: ${({ theme }) => theme.media.mobile}px) {
         grid-template-areas:
