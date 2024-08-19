@@ -14,9 +14,10 @@ import {
 import { LoadingPage } from "../../common/LoadingPage";
 import { ErrorPage } from "../../common/ErrorPage";
 import { Backdrop } from "./Backdrop";
+import { Page } from "../../common/Page";
 import { Tile } from "../../common/Tile";
 
-import { Article } from "./Article";
+import { Article } from "../../common/Article";
 
 export const MovieDetails = () => {
   const movieId = useParams();
@@ -37,26 +38,25 @@ export const MovieDetails = () => {
       {fetchMovieStatus === "success" && (
         <section>
           <Backdrop movie={movie} />
-
-          <Tile
-            $detailed
-            poster={getImageUrl({
-              size: "/w342",
-              path: `${movie?.poster_path}.jpg`,
-            })}
-            title={movie?.title}
-            year={movie.release_date?.split("-")[0]}
-            productionPlaces={movie?.production_countries}
-            releaseDate={movie.release_date?.split("-").reverse().join(".")}
-            genres={movie?.genres}
-            mark={movie?.vote_average?.toFixed(1)}
-            votes={movie?.vote_count}
-            description={movie?.overview}
-          />
-
-          <Article title="Cast" people={credits.cast} />
-
-          <Article title="Crew" people={credits.cast} />
+          <Page>
+            <Tile
+              $detailed
+              poster={getImageUrl({
+                size: "/w342",
+                path: `${movie?.poster_path}.jpg`,
+              })}
+              title={movie?.title}
+              year={movie.release_date?.split("-")[0]}
+              productionPlaces={movie?.production_countries}
+              releaseDate={movie.release_date?.split("-").reverse().join(".")}
+              genres={movie?.genres}
+              mark={movie?.vote_average?.toFixed(1)}
+              votes={movie?.vote_count}
+              description={movie?.overview}
+            />
+            <Article title="Cast" people={credits.cast} />
+            <Article title="Crew" people={credits.cast} />
+          </Page>
         </section>
       )}
     </>
