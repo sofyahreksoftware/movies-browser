@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router";
 import { useEffect } from "react";
 
+import { getImageUrl } from "../../common/api/getImageUrl";
 import {
   fetch,
   selectStatus,
@@ -9,12 +10,12 @@ import {
   selectPersonMovieCredits,
   selectGenreList,
 } from "./personDetailsSlice";
-import { getImageUrl } from "../../common/api/getImageUrl";
+
 import { LoadingPage } from "../../common/statusPages/LoadingPage";
 import { ErrorPage } from "../../common/statusPages/ErrorPage";
-import { Tile } from "./Tile";
-import { MovieList } from "./MoviesList";
-import { StyledMain } from "../styled";
+import { Page } from "../../common/Page";
+import { Tile } from "../../common/Tile";
+import { Article } from "../../common/Article";
 
 const formatDate = (dateString) => {
   if (!dateString) return "";
@@ -36,34 +37,37 @@ export const PersonDetails = () => {
   }, [dispatch, personId]);
 
   return (
-    <StyledMain>
+    <section>
       {fetchDataStatus === "loading" && <LoadingPage />}
       {fetchDataStatus === "error" && <ErrorPage />}
       {fetchDataStatus === "success" && (
-        <>
+        <Page>
           <Tile
+            $personDetailed
+            $detailed
             poster={getImageUrl({
               size: "/h632",
               path: `/${person.profile_path}`,
             })}
-            name={person.name}
-            birthDate={formatDate(person.birthday)}
-            birthPlace={person.place_of_birth}
-            biography={person.biography}
+            title={person.name}
+            dateOfBirth={formatDate(person.birthday)}
+            placeOfBirth={person.place_of_birth}
+            description={person.biography}
           />
-          <MovieList
-            header={`Movies - cast`}
-            moviesList={credits.cast}
+
+          <Article
+            title="Movies - cast"
+            movies={credits.cast}
             genreList={genreList}
           />
 
-          <MovieList
-            header={`Movies - crew`}
-            moviesList={credits.crew}
+          <Article
+            title="Movies - crew"
+            movies={credits.crew}
             genreList={genreList}
           />
-        </>
+        </Page>
       )}
-    </StyledMain>
+    </section>
   );
 };
