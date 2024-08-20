@@ -3,11 +3,10 @@ import { useParams } from "react-router";
 import { useEffect } from "react";
 
 import {
-  fetchPeopleDetails,
-  selectFetchDataStatus,
+  fetch,
+  selectStatus,
   selectPersonDetails,
-  selectPersonMovieCast,
-  selectPersonMovieCrew,
+  selectPersonMovieCredits,
   selectGenreList,
 } from "./personDetailsSlice";
 import { getImageUrl } from "../../common/api/getImageUrl";
@@ -26,14 +25,14 @@ const formatDate = (dateString) => {
 export const PersonDetails = () => {
   const dispatch = useDispatch();
   const personId = useParams();
-  const fetchDataStatus = useSelector(selectFetchDataStatus);
-  const moviesCast = useSelector(selectPersonMovieCast);
-  const moviesCrew = useSelector(selectPersonMovieCrew);
+
+  const fetchDataStatus = useSelector(selectStatus);
+  const credits = useSelector(selectPersonMovieCredits);
   const genreList = useSelector(selectGenreList);
   const person = useSelector(selectPersonDetails);
 
   useEffect(() => {
-    dispatch(fetchPeopleDetails(personId));
+    dispatch(fetch(personId));
   }, [dispatch, personId]);
 
   return (
@@ -54,12 +53,13 @@ export const PersonDetails = () => {
           />
           <MovieList
             header={`Movies - cast`}
-            moviesList={moviesCast}
+            moviesList={credits.cast}
             genreList={genreList}
           />
+
           <MovieList
             header={`Movies - crew`}
-            moviesList={moviesCrew}
+            moviesList={credits.crew}
             genreList={genreList}
           />
         </>

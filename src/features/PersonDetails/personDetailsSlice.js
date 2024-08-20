@@ -1,53 +1,19 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createDetailsSlice } from "../../common/detailsPage/detailSlice";
 
-const peopleDetailsSlice = createSlice({
-  name: "peopleDetails",
-  initialState: {
-    details: [],
-    movieCredits: [],
-    genres: [],
-    fetchDataStatus: undefined,
-  },
-  reducers: {
-    fetchPeopleDetails: (state) => {
-      state.fetchDataStatus = "loading";
-    },
-    fetchPeopleDetailsSuccess: (
-      state,
-      { payload: personDetails, personMovieCredits, genreList }
-    ) => {
-      state.details = personDetails;
-      state.movieCredits = personMovieCredits;
-      state.genres = genreList;
-      state.fetchDataStatus = "success";
-    },
-    fetchPeopleDetailsError: (state) => {
-      state.fetchDataStatus = "error";
-    },
-  },
-});
+const personDetailsSlice = createDetailsSlice({ name: "personDetails" });
 
-export const {
-  fetchPeopleDetails,
-  fetchPeopleDetailsSuccess,
-  fetchPeopleDetailsError,
-} = peopleDetailsSlice.actions;
+export const { fetch, fetchSuccess, fetchError, clearOnLeave } =
+  personDetailsSlice.actions;
 
-export const selectPeopleDetailsState = (state) => state.personDetails;
-export const selectFetchDataStatus = (state) =>
-  selectPeopleDetailsState(state).fetchDataStatus;
+export const personDetailsState = (state) => state.personDetails;
 
-export const selectPeopleDetailsObject = (state) =>
-  selectPeopleDetailsState(state).details;
-export const selectPersonDetails = (state) =>
-  selectPeopleDetailsObject(state).personDetails;
+export const selectStatus = (state) => personDetailsState(state).status;
 
-export const selectPersonMovieCast = (state) =>
-  selectPeopleDetailsObject(state).personMovieCredits?.cast;
-export const selectPersonMovieCrew = (state) =>
-  selectPeopleDetailsObject(state).personMovieCredits?.crew;
+export const selectPersonDetails = (state) => personDetailsState(state).details;
 
-export const selectGenreList = (state) =>
-  selectPeopleDetailsObject(state).genreList?.genres;
+export const selectPersonMovieCredits = (state) =>
+  personDetailsState(state).credits;
 
-export default peopleDetailsSlice.reducer;
+export const selectGenreList = (state) => personDetailsState(state).genres;
+
+export default personDetailsSlice.reducer;
