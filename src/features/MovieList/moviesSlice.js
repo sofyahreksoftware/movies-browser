@@ -40,7 +40,7 @@ export const selectFetchDataStatus = (state) =>
 export const selectMovieList = (state) =>
   selectMoviesObject(state).movieList?.results;
 export const selectGenreList = (state) =>
-  selectMoviesObject(state).genreList?.genres;
+  selectMoviesObject(state).genreList;
 
 export const selectMoviePage = (state) =>
   selectMoviesObject(state).movieList?.total_pages;
