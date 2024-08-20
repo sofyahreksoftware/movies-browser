@@ -33,7 +33,7 @@ export const {
   fetchPeopleDetailsError,
 } = peopleDetailsSlice.actions;
 
-export const selectPeopleDetailsState = (state) => state.peopleDetails;
+export const selectPeopleDetailsState = (state) => state.personDetails;
 export const selectFetchDataStatus = (state) =>
   selectPeopleDetailsState(state).fetchDataStatus;
 

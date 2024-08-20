@@ -16,6 +16,6 @@ function* watchFetchMovieHandler(action) {
   }
 }
 
-export function* watchFetchMovieSaga() {
+export function* movieDetailsSaga() {
   yield takeEvery(fetch.type, watchFetchMovieHandler);
 }

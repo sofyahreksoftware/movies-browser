@@ -7,9 +7,9 @@ import {
   fetchPeopleDetails,
   fetchPeopleDetailsSuccess,
   fetchPeopleDetailsError,
-} from "./peopleDetailsSlice";
+} from "./personDetailsSlice";
 
-function* fetchPeopleDetailsHandler(action) {
+function* fetchPersonDetailsHandler(action) {
   try {
     yield delay(1000);
     const { personId } = action.payload;
@@ -28,6 +28,6 @@ function* fetchPeopleDetailsHandler(action) {
   }
 }
 
-export function* peopleDetailsSaga() {
-  yield takeEvery(fetchPeopleDetails.type, fetchPeopleDetailsHandler);
+export function* personDetailsSaga() {
+  yield takeEvery(fetchPeopleDetails.type, fetchPersonDetailsHandler);
 }

@@ -9,7 +9,7 @@ import {
   selectPersonMovieCast,
   selectPersonMovieCrew,
   selectGenreList,
-} from "./peopleDetailsSlice";
+} from "./personDetailsSlice";
 import { getImageUrl } from "../../common/api/getImageUrl";
 import { LoadingPage } from "../../common/statusPages/LoadingPage";
 import { ErrorPage } from "../../common/statusPages/ErrorPage";

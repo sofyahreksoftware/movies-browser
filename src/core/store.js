@@ -2,7 +2,7 @@ import { configureStore } from "@reduxjs/toolkit";
 import createSagaMiddleware from "redux-saga";
 import moviesReducer from "../features/MovieList/moviesSlice";
 import peopleReducer from "../features/PeopleList/peopleSlice";
-import peopleDetailsReducer from "../features/PeopleDetails/peopleDetailsSlice";
+import peopleDetailsReducer from "../features/PeopleDetails/personDetailsSlice";
 import movieDetailsReducer from "../features/MovieDetails/movieDetailsSlice";
 import rootSaga from "./rootSaga";
 
