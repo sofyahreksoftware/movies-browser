@@ -4,13 +4,12 @@ import { useEffect } from "react";
 
 import { getImageUrl } from "../../common/api/getImageUrl";
 import {
-  fetchPeopleDetails,
-  selectFetchDataStatus,
+  fetch,
+  selectStatus,
   selectPersonDetails,
-  selectPersonMovieCast,
-  selectPersonMovieCrew,
+  selectPersonMovieCredits,
   selectGenreList,
-} from "./peopleDetailsSlice";
+} from "./personDetailsSlice";
 
 import { LoadingPage } from "../../common/statusPages/LoadingPage";
 import { ErrorPage } from "../../common/statusPages/ErrorPage";
@@ -27,15 +26,14 @@ const formatDate = (dateString) => {
 export const PersonDetails = () => {
   const dispatch = useDispatch();
   const personId = useParams();
-  const person = useSelector(selectPersonDetails);
-  const fetchDataStatus = useSelector(selectFetchDataStatus);
 
+  const fetchDataStatus = useSelector(selectStatus);
+  const credits = useSelector(selectPersonMovieCredits);
   const genreList = useSelector(selectGenreList);
-  const moviesCast = useSelector(selectPersonMovieCast);
-  const moviesCrew = useSelector(selectPersonMovieCrew);
+  const person = useSelector(selectPersonDetails);
 
   useEffect(() => {
-    dispatch(fetchPeopleDetails(personId));
+    dispatch(fetch(personId));
   }, [dispatch, personId]);
 
   return (
@@ -59,13 +57,13 @@ export const PersonDetails = () => {
 
           <Article
             title="Movies - cast"
-            movies={moviesCast}
+            movies={credits.cast}
             genreList={genreList}
           />
 
           <Article
             title="Movies - crew"
-            movies={moviesCrew}
+            movies={credits.crew}
             genreList={genreList}
           />
         </Page>

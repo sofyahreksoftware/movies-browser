@@ -4,12 +4,13 @@ import { useEffect } from "react";
 import { useSelector } from "react-redux";
 
 import { getImageUrl } from "../../common/api/getImageUrl";
+
 import {
-  fetchMovieDataFromApi,
-  selectMovie,
+  fetch,
+  selectStatus,
+  selectMovieDetails,
   selectCredits,
-  selectFetchMovieStatus,
-} from "./movieSlice";
+} from "./movieDetailsSlice";
 
 import { LoadingPage } from "../../common/statusPages/LoadingPage";
 import { ErrorPage } from "../../common/statusPages/ErrorPage";
@@ -24,18 +25,18 @@ export const MovieDetails = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchMovieDataFromApi(movieId));
+    dispatch(fetch(movieId));
   }, [dispatch, movieId]);
 
-  const movie = useSelector(selectMovie);
+  const status = useSelector(selectStatus);
+  const movie = useSelector(selectMovieDetails);
   const credits = useSelector(selectCredits);
-  const fetchMovieStatus = useSelector(selectFetchMovieStatus);
 
   return (
     <>
-      {fetchMovieStatus === "loading" && <LoadingPage />}
-      {fetchMovieStatus === "error" && <ErrorPage />}
-      {fetchMovieStatus === "success" && (
+      {status === "loading" && <LoadingPage />}
+      {status === "error" && <ErrorPage />}
+      {status === "success" && (
         <section>
           <Backdrop movie={movie} />
           <Page>
@@ -43,7 +44,7 @@ export const MovieDetails = () => {
               $detailed
               poster={getImageUrl({
                 size: "/w342",
-                path: `${movie?.poster_path}.jpg`,
+                path: `${movie?.poster_path}`,
               })}
               title={movie?.title}
               year={movie.release_date?.split("-")[0]}

@@ -9,7 +9,7 @@ import {
 import { Navigation } from "../Navigation";
 import { MovieList } from "../features/MovieList";
 import { PeopleList } from "../features/PeopleList";
-import { PersonDetails } from "../features/PeopleDetails";
+import { PersonDetails } from "../features/PersonDetails";
 import { MovieDetails } from "../features/MovieDetails";
 
 const App = () => {
