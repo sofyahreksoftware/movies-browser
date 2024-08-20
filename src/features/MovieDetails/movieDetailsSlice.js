@@ -1,11 +1,11 @@
 import { createDetailsSlice } from "../../common/detailsPage/detailSlice";
 
-const movieDetailsSlice = createDetailsSlice({ name: "movie" });
+const movieDetailsSlice = createDetailsSlice({ name: "movieDetails" });
 
 export const { fetch, fetchSuccess, fetchError, clearOnLeave } =
   movieDetailsSlice.actions;
 
-export const selectMovieDetailsState = (state) => state.movie;
+export const selectMovieDetailsState = (state) => state.movieDetails;
 
 export const selectStatus = (state) => selectMovieDetailsState(state).status;
 
