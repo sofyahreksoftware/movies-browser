@@ -2,13 +2,13 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import {
-  fetchMovieList,
-  selectFetchDataStatus,
+  fetch,
+  fetchSearch,
+  selectStatus,
   selectMovieList,
   selectGenreList,
-  fetchMovieSearch,
-  selectMovieResult,
-} from "./moviesSlice";
+  selectResult,
+} from "./movieListSlice";
 
 import { LoadingPage } from "../../common/statusPages/LoadingPage";
 import { NoResultsPage } from "../../common/statusPages/NoResultsPage";
@@ -24,13 +24,13 @@ import searchQueryName from "../../Navigation/searchQueryName";
 export const MovieList = () => {
   const dispatch = useDispatch();
 
-  const fetchDataStatus = useSelector(selectFetchDataStatus);
+  const status = useSelector(selectStatus);
   const movieList = useSelector(selectMovieList);
   const genreList = useSelector(selectGenreList);
 
   const page = useQueryParam(paginationParamName) || 1;
   const query = useQueryParam(searchQueryName) || "";
-  const totalResult = useSelector(selectMovieResult);
+  const totalResult = useSelector(selectResult);
   const title =
     query !== ""
       ? `Search results for "${query}" (${totalResult})`
@@ -44,18 +44,18 @@ export const MovieList = () => {
     };
 
     if (query) {
-      dispatch(fetchMovieSearch(options));
+      dispatch(fetchSearch(options));
     } else {
-      dispatch(fetchMovieList(page));
+      dispatch(fetch(page));
     }
   }, [page, dispatch, query]);
 
   return (
     <main>
-      {fetchDataStatus === "loading" && <LoadingPage title={query} />}
+      {status === "loading" && <LoadingPage title={query} />}
       {totalResult === 0 && query !== "" && <NoResultsPage title={query} />}
-      {fetchDataStatus === "error" && <ErrorPage />}
-      {fetchDataStatus === "success" && totalResult !== 0 && (
+      {status === "error" && <ErrorPage />}
+      {status === "success" && totalResult !== 0 && (
         <Page>
           <Article title={title} movies={movieList} genreList={genreList} />
           <Pagination />

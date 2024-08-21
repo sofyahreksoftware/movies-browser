@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import { selectMoviePage } from "../features/MovieList/moviesSlice";
+import { selectPage } from "../features/MovieList/movieListSlice";
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router";
 
@@ -9,7 +9,7 @@ import { selectPeoplePage } from "../features/PeopleList/peopleSlice";
 
 export const usePageButton = () => {
   const location = useLocation();
-  const moviePageFromStore = useSelector(selectMoviePage);
+  const moviePageFromStore = useSelector(selectPage);
   const peoplePageFormStore = useSelector(selectPeoplePage);
   const totalPagesFromStore = location.pathname.startsWith("/movies")
     ? moviePageFromStore

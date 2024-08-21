@@ -5,15 +5,15 @@ const personDetailsSlice = createDetailsSlice({ name: "personDetails" });
 export const { fetch, fetchSuccess, fetchError, clearOnLeave } =
   personDetailsSlice.actions;
 
-export const personDetailsState = (state) => state.personDetails;
+export const selectPersonDetailsState = (state) => state.personDetails;
 
-export const selectStatus = (state) => personDetailsState(state).status;
+export const selectStatus = (state) => selectPersonDetailsState(state).status;
 
-export const selectPersonDetails = (state) => personDetailsState(state).details;
+export const selectPersonDetails = (state) => selectPersonDetailsState(state).details;
 
 export const selectPersonMovieCredits = (state) =>
-  personDetailsState(state).credits;
+  selectPersonDetailsState(state).credits;
 
-export const selectGenreList = (state) => personDetailsState(state).genres;
+export const selectGenreList = (state) => selectPersonDetailsState(state).genres;
 
 export default personDetailsSlice.reducer;
