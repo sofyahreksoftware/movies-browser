@@ -2,11 +2,11 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import {
-  fetchPeopleList,
-  fetchPeopleSearch,
-  selectFetchDataStatus,
+  fetch,
+  fetchSearch,
+  selectStatus,
   selectPeopleList,
-  selectPeopleResult,
+  selectResult,
 } from "./peopleSlice";
 
 import { LoadingPage } from "../../common/statusPages/LoadingPage";
@@ -20,15 +20,16 @@ import { useQueryParam } from "../../Navigation/queryParam";
 import paginationParamName from "../../Pagination/paginationParamName";
 import searchQueryName from "../../Navigation/searchQueryName";
 
+
 export const PeopleList = () => {
   const dispatch = useDispatch();
 
-  const fetchDataStatus = useSelector(selectFetchDataStatus);
+  const status = useSelector(selectStatus);
   const peopleList = useSelector(selectPeopleList);
 
   const page = useQueryParam(paginationParamName) || 1;
   const query = useQueryParam(searchQueryName) || "";
-  const totalResult = useSelector(selectPeopleResult);
+  const totalResult = useSelector(selectResult);
   const title =
     query !== ""
       ? `Search results for "${query}" (${totalResult})`
@@ -41,18 +42,18 @@ export const PeopleList = () => {
       type: "person",
     };
     if (query) {
-      dispatch(fetchPeopleSearch(options));
+      dispatch(fetchSearch(options));
     } else {
-      dispatch(fetchPeopleList(page));
+      dispatch(fetch(page));
     }
   }, [page, dispatch, query]);
 
   return (
     <main>
-      {fetchDataStatus === "loading" && <LoadingPage title={query} />}
+      {status === "loading" && <LoadingPage title={query} />}
       {totalResult === 0 && query !== "" && <NoResultsPage title={query} />}
-      {fetchDataStatus === "error" && <ErrorPage />}
-      {fetchDataStatus === "success" && totalResult !== 0 && (
+      {status === "error" && <ErrorPage />}
+      {status === "success" && totalResult !== 0 && (
         <Page>
           <Article title={title} people={peopleList} />
           <Pagination />

@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import { selectPage } from "../features/MovieList/movieListSlice";
+import { selectMoviesPage } from "../features/MovieList/movieListSlice";
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router";
 
@@ -9,13 +9,17 @@ import { selectPeoplePage } from "../features/PeopleList/peopleSlice";
 
 export const usePageButton = () => {
   const location = useLocation();
-  const moviePageFromStore = useSelector(selectPage);
+  const replaceQueryParameter = useReplaceQueryParam();
+
+  const moviePageFromStore = useSelector(selectMoviesPage);
   const peoplePageFormStore = useSelector(selectPeoplePage);
+
   const totalPagesFromStore = location.pathname.startsWith("/movies")
     ? moviePageFromStore
     : peoplePageFormStore;
+
   const totalPages = totalPagesFromStore > 500 ? 500 : totalPagesFromStore;
-  const replaceQueryParameter = useReplaceQueryParam();
+
   const [page, setPage] = useState(
     parseInt(useQueryParam(paginationParamName)) || 1
   );

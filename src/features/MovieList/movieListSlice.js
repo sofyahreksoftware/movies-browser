@@ -13,7 +13,7 @@ export const selectGenreList = (state) => selectMoviesState(state).genres;
 
 export const selectMovieList = (state) => selectMoviesState(state).movieList;
 
-export const selectPage = (state) =>
+export const selectMoviesPage = (state) =>
   selectMovieList(state).movieList?.total_pages;
 
 export const selectResult = (state) =>
