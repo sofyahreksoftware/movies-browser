@@ -5,6 +5,7 @@ import { useEffect } from "react";
 import { getImageUrl } from "../../common/api/getImageUrl";
 import {
   fetch,
+  clearOnLeave,
   selectStatus,
   selectPersonDetails,
   selectPersonMovieCredits,
@@ -34,6 +35,10 @@ export const PersonDetails = () => {
 
   useEffect(() => {
     dispatch(fetch(personId));
+
+    return () => {
+      dispatch(clearOnLeave());
+    };
   }, [dispatch, personId]);
 
   return (

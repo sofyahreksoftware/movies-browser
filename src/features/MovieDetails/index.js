@@ -7,6 +7,7 @@ import { getImageUrl } from "../../common/api/getImageUrl";
 
 import {
   fetch,
+  clearOnLeave,
   selectStatus,
   selectMovieDetails,
   selectCredits,
@@ -26,6 +27,10 @@ export const MovieDetails = () => {
 
   useEffect(() => {
     dispatch(fetch(movieId));
+
+    return () => {
+      dispatch(clearOnLeave());
+    };
   }, [dispatch, movieId]);
 
   const status = useSelector(selectStatus);
