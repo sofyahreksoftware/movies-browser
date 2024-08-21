@@ -5,7 +5,7 @@ import { useLocation } from "react-router";
 
 import paginationParamName from "./paginationParamName";
 import { useQueryParam, useReplaceQueryParam } from "../Navigation/queryParam";
-import { selectPeoplePage } from "../features/PeopleList/peopleSlice";
+import { selectPeoplePage } from "../features/PeopleList/peopleListSlice";
 
 export const usePageButton = () => {
   const location = useLocation();

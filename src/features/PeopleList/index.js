@@ -7,7 +7,7 @@ import {
   selectStatus,
   selectPeopleList,
   selectResult,
-} from "./peopleSlice";
+} from "./peopleListSlice";
 
 import { LoadingPage } from "../../common/statusPages/LoadingPage";
 import { ErrorPage } from "../../common/statusPages/ErrorPage";

@@ -2,7 +2,7 @@ import { takeEvery, delay, put, call, takeLatest } from "redux-saga/effects";
 
 import { getPeopleList } from "./getPeopleListFromApi";
 import { getSearchData } from "../../common/api/getSearchData";
-import { fetch, fetchSearch, fetchSuccess, fetchError } from "./peopleSlice";
+import { fetch, fetchSearch, fetchSuccess, fetchError } from "./peopleListSlice";
 
 function* fetchPeopleListHandler({ payload: page }) {
   try {
