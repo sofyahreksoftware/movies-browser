@@ -22,6 +22,7 @@ export const createDetailsSlice = ({ name }) => {
       },
 
       clearOnLeave: (state) => {
+        state.status = "initial";
         state.details = [];
         state.credits = [];
         state.genres = [];

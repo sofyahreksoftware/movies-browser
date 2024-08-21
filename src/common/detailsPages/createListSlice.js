@@ -19,6 +19,11 @@ export const createListSlice = ({ name }) => {
       fetchError: (state) => {
         state.status = "error";
       },
+      clearOnLeave: (state) => {
+        state.status = "initial";
+        state[name] = [];
+        state.genres = [];
+      },
     },
   });
 

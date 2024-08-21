@@ -7,6 +7,7 @@ import {
   selectStatus,
   selectPeopleList,
   selectResult,
+  clearOnLeave,
 } from "./peopleListSlice";
 
 import { LoadingPage } from "../../common/statusPages/LoadingPage";
@@ -19,7 +20,6 @@ import { Pagination } from "../../Pagination";
 import { useQueryParam } from "../../Navigation/queryParam";
 import paginationParamName from "../../Pagination/paginationParamName";
 import searchQueryName from "../../Navigation/searchQueryName";
-
 
 export const PeopleList = () => {
   const dispatch = useDispatch();
@@ -41,11 +41,17 @@ export const PeopleList = () => {
       page: page,
       type: "person",
     };
+
     if (query) {
       dispatch(fetchSearch(options));
     } else {
       dispatch(fetch(page));
     }
+
+    return () => {
+      dispatch(clearOnLeave());
+    };
+    
   }, [page, dispatch, query]);
 
   return (

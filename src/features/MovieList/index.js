@@ -8,6 +8,7 @@ import {
   selectMovieList,
   selectGenreList,
   selectResult,
+  clearOnLeave,
 } from "./movieListSlice";
 
 import { LoadingPage } from "../../common/statusPages/LoadingPage";
@@ -48,6 +49,11 @@ export const MovieList = () => {
     } else {
       dispatch(fetch(page));
     }
+
+    return () => {
+      dispatch(clearOnLeave());
+    };
+    
   }, [page, dispatch, query]);
 
   return (

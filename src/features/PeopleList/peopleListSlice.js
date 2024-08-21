@@ -2,7 +2,7 @@ import { createListSlice } from "../../common/detailsPages/createListSlice";
 
 const peopleListSlice = createListSlice({ name: "peopleList" });
 
-export const { fetch, fetchSearch, fetchSuccess, fetchError } =
+export const { fetch, fetchSearch, fetchSuccess, fetchError, clearOnLeave } =
   peopleListSlice.actions;
 
 export const selectPeopleState = (state) => state.peopleList;
