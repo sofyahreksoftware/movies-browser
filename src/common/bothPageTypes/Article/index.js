@@ -1,9 +1,11 @@
 import { List } from "./List";
-import { Wrapper, Title } from "./styled";
+
+import { Wrapper } from "./styled";
+import { Header } from "../Header";
 
 export const Article = ({ title, people, movies, genreList }) => (
   <Wrapper>
-    {title && <Title>{title}</Title>}
+    {title && <Header>{title}</Header>}
     <List people={people} movies={movies} genreList={genreList} />
   </Wrapper>
 );

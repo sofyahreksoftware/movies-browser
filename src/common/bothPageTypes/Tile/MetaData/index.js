@@ -27,6 +27,7 @@ export const MetaData = ({
   >
     {title && (
       <Title
+        as={($personDetailed || $backdrop) && "h1"}
         $small={$small}
         $detailed={$detailed}
         $personDetailed={$personDetailed}
