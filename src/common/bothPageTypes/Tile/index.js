@@ -1,5 +1,5 @@
-import { ReactComponent as PlaceholderPersonIcon } from "../../assets/placeholderActorIcon.svg";
-import { ReactComponent as PlaceholderMovieIcon } from "../../assets/placeholderMovieIcon.svg";
+import { ReactComponent as PlaceholderPersonIcon } from "../../../assets/placeholderActorIcon.svg";
+import { ReactComponent as PlaceholderMovieIcon } from "../../../assets/placeholderMovieIcon.svg";
 
 import { Wrapper, Poster } from "./styled";
 import { MetaData } from "./MetaData";

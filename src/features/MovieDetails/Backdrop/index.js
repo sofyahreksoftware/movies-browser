@@ -1,6 +1,6 @@
 import { getImageUrl } from "../../../common/api/getImageUrl";
 
-import { MetaData } from "../../../common/Tile/MetaData";
+import { MetaData } from "../../../common/bothPageTypes/Tile/MetaData";
 import { Background, Poster } from "./styled";
 
 export const Backdrop = ({ movie }) => (

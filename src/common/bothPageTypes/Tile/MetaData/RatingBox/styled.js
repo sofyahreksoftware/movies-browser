@@ -1,6 +1,6 @@
 import styled, { css } from "styled-components";
 
-import { ReactComponent as Star } from "../../../../assets/starIcon.svg";
+import { ReactComponent as Star } from "../../../../../assets/starIcon.svg";
 
 export const Wrapper = styled.div`
   display: flex;

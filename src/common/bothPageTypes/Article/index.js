@@ -3,7 +3,7 @@ import { Wrapper, Title } from "./styled";
 
 export const Article = ({ title, people, movies, genreList }) => (
   <Wrapper>
-    <Title>{title}</Title>
-    <List people={people} movies={movies} genreList={genreList}/>
+    {title && <Title>{title}</Title>}
+    <List people={people} movies={movies} genreList={genreList} />
   </Wrapper>
 );

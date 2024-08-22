@@ -1,5 +1,5 @@
-import { toMovieList } from "../../../core/routes";
-import { ReactComponent as DangerIcon } from "../../../assets/danger.svg";
+import { toMovieList } from "../../../../../../core/routes";
+import { ReactComponent as DangerIcon } from "../../../../../../assets/danger.svg";
 import { Container, StyledHeader, StyledParagraph, StyledLink } from "./styled";
 
 export const ErrorPage = () => (

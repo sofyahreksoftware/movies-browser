@@ -12,11 +12,9 @@ import {
   selectGenreList,
 } from "./personDetailsSlice";
 
-import { LoadingPage } from "../../common/statusPages/LoadingPage";
-import { ErrorPage } from "../../common/statusPages/ErrorPage";
-import { Page } from "../../common/Page";
-import { Tile } from "../../common/Tile";
-import { Article } from "../../common/Article";
+import { Page } from "../../common/bothPageTypes/Page";
+import { Tile } from "../../common/bothPageTypes/Tile";
+import { Article } from "../../common/bothPageTypes/Article";
 
 const formatDate = (dateString) => {
   if (!dateString) return "";
@@ -28,7 +26,7 @@ export const PersonDetails = () => {
   const dispatch = useDispatch();
   const personId = useParams();
 
-  const fetchDataStatus = useSelector(selectStatus);
+  const status = useSelector(selectStatus);
   const credits = useSelector(selectPersonMovieCredits);
   const genreList = useSelector(selectGenreList);
   const person = useSelector(selectPersonDetails);
@@ -43,36 +41,32 @@ export const PersonDetails = () => {
 
   return (
     <section>
-      {fetchDataStatus === "loading" && <LoadingPage />}
-      {fetchDataStatus === "error" && <ErrorPage />}
-      {fetchDataStatus === "success" && (
-        <Page>
-          <Tile
-            $personDetailed
-            $detailed
-            poster={getImageUrl({
-              size: "/h632",
-              path: `/${person.profile_path}`,
-            })}
-            title={person.name}
-            dateOfBirth={formatDate(person.birthday)}
-            placeOfBirth={person.place_of_birth}
-            description={person.biography}
-          />
+      <Page status={status}>
+        <Tile
+          $personDetailed
+          $detailed
+          poster={getImageUrl({
+            size: "/h632",
+            path: `/${person.profile_path}`,
+          })}
+          title={person.name}
+          dateOfBirth={formatDate(person.birthday)}
+          placeOfBirth={person.place_of_birth}
+          description={person.biography}
+        />
 
-          <Article
-            title="Movies - cast"
-            movies={credits.cast}
-            genreList={genreList}
-          />
+        <Article
+          title="Movies - cast"
+          movies={credits.cast}
+          genreList={genreList}
+        />
 
-          <Article
-            title="Movies - crew"
-            movies={credits.crew}
-            genreList={genreList}
-          />
-        </Page>
-      )}
+        <Article
+          title="Movies - crew"
+          movies={credits.crew}
+          genreList={genreList}
+        />
+      </Page>
     </section>
   );
 };

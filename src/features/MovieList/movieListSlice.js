@@ -14,9 +14,9 @@ export const selectGenreList = (state) => selectMoviesState(state).genres;
 export const selectMovieList = (state) => selectMoviesState(state).movieList;
 
 export const selectMoviesPage = (state) =>
-  selectMovieList(state).movieList?.total_pages;
+  selectMovieList(state).total_pages;
 
 export const selectResult = (state) =>
-  selectMovieList(state).movieList?.total_results;
+  selectMovieList(state).total_results;
 
 export default movieListSlice.reducer;

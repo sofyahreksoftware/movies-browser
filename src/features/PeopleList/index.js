@@ -10,11 +10,8 @@ import {
   clearOnLeave,
 } from "./peopleListSlice";
 
-import { LoadingPage } from "../../common/statusPages/LoadingPage";
-import { ErrorPage } from "../../common/statusPages/ErrorPage";
-import { NoResultsPage } from "../../common/statusPages/NoResultsPage";
-import { Page } from "../../common/Page";
-import { Article } from "../../common/Article";
+import { Page } from "../../common/bothPageTypes/Page";
+import { Article } from "../../common/bothPageTypes/Article";
 import { Pagination } from "../../Pagination";
 
 import { useQueryParam } from "../../Navigation/queryParam";
@@ -29,10 +26,10 @@ export const PeopleList = () => {
 
   const page = useQueryParam(paginationParamName) || 1;
   const query = useQueryParam(searchQueryName) || "";
-  const totalResult = useSelector(selectResult);
+  const totalResults = useSelector(selectResult);
   const title =
     query !== ""
-      ? `Search results for "${query}" (${totalResult})`
+      ? `Search results for "${query}" (${totalResults})`
       : "Popular people";
 
   useEffect(() => {
@@ -51,20 +48,14 @@ export const PeopleList = () => {
     return () => {
       dispatch(clearOnLeave());
     };
-    
   }, [page, dispatch, query]);
 
   return (
     <main>
-      {status === "loading" && <LoadingPage title={query} />}
-      {totalResult === 0 && query !== "" && <NoResultsPage title={query} />}
-      {status === "error" && <ErrorPage />}
-      {status === "success" && totalResult !== 0 && (
-        <Page>
-          <Article title={title} people={peopleList} />
-          <Pagination />
-        </Page>
-      )}
+      <Page status={status} totalResults={totalResults} header={title}>
+        <Article people={peopleList} />
+        <Pagination />
+      </Page>
     </main>
   );
 };

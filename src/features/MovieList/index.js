@@ -9,13 +9,11 @@ import {
   selectGenreList,
   selectResult,
   clearOnLeave,
+  selectMoviesState,
 } from "./movieListSlice";
 
-import { LoadingPage } from "../../common/statusPages/LoadingPage";
-import { NoResultsPage } from "../../common/statusPages/NoResultsPage";
-import { ErrorPage } from "../../common/statusPages/ErrorPage";
-import { Page } from "../../common/Page";
-import { Article } from "../../common/Article";
+import { Page } from "../../common/bothPageTypes/Page";
+import { Article } from "../../common/bothPageTypes/Article";
 
 import { Pagination } from "../../Pagination";
 import { useQueryParam } from "../../Navigation/queryParam";
@@ -31,10 +29,10 @@ export const MovieList = () => {
 
   const page = useQueryParam(paginationParamName) || 1;
   const query = useQueryParam(searchQueryName) || "";
-  const totalResult = useSelector(selectResult);
+  const totalResults = useSelector(selectResult);
   const title =
     query !== ""
-      ? `Search results for "${query}" (${totalResult})`
+      ? `Search results for "${query}" (${totalResults})`
       : "Popular movies";
 
   useEffect(() => {
@@ -53,20 +51,14 @@ export const MovieList = () => {
     return () => {
       dispatch(clearOnLeave());
     };
-    
   }, [page, dispatch, query]);
 
   return (
     <main>
-      {status === "loading" && <LoadingPage title={query} />}
-      {totalResult === 0 && query !== "" && <NoResultsPage title={query} />}
-      {status === "error" && <ErrorPage />}
-      {status === "success" && totalResult !== 0 && (
-        <Page>
-          <Article title={title} movies={movieList} genreList={genreList} />
-          <Pagination />
-        </Page>
-      )}
+      <Page status={status} totalResults={totalResults} header={title}>
+        <Article movies={movieList} genreList={genreList} />
+        <Pagination />
+      </Page>
     </main>
   );
 };
