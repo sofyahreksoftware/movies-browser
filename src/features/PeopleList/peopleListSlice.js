@@ -1,4 +1,4 @@
-import { createListSlice } from "../../common/detailsPages/createListSlice";
+import { createListSlice } from "../../common/listPages/createListSlice";
 
 const peopleListSlice = createListSlice({ name: "peopleList" });
 
