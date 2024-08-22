@@ -55,7 +55,12 @@ export const MovieList = () => {
 
   return (
     <main>
-      <Page status={status} totalResults={totalResults} header={title}>
+      <Page
+        status={status}
+        totalResults={totalResults}
+        header={title}
+        query={query}
+      >
         <Article movies={movieList} genreList={genreList} />
         <Pagination />
       </Page>

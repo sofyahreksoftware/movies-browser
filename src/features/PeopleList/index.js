@@ -52,7 +52,12 @@ export const PeopleList = () => {
 
   return (
     <main>
-      <Page status={status} totalResults={totalResults} header={title}>
+      <Page
+        status={status}
+        totalResults={totalResults}
+        header={title}
+        query={query}
+      >
         <Article people={peopleList} />
         <Pagination />
       </Page>

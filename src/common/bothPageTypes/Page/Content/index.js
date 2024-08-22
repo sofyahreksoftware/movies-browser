@@ -2,7 +2,7 @@ import { LoadingPage } from "./statusPages/LoadingPage";
 import { ErrorPage } from "./statusPages//ErrorPage";
 import { NoResultsPage } from "./statusPages/NoResultsPage";
 
-export const Content = ({ status, totalResults, children }) => {
+export const Content = ({ status, totalResults, children, query }) => {
   switch (status) {
     case "loading":
       return <LoadingPage />;
@@ -12,7 +12,7 @@ export const Content = ({ status, totalResults, children }) => {
 
     case "success":
       if (totalResults === 0) {
-        return <NoResultsPage />;
+        return <NoResultsPage query={query} />;
       }
       return children;
 

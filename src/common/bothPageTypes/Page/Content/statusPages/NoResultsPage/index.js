@@ -1,8 +1,9 @@
-import { Container, Header, IconContainer, Image } from "./styled";
+import { Container, IconContainer, Image } from "./styled";
+import { Header } from "../../../../Header";
 
-export const NoResultsPage = ({ title }) => (
+export const NoResultsPage = ({ query }) => (
   <Container>
-    <Header>{title && <>Sorry, there are no results for "{title}"</>}</Header>
+    <Header as="h1">{query && `Sorry, there are no results for "${query}"`}</Header>
     <IconContainer>
       <Image />
     </IconContainer>
