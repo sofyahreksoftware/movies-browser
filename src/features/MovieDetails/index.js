@@ -55,7 +55,7 @@ export const MovieDetails = () => {
           description={movie?.overview}
         />
         <Article title="Cast" people={credits.cast} />
-        <Article title="Crew" people={credits.cast} />
+        <Article title="Crew" people={credits.crew} />
       </Page>
     </section>
   );
