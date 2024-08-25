@@ -1,31 +1,18 @@
-import { takeEvery, delay, put, call, takeLatest } from "redux-saga/effects";
+import { listSaga } from "../../common/listPages/listSaga";
 
 import { getPeopleList } from "./getPeopleListFromApi";
 import { getSearchData } from "../../common/api/getSearchData";
-import { fetch, fetchSearch, fetchSuccess, fetchError } from "./peopleListSlice";
-
-function* fetchPeopleListHandler({ payload: page }) {
-  try {
-    yield delay(1000);
-    const data = yield call(getPeopleList, page);
-    yield put(fetchSuccess({ data }));
-  } catch (error) {
-    yield put(fetchError());
-  }
-}
-
-function* fetchPeopleSearchHandler({ payload: options }) {
-  try {
-    yield delay(1000);
-    const { query, page, type } = options;
-    const data = yield call(getSearchData, query, page, type);
-    yield put(fetchSuccess({ data }));
-  } catch (error) {
-    yield put(fetchError());
-  }
-}
+import {
+  fetch,
+  fetchSearch,
+  fetchSuccess,
+  fetchError,
+} from "./peopleListSlice";
 
 export function* peopleSaga() {
-  yield takeEvery(fetch.type, fetchPeopleListHandler);
-  yield takeLatest(fetchSearch.type, fetchPeopleSearchHandler);
+  yield listSaga({
+    getList: getPeopleList,
+    getSearchData: getSearchData,
+    actions: { fetch, fetchSearch, fetchSuccess, fetchError },
+  });
 }
