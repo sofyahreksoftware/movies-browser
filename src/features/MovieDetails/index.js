@@ -20,7 +20,7 @@ import { Tile } from "../../common/bothPageTypes/Tile";
 import { Article } from "../../common/bothPageTypes/Article";
 
 export const MovieDetails = () => {
-  const movieId = useParams();
+  const { movieId } = useParams();
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -34,7 +34,6 @@ export const MovieDetails = () => {
   const status = useSelector(selectStatus);
   const movie = useSelector(selectMovieDetails);
   const credits = useSelector(selectCredits);
-
   return (
     <section>
       <Backdrop movie={movie} />
