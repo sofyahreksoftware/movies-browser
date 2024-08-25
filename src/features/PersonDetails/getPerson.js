@@ -1,6 +1,6 @@
 import { fetchFromApi } from "../../common/api/fetchFromApi";
 
-export const getPersonDetails = (personId) => {
+export const getPerson = (personId) => {
   return fetchFromApi({
     path: `/person/${personId}`,
   });
