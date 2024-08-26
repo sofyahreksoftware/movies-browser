@@ -49,9 +49,10 @@ export const MetaData = ({
 
     {genres && (
       <Genres $detailed={$detailed}>
-        {genres.map((genre) => (
-          <Genre key={nanoid()}>{genre?.name}</Genre>
-        ))}
+        {genres.map(
+          (genre) =>
+            genre !== undefined && <Genre key={nanoid()}>{genre?.name}</Genre>
+        )}
       </Genres>
     )}
     <RatingBox
