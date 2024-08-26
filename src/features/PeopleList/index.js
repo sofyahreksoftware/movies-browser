@@ -58,7 +58,7 @@ export const PeopleList = () => {
         header={title}
         query={query}
       >
-        <Article people={peopleList} />
+        <Article people={peopleList.results} />
         <Pagination />
       </Page>
     </main>

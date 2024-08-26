@@ -9,7 +9,6 @@ import {
   selectGenreList,
   selectResult,
   clearOnLeave,
-  selectMoviesState,
 } from "./movieListSlice";
 
 import { Page } from "../../common/bothPageTypes/Page";
@@ -61,7 +60,7 @@ export const MovieList = () => {
         header={title}
         query={query}
       >
-        <Article movies={movieList} genreList={genreList} />
+        <Article movies={movieList.results} genreList={genreList} />
         <Pagination />
       </Page>
     </main>

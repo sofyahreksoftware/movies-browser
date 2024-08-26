@@ -12,7 +12,7 @@ export const List = ({ people, movies, genreList }) => (
   <>
     {people && (
       <Wrapper $small>
-        {people.results?.map((person) => (
+        {people?.map((person) => (
           <Link to={toPersonDetails({ personId: person.id })} key={nanoid()}>
             <Item key={nanoid()}>
               <Tile
@@ -34,7 +34,7 @@ export const List = ({ people, movies, genreList }) => (
 
     {movies && (
       <Wrapper>
-        {movies.results?.map((movie) => (
+        {movies?.map((movie) => (
           <Link to={toMovieDetails({ movieId: movie.id })} key={nanoid()}>
             <Item key={nanoid()}>
               <Tile

@@ -24,7 +24,7 @@ const formatDate = (dateString) => {
 
 export const PersonDetails = () => {
   const dispatch = useDispatch();
-  const {personId} = useParams();
+  const { personId } = useParams();
 
   const status = useSelector(selectStatus);
   const credits = useSelector(selectPersonMovieCredits);

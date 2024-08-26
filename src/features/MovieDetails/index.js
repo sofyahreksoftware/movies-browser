@@ -34,6 +34,7 @@ export const MovieDetails = () => {
   const status = useSelector(selectStatus);
   const movie = useSelector(selectMovieDetails);
   const credits = useSelector(selectCredits);
+
   return (
     <section>
       <Backdrop movie={movie} />
