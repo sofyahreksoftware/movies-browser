@@ -9,8 +9,6 @@ export const selectMoviesState = (state) => state.movieList;
 
 export const selectStatus = (state) => selectMoviesState(state).status;
 
-export const selectGenreList = (state) => selectMoviesState(state).genres;
-
 export const selectMovieList = (state) => selectMoviesState(state).movieList;
 
 export const selectMoviesPage = (state) =>

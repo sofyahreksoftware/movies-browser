@@ -58,13 +58,13 @@ export const PersonDetails = () => {
         <Article
           title="Movies - cast"
           movies={credits.cast}
-          genreList={genreList}
+          // genreList={genreList}
         />
 
         <Article
           title="Movies - crew"
           movies={credits.crew}
-          genreList={genreList}
+          // genreList={genreList}
         />
       </Page>
     </section>
