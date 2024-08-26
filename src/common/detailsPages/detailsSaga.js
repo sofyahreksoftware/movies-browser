@@ -7,7 +7,7 @@ export function* detailsSaga({ getDetails, getCredits, getGenres, actions }) {
     try {
       const detailsData = yield call(getDetails, payload);
       const creditsData = yield call(getCredits, payload);
-      const genreList = yield call(getGenres, payload);
+      const genreList = getGenres ? yield call(getGenres, payload) : null;
       yield put(actions.fetchSuccess({ detailsData, creditsData, genreList }));
     } catch {
       yield put(actions.fetchError());

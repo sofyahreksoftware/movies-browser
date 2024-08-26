@@ -38,6 +38,7 @@ export const MovieDetails = () => {
   return (
     <section>
       <Backdrop movie={movie} />
+
       <Page status={status}>
         <Tile
           $detailed
