@@ -5,7 +5,6 @@ export const Wrapper = styled.article`
   grid-template-areas:
     "picture"
     "data";
-  grid-template-rows: 60vh auto;
   grid-template-columns: 1fr;
   gap: 16px 0;
   width: 100%;
@@ -24,6 +23,7 @@ export const Wrapper = styled.article`
   @media (max-width: ${({ theme }) => theme.media.mobile}px) {
     grid-template-areas: "picture data";
     grid-template-rows: 169px;
+    padding-top: unset;
     grid-template-columns: 114px auto;
     padding: 16px;
     gap: 0 16px;
@@ -68,7 +68,7 @@ export const Wrapper = styled.article`
       padding: 40px;
       border-radius: unset;
       transition: unset;
-      
+
       &:hover {
         transform: unset;
       }
@@ -94,6 +94,7 @@ export const Poster = styled.div`
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
+  padding-top: calc(100% * 434 / 292);
 
   ${({ $small }) =>
     $small &&
