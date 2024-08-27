@@ -4,7 +4,7 @@ import { MetaData } from "../../../common/bothPageTypes/Tile/MetaData";
 import { Background, Poster } from "./styled";
 
 export const Backdrop = ({ movie }) =>
-  movie && (
+  movie?.backdrop_path && (
     <>
       <Background />
       <Poster
