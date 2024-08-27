@@ -4,7 +4,7 @@ import movieListReducer from "../features/MovieList/movieListSlice";
 import peopleReducer from "../features/PeopleList/peopleListSlice";
 import personDetailsReducer from "../features/PersonDetails/personDetailsSlice";
 import movieDetailsReducer from "../features/MovieDetails/movieDetailsSlice";
-import genresReducer from "../common/bothPageTypes/genres/genresSlice";
+import genresReducer from "../common/genres/genresSlice";
 
 import rootSaga from "./rootSaga";
 

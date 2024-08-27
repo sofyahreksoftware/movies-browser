@@ -1,5 +1,5 @@
-import {fetchFromApi} from "../../api/fetchFromApi";
+import { fetchFromApi } from "../api/fetchFromApi";
 
 export const getGenres = () => {
-    return fetchFromApi({path: "/genre/movie/list"});
+  return fetchFromApi({ path: "/genre/movie/list" });
 };
