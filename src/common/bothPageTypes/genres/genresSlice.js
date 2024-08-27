@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 export const genresSlice = createSlice({
   name: "genresSlice",
-  initialState: { genres: null, status: "initial" },
+  initialState: { genres: [], status: "initial" },
   reducers: {
     fetchGenres: (state) => {
       state.status = "loading";
@@ -15,12 +15,12 @@ export const genresSlice = createSlice({
 
     fetchGenresError: (state) => {
       state.status = "error";
-      state.genres = null;
+      state.genres = [];
     },
 
     clearOnLeave: (state) => {
       state.status = "initial";
-      state.genres = null;
+      state.genres = [];
     },
   },
 });
