@@ -22,7 +22,10 @@ export const Tile = ({
   $detailed,
   $personDetailed,
 }) => {
-  const $noImage = !poster || poster === "https://image.tmdb.org/t/p/w342/null";
+  const $noImage =
+    !poster ||
+    poster === "https://image.tmdb.org/t/p/w342/null" ||
+    poster === "https://image.tmdb.org/t/p/h632/null";
 
   return (
     <>
@@ -34,7 +37,11 @@ export const Tile = ({
           $detailed={$detailed}
         >
           {$noImage &&
-            ($small ? <PlaceholderPersonIcon /> : <PlaceholderMovieIcon />)}
+            ($small || $personDetailed ? (
+              <PlaceholderPersonIcon />
+            ) : (
+              <PlaceholderMovieIcon />
+            ))}
         </Poster>
 
         <MetaData
