@@ -1,8 +1,10 @@
 import {takeLatest, call, put, delay} from "redux-saga/effects";
 
+import { demoDelay } from "../demoDelay";
+
 export function* listSaga({getList, getSearchData, actions}) {
     function* fetchListHandler({payload: page}) {
-        yield delay(1000);
+        yield delay(demoDelay);
 
         try {
             const data = yield call(getList, page);

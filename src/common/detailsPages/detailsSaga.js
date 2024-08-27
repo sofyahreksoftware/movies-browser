@@ -1,8 +1,10 @@
 import {takeLatest, call, put, delay} from "redux-saga/effects";
 
+import { demoDelay } from "../demoDelay";
+
 export function* detailsSaga({getDetails, getCredits, actions}) {
     function* fetchDetailsHandler({payload}) {
-        yield delay(2000);
+        yield delay(demoDelay);
 
         try {
             const detailsData = yield call(getDetails, payload);
