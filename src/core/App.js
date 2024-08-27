@@ -1,4 +1,14 @@
 import { HashRouter, Route, Routes, Navigate } from "react-router-dom";
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
+
+import {
+  fetchGenres,
+  clearOnLeave,
+} from "../common/bothPageTypes/genres/genresSlice";
+import { selectGenres } from "../common/bothPageTypes/genres/genresSlice";
+
 import {
   toMovieList,
   toMovieDetails,
@@ -13,20 +23,36 @@ import { PersonDetails } from "../features/PersonDetails";
 import { MovieDetails } from "../features/MovieDetails";
 
 const App = () => {
-  return (
-    <>
-      <HashRouter>
-        <Navigation />
-        <Routes>
-          <Route path={toMovieDetails()} element={<MovieDetails />} />
-          <Route path={toPersonDetails()} element={<PersonDetails />} />
-          <Route path={toMovieList()} element={<MovieList />} />
-          <Route path={toPeopleList()} element={<PeopleList />} />
+  const dispatch = useDispatch();
 
-          <Route path={catchAllPath()} element={<Navigate to="/movies" />} />
-        </Routes>
-      </HashRouter>
-    </>
+  useEffect(() => {
+    dispatch(fetchGenres());
+
+    return () => {
+      dispatch(clearOnLeave());
+    };
+  }, [dispatch]);
+
+  const genreList = useSelector(selectGenres);
+
+  return (
+    <HashRouter>
+      <Navigation />
+      <Routes>
+        <Route path={toMovieDetails()} element={<MovieDetails />} />
+        <Route
+          path={toPersonDetails()}
+          element={<PersonDetails genres={genreList?.genres} />}
+        />
+        <Route
+          path={toMovieList()}
+          element={<MovieList genres={genreList?.genres} />}
+        />
+        <Route path={toPeopleList()} element={<PeopleList />} />
+
+        <Route path={catchAllPath()} element={<Navigate to="/movies" />} />
+      </Routes>
+    </HashRouter>
   );
 };
 

@@ -14,6 +14,4 @@ export const selectPersonDetails = (state) => selectPersonDetailsState(state).de
 export const selectPersonMovieCredits = (state) =>
   selectPersonDetailsState(state).credits;
 
-export const selectGenreList = (state) => selectPersonDetailsState(state).genres;
-
 export default personDetailsSlice.reducer;

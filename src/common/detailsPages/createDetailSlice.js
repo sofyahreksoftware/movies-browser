@@ -1,34 +1,36 @@
-import { createSlice } from "@reduxjs/toolkit";
+import {createSlice} from "@reduxjs/toolkit";
 
-export const createDetailsSlice = ({ name }) => {
-  const slice = createSlice({
-    name,
-    initialState: { status: "initial", details: [], credits: [], genres: [] },
-    reducers: {
-      fetch: (state) => {
-        state.status = "loading";
-      },
+export const createDetailsSlice = ({name}) => {
+    const slice = createSlice({
+        name,
+        initialState: {
+            status: "initial",
+            details: [],
+            credits: [],
+        },
+        reducers: {
+            fetch: (state) => {
+                state.status = "loading";
+            },
 
-      fetchSuccess: (state, action) => {
-        state.status = "success";
-        state.details = action.payload.detailsData;
-        state.credits = action.payload.creditsData;
-        state.genres = action.payload.genreList;
-      },
+            fetchSuccess: (state, action) => {
+                state.status = "success";
+                state.details = action.payload.detailsData;
+                state.credits = action.payload.creditsData;
+            },
 
-      fetchError: (state) => {
-        state.status = "error";
-        state.details = null;
-      },
+            fetchError: (state) => {
+                state.status = "error";
+                state.details = [];
+            },
 
-      clearOnLeave: (state) => {
-        state.status = "initial";
-        state.details = [];
-        state.credits = [];
-        state.genres = [];
-      },
-    },
-  });
+            clearOnLeave: (state) => {
+                state.status = "initial";
+                state.details = [];
+                state.credits = [];
+            },
+        },
+    });
 
-  return slice;
+    return slice;
 };

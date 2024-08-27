@@ -9,7 +9,6 @@ import {
   selectStatus,
   selectPersonDetails,
   selectPersonMovieCredits,
-  selectGenreList,
 } from "./personDetailsSlice";
 
 import { Page } from "../../common/bothPageTypes/Page";
@@ -22,13 +21,12 @@ const formatDate = (dateString) => {
   return `${day}.${month}.${year}`;
 };
 
-export const PersonDetails = () => {
+export const PersonDetails = ({ genres }) => {
   const dispatch = useDispatch();
   const { personId } = useParams();
 
   const status = useSelector(selectStatus);
   const credits = useSelector(selectPersonMovieCredits);
-  const genreList = useSelector(selectGenreList);
   const person = useSelector(selectPersonDetails);
 
   useEffect(() => {
@@ -58,13 +56,13 @@ export const PersonDetails = () => {
         <Article
           title="Movies - cast"
           movies={credits.cast}
-          genreList={genreList}
+          genreList={genres}
         />
 
         <Article
           title="Movies - crew"
           movies={credits.crew}
-          genreList={genreList}
+          genreList={genres}
         />
       </Page>
     </section>
