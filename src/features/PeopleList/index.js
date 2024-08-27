@@ -29,7 +29,10 @@ export const PeopleList = () => {
   const totalResults = useSelector(selectResult);
   const title =
     query !== ""
-      ? `Search results for "${query}" (${totalResults})`
+      ? `Search results for "${query}" ${
+          totalResults !== undefined ? `(${totalResults})` : ""
+        }
+         `
       : "Popular people";
 
   useEffect(() => {
