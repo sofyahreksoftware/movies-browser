@@ -6,8 +6,8 @@ import { useSelector } from "react-redux";
 import {
   fetchGenres,
   clearOnLeave,
-} from "../common/bothPageTypes/genres/genresSlice";
-import { selectGenres } from "../common/bothPageTypes/genres/genresSlice";
+} from "../common/genres/genresSlice";
+import { selectGenres } from "../common/genres/genresSlice";
 
 import {
   toMovieList,
