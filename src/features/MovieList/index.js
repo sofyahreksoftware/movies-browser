@@ -23,10 +23,11 @@ export const MovieList = ({genres}) => {
 
     const status = useSelector(selectStatus);
     const movieList = useSelector(selectMovieList);
+    const totalResults = useSelector(selectResult);
 
     const page = useQueryParam(paginationParamName) || 1;
     const query = useQueryParam(searchQueryName) || "";
-    const totalResults = useSelector(selectResult);
+
     const title =
         query !== ""
             ? `Search results for "${query}" (${totalResults})`
@@ -58,10 +59,7 @@ export const MovieList = ({genres}) => {
                 header={title}
                 query={query}
             >
-                <Article
-                    movies={movieList.results}
-                    genreList={genres}
-                />
+                <Article movies={movieList.results} genreList={genres}/>
                 <Pagination/>
             </Page>
         </main>

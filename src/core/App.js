@@ -1,53 +1,59 @@
-import {HashRouter, Route, Routes, Navigate} from "react-router-dom";
-import {useEffect} from "react";
-import {useDispatch} from "react-redux";
-import {useSelector} from "react-redux";
+import { HashRouter, Route, Routes, Navigate } from "react-router-dom";
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 
 import {
-    fetchGenres,
-    clearOnLeave,
+  fetchGenres,
+  clearOnLeave,
 } from "../common/bothPageTypes/genres/genresSlice";
-import {selectGenres} from "../common/bothPageTypes/genres/genresSlice";
+import { selectGenres } from "../common/bothPageTypes/genres/genresSlice";
 
 import {
-    toMovieList,
-    toMovieDetails,
-    toPeopleList,
-    toPersonDetails,
-    catchAllPath,
+  toMovieList,
+  toMovieDetails,
+  toPeopleList,
+  toPersonDetails,
+  catchAllPath,
 } from "./routes";
-import {Navigation} from "../Navigation";
-import {MovieList} from "../features/MovieList";
-import {PeopleList} from "../features/PeopleList";
-import {PersonDetails} from "../features/PersonDetails";
-import {MovieDetails} from "../features/MovieDetails";
+import { Navigation } from "../Navigation";
+import { MovieList } from "../features/MovieList";
+import { PeopleList } from "../features/PeopleList";
+import { PersonDetails } from "../features/PersonDetails";
+import { MovieDetails } from "../features/MovieDetails";
 
 const App = () => {
-    const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
-    useEffect(() => {
-        dispatch(fetchGenres());
+  useEffect(() => {
+    dispatch(fetchGenres());
 
-        return () => {
-            dispatch(clearOnLeave());
-        };
-    }, [dispatch]);
+    return () => {
+      dispatch(clearOnLeave());
+    };
+  }, [dispatch]);
 
-    const genreList = useSelector(selectGenres);
+  const genreList = useSelector(selectGenres);
 
-    return (
-        <HashRouter>
-            <Navigation/>
-            <Routes>
-                <Route path={toMovieDetails()} element={<MovieDetails/>}/>
-                <Route path={toPersonDetails()} element={<PersonDetails genres={genreList?.genres}/>}/>
-                <Route path={toMovieList()} element={<MovieList genres={genreList?.genres}/>}/>
-                <Route path={toPeopleList()} element={<PeopleList/>}/>
+  return (
+    <HashRouter>
+      <Navigation />
+      <Routes>
+        <Route path={toMovieDetails()} element={<MovieDetails />} />
+        <Route
+          path={toPersonDetails()}
+          element={<PersonDetails genres={genreList?.genres} />}
+        />
+        <Route
+          path={toMovieList()}
+          element={<MovieList genres={genreList?.genres} />}
+        />
+        <Route path={toPeopleList()} element={<PeopleList />} />
 
-                <Route path={catchAllPath()} element={<Navigate to="/movies"/>}/>
-            </Routes>
-        </HashRouter>
-    );
+        <Route path={catchAllPath()} element={<Navigate to="/movies" />} />
+      </Routes>
+    </HashRouter>
+  );
 };
 
 export default App;
