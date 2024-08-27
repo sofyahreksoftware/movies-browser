@@ -58,8 +58,9 @@ export const MovieList = ({genres}) => {
                 header={title}
                 query={query}
             >
-                <Article movies={movieList.results}
-                         genreList={genres}
+                <Article
+                    movies={movieList.results}
+                    genreList={genres}
                 />
                 <Pagination/>
             </Page>

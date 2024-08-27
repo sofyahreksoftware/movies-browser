@@ -34,13 +34,13 @@ const App = () => {
     }, [dispatch]);
 
     const genreList = useSelector(selectGenres);
-    // console.log(genreList);
+
     return (
         <HashRouter>
             <Navigation/>
             <Routes>
                 <Route path={toMovieDetails()} element={<MovieDetails/>}/>
-                <Route path={toPersonDetails()} element={<PersonDetails/>}/>
+                <Route path={toPersonDetails()} element={<PersonDetails genres={genreList?.genres}/>}/>
                 <Route path={toMovieList()} element={<MovieList genres={genreList?.genres}/>}/>
                 <Route path={toPeopleList()} element={<PeopleList/>}/>
 

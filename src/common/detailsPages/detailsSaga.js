@@ -1,18 +1,17 @@
-import { takeLatest, call, put, delay } from "redux-saga/effects";
+import {takeLatest, call, put, delay} from "redux-saga/effects";
 
-export function* detailsSaga({ getDetails, getCredits, getGenres, actions }) {
-  function* fetchDetailsHandler({ payload }) {
-    yield delay(2000);
+export function* detailsSaga({getDetails, getCredits, actions}) {
+    function* fetchDetailsHandler({payload}) {
+        yield delay(2000);
 
-    try {
-      const detailsData = yield call(getDetails, payload);
-      const creditsData = yield call(getCredits, payload);
-      const genreList = getGenres ? yield call(getGenres, payload) : null;
-      yield put(actions.fetchSuccess({ detailsData, creditsData, genreList }));
-    } catch {
-      yield put(actions.fetchError());
+        try {
+            const detailsData = yield call(getDetails, payload);
+            const creditsData = yield call(getCredits, payload);
+            yield put(actions.fetchSuccess({detailsData, creditsData}));
+        } catch {
+            yield put(actions.fetchError());
+        }
     }
-  }
 
-  yield takeLatest(actions.fetch.type, fetchDetailsHandler);
+    yield takeLatest(actions.fetch.type, fetchDetailsHandler);
 }
