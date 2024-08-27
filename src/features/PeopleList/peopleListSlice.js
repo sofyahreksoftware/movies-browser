@@ -9,8 +9,6 @@ export const selectPeopleState = (state) => state.peopleList;
 
 export const selectStatus = (state) => selectPeopleState(state).status;
 
-export const selectGenreList = (state) => selectPeopleState(state).genres;
-
 export const selectPeopleList = (state) => selectPeopleState(state).peopleList;
 
 export const selectPeoplePage = (state) => selectPeopleList(state).total_pages;
