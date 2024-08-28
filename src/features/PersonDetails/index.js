@@ -37,7 +37,6 @@ export const PersonDetails = ({ genres }) => {
     };
   }, [dispatch, personId]);
 
-  console.log(credits?.crew?.length);
   return (
     <section>
       <Page status={status}>
