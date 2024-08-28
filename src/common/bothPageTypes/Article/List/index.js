@@ -44,9 +44,7 @@ export const List = ({ people, movies, genreList }) => (
                 })}
                 title={movie.title}
                 year={movie.release_date?.split("-")[0]}
-                genres={movie.genre_ids?.map((id) =>
-                  genreList?.find((genre) => genre.id === id)
-                )}
+                genres={movie.genre_ids?.map((id) => genreList[id])}
                 mark={movie.vote_average?.toFixed(1)}
                 votes={movie.vote_count}
                 character={movie.character}

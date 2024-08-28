@@ -1,5 +1,6 @@
 import { takeLatest, put, call } from "redux-saga/effects";
 
+import { convertGenresArrayToObject } from "./convertGenresArrayToObject";
 import {
   fetchGenres,
   fetchGenresSuccess,
@@ -9,7 +10,8 @@ import { getGenres } from "./getGenres";
 
 function* fetchGenresHandler() {
   try {
-    const genreList = yield call(getGenres);
+    const genres = yield call(getGenres);
+    const genreList = yield call(convertGenresArrayToObject, genres?.genres);
     yield put(fetchGenresSuccess({ genreList }));
   } catch {
     yield put(fetchGenresError());

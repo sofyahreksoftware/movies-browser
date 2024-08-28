@@ -3,10 +3,7 @@ import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 
-import {
-  fetchGenres,
-  clearOnLeave,
-} from "../common/genres/genresSlice";
+import { fetchGenres, clearOnLeave } from "../common/genres/genresSlice";
 import { selectGenres } from "../common/genres/genresSlice";
 
 import {
@@ -42,11 +39,11 @@ const App = () => {
         <Route path={toMovieDetails()} element={<MovieDetails />} />
         <Route
           path={toPersonDetails()}
-          element={<PersonDetails genres={genreList?.genres} />}
+          element={<PersonDetails genres={genreList} />}
         />
         <Route
           path={toMovieList()}
-          element={<MovieList genres={genreList?.genres} />}
+          element={<MovieList genres={genreList} />}
         />
         <Route path={toPeopleList()} element={<PeopleList />} />
 
