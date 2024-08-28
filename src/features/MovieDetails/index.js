@@ -55,8 +55,15 @@ export const MovieDetails = () => {
           votes={movie?.vote_count}
           description={movie?.overview}
         />
-        <Article title="Cast" people={credits.cast} />
-        <Article title="Crew" people={credits.crew} />
+        
+        {credits.cast.length !== 0 && (
+          <Article title="Cast" people={credits.cast} />
+        )}
+
+        {credits.crew.length !== 0 && (
+          <Article title="Crew" people={credits.crew} />
+        )}
+
       </Page>
     </section>
   );

@@ -37,6 +37,7 @@ export const PersonDetails = ({ genres }) => {
     };
   }, [dispatch, personId]);
 
+  console.log(credits?.crew?.length);
   return (
     <section>
       <Page status={status}>
@@ -53,17 +54,21 @@ export const PersonDetails = ({ genres }) => {
           description={person.biography}
         />
 
-        <Article
-          title="Movies - cast"
-          movies={credits.cast}
-          genreList={genres}
-        />
+        {credits?.cast?.length !== 0 && (
+          <Article
+            title="Movies - cast"
+            movies={credits.cast}
+            genreList={genres}
+          />
+        )}
 
-        <Article
-          title="Movies - crew"
-          movies={credits.crew}
-          genreList={genres}
-        />
+        {credits?.crew?.length !== 0 && (
+          <Article
+            title="Movies - crew"
+            movies={credits.crew}
+            genreList={genres}
+          />
+        )}
       </Page>
     </section>
   );
