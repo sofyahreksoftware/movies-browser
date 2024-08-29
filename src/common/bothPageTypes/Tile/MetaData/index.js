@@ -38,7 +38,6 @@ export const MetaData = ({
     )}
     {role && <Role>{role}</Role>}
     {year && <Year $detailed={$detailed}> {year}</Year>}
-
     <DetailedData
       productionPlaces={productionPlaces}
       releaseDate={releaseDate}
@@ -49,10 +48,9 @@ export const MetaData = ({
 
     {genres && (
       <Genres $detailed={$detailed}>
-        {genres.map(
-          (genre) =>
-            genre !== undefined && <Genre key={nanoid()}>{genre?.name}</Genre>
-        )}
+        {genres?.map((genre) => (
+          <Genre key={nanoid()}>{genre}</Genre>
+        ))}
       </Genres>
     )}
     <RatingBox
