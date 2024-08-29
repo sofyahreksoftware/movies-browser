@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import { useSelector } from "react-redux";
 
 import { getImageUrl } from "../../common/api/getImageUrl";
+import { convertGenresArrayToObject } from "../../common/genres/convertGenresArrayToObject";
 
 import {
   fetch,
@@ -35,6 +36,8 @@ export const MovieDetails = () => {
   const movie = useSelector(selectMovieDetails);
   const credits = useSelector(selectCredits);
 
+  const genreList = movie.genres && convertGenresArrayToObject(movie.genres);
+  console.log(genreList);
   return (
     <section>
       <Backdrop movie={movie} />
@@ -50,7 +53,7 @@ export const MovieDetails = () => {
           year={movie?.release_date?.split("-")[0]}
           productionPlaces={movie?.production_countries}
           releaseDate={movie?.release_date?.split("-").reverse().join(".")}
-          genres={movie?.genres}
+          // genres={convertGenresArrayToObject(movie?.genres)}
           mark={movie?.vote_average?.toFixed(1)}
           votes={movie?.vote_count}
           description={movie?.overview}
@@ -63,7 +66,6 @@ export const MovieDetails = () => {
         {credits.crew?.length !== 0 && (
           <Article title="Crew" people={credits.crew} />
         )}
-
       </Page>
     </section>
   );
