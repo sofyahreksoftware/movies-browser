@@ -36,8 +36,6 @@ export const MovieDetails = () => {
   const movie = useSelector(selectMovieDetails);
   const credits = useSelector(selectCredits);
 
-  const genreList = movie.genres && convertGenresArrayToObject(movie.genres);
-  console.log(genreList);
   return (
     <section>
       <Backdrop movie={movie} />
@@ -53,7 +51,7 @@ export const MovieDetails = () => {
           year={movie?.release_date?.split("-")[0]}
           productionPlaces={movie?.production_countries}
           releaseDate={movie?.release_date?.split("-").reverse().join(".")}
-          // genres={convertGenresArrayToObject(movie?.genres)}
+          genres={movie.genres?.map(({ name }) => name)}
           mark={movie?.vote_average?.toFixed(1)}
           votes={movie?.vote_count}
           description={movie?.overview}
