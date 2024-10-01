@@ -4,7 +4,6 @@ import { useEffect } from "react";
 import { useSelector } from "react-redux";
 
 import { getImageUrl } from "../../common/api/getImageUrl";
-import { convertGenresArrayToObject } from "../../common/genres/convertGenresArrayToObject";
 
 import {
   fetch,
