@@ -108,6 +108,7 @@ export const Poster = styled.div`
       background-color: ${({ theme }) => theme.colors.silver};
       padding-top: unset;
       width: 100%;
+      aspect-ratio: 292 / 434;
     `}
  
   ${({ $noImage, $small }) =>

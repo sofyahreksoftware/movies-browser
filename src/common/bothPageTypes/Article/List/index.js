@@ -38,9 +38,11 @@ export const List = ({ people, movies, genreList }) => (
           <Link to={toMovieDetails({ movieId: movie.id })} key={nanoid()}>
             <Item key={nanoid()}>
               <Tile
-                poster={getImageUrl({
-                  size: "/w342",
-                  path: `${movie.poster_path}`,
+                {...(movie.poster_path && {
+                  poster: getImageUrl({
+                    size: "/w342",
+                    path: `${movie.poster_path}`,
+                  }),
                 })}
                 title={movie.title}
                 year={movie.release_date?.split("-")[0]}
