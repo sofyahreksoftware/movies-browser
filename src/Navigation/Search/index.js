@@ -1,15 +1,16 @@
 import { useRef } from "react";
 import { useLocation, useNavigate } from "react-router";
 
-import searchQueryName from "../searchQueryName";
-import { useQueryParam, useReplaceQueryParam } from "../queryParam";
+import searchQueryName from "../../common/queries/searchQueryName";
+import { useQueryParameter } from "../../common/queries/useQueryParameter";
+import { useReplaceQueryParameter } from "../../common/queries/useReplaceGueryParameter";
 import { usePageButton } from "../../Pagination/usePageButton";
 import paginationParamName from "../../Pagination/paginationParamName";
 import { SearchBox, SearchIcon, SearchForm } from "./styled";
 
 export const Search = ({ placeholder }) => {
-  const query = useQueryParam(searchQueryName);
-  const replaceQueryParameter = useReplaceQueryParam();
+  const query = useQueryParameter(searchQueryName);
+  const replaceQueryParameter = useReplaceQueryParameter();
   const searchBarRef = useRef();
   const location = useLocation();
   const history = useNavigate();
