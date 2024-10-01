@@ -12,7 +12,6 @@ function* fetchGenresHandler() {
   try {
     const genres = yield call(getGenres);
     const genreList = yield call(convertGenresArrayToObject, genres?.genres);
-    // console.log(genreList);
     yield put(fetchGenresSuccess({ genreList }));
   } catch {
     yield put(fetchGenresError());
