@@ -24,9 +24,10 @@ export const usePageButton = () => {
   const [page, setPage] = useState(
     parseInt(useQueryParameter(paginationParamName)) || 1
   );
+  
   useEffect(() => {
     replaceQueryParameter({ key: paginationParamName, value: page });
-  }, [page, replaceQueryParameter]);
+  }, [page]);
 
   const setFirstPage = () => {
     setPage(1);
