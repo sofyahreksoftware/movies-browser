@@ -14,7 +14,6 @@ export const Search = ({ placeholder }) => {
   const searchBarRef = useRef();
   const location = useLocation();
   const history = useNavigate();
-  const { page, setFirstPage } = usePageButton();
 
   const onInputChange = ({ target }) => {
     replaceQueryParameter({
@@ -23,22 +22,11 @@ export const Search = ({ placeholder }) => {
     });
   };
 
-  const setPageToFirst = () => {
-    setFirstPage();
-    replaceQueryParameter({
-      key: paginationParamName,
-      value: page,
-    });
-  };
-
   const onFocus = () => {
     if (location.pathname.startsWith("/movies/")) {
       history("/movies");
-    } else if (location.pathname.startsWith("/people/")) {
-      history("/people");
-    } else {
-      setPageToFirst();
-    }
+    } else location.pathname.startsWith("/people/");
+    history("/people");
   };
 
   return (
