@@ -8,12 +8,13 @@ export const Wrapper = styled.div`
   justify-content: center;
   margin-top: 40px;
   margin-bottom: 100px;
+  white-space: nowrap;
 `;
 
 export const Button = styled.button`
   display: flex;
   align-items: center;
-  padding: 8px 12px;
+  padding: 8px 16px;
   margin-right: 12px;
   background-color: ${({ theme }) => theme.colors.pattensBlue};
   border: none;
@@ -30,6 +31,11 @@ export const Button = styled.button`
     background-color: ${({ theme }) => theme.colors.mystic};
     color: ${({ theme }) => theme.colors.woodSmoke};
     cursor: not-allowed;
+  }
+
+  @media (max-width: ${({ theme }) => theme.media.mobile}px) {
+    padding: 8px 12px;
+    margin-right: 8px;
   }
 `;
 
