@@ -3,7 +3,7 @@ import { selectMoviesPage } from "../features/MovieList/movieListSlice";
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router";
 
-import paginationParamName from "./paginationParamName";
+import paginationParamName from "../Pagination/paginationParamName";
 import { useQueryParameter } from "../common/queries/useQueryParameter";
 import { useReplaceQueryParameter } from "../common/queries/useReplaceGueryParameter";
 import { selectPeoplePage } from "../features/PeopleList/peopleListSlice";

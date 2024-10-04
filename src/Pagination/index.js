@@ -1,4 +1,4 @@
-import { usePageButton } from "./usePageButton";
+import { usePageButton } from "../Navigation/usePageButton";
 import {
   Button,
   ButtonText,
@@ -43,7 +43,7 @@ export const Pagination = () => {
         <ButtonText>Next</ButtonText>
         <ArrowIcon disabled={isLastPage} $toNextPage />
       </Button>
-      
+
       <Button onClick={setLastPage} disabled={isLastPage}>
         <ButtonText>Last</ButtonText>
         <ArrowIcon disabled={isLastPage} $toNextPage />

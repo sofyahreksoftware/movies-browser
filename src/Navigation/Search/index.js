@@ -4,7 +4,7 @@ import { useLocation, useNavigate } from "react-router";
 import searchQueryName from "../../common/queries/searchQueryName";
 import { useQueryParameter } from "../../common/queries/useQueryParameter";
 import { useReplaceQueryParameter } from "../../common/queries/useReplaceGueryParameter";
-import { usePageButton } from "../../Pagination/usePageButton";
+import { usePageButton } from "../usePageButton";
 import paginationParamName from "../../Pagination/paginationParamName";
 import { SearchBox, SearchIcon, SearchForm } from "./styled";
 
