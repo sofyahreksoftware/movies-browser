@@ -15,7 +15,7 @@ import { Article } from "../../common/bothPageTypes/Article";
 import { Pagination } from "../../Pagination";
 
 import { useQueryParameter } from "../../common/queries/useQueryParameter";
-import paginationParamName from "../../Pagination/paginationParamName";
+import paginationParamName from "../../common/queries/paginationParamName";
 import searchQueryName from "../../common/queries/searchQueryName";
 
 export const PeopleList = () => {
