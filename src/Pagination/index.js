@@ -1,4 +1,4 @@
-import { usePageButton } from "../Navigation/usePageButton";
+import { usePageButton } from "../common/queries/usePageButton";
 import {
   Button,
   ButtonText,

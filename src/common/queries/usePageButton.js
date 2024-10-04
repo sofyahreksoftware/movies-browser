@@ -1,12 +1,12 @@
 import { useSelector } from "react-redux";
-import { selectMoviesPage } from "../features/MovieList/movieListSlice";
+import { selectMoviesPage } from "../../features/MovieList/movieListSlice";
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router";
 
-import paginationParamName from "../Pagination/paginationParamName";
-import { useQueryParameter } from "../common/queries/useQueryParameter";
-import { useReplaceQueryParameter } from "../common/queries/useReplaceGueryParameter";
-import { selectPeoplePage } from "../features/PeopleList/peopleListSlice";
+import paginationParamName from "../../Pagination/paginationParamName";
+import { useQueryParameter } from "./useQueryParameter";
+import { useReplaceQueryParameter } from "./useReplaceGueryParameter";
+import { selectPeoplePage } from "../../features/PeopleList/peopleListSlice";
 
 export const usePageButton = () => {
   const location = useLocation();
