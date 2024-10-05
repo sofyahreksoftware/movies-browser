@@ -1,4 +1,4 @@
-import { usePageButton } from "./usePageButton";
+import { usePageButton } from "../common/queries/usePageButton";
 import {
   Button,
   ButtonText,
@@ -28,18 +28,22 @@ export const Pagination = () => {
         <ArrowIcon disabled={isFirstPage} />
         <ButtonText>First</ButtonText>
       </Button>
+
       <Button onClick={setPreviousPage} disabled={isFirstPage}>
         <ArrowIcon disabled={isFirstPage} />
         <ButtonText>Previous</ButtonText>
       </Button>
+
       <PageCounter>
         Page <PageNumbers>{page}</PageNumbers> of{" "}
         <PageNumbers>{totalPages}</PageNumbers>
       </PageCounter>
+
       <Button onClick={setNextPage} disabled={isLastPage}>
         <ButtonText>Next</ButtonText>
         <ArrowIcon disabled={isLastPage} $toNextPage />
       </Button>
+
       <Button onClick={setLastPage} disabled={isLastPage}>
         <ButtonText>Last</ButtonText>
         <ArrowIcon disabled={isLastPage} $toNextPage />

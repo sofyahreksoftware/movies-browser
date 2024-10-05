@@ -7,7 +7,6 @@ import {
   LogoLink,
   LogoTyp,
   NavigationBar,
-  NavigationItem,
   NavigationList,
   StyledNavLink,
   Sygnet,
@@ -29,12 +28,12 @@ export const Navigation = () => {
             <LogoTyp>Movies&nbsp;Browser</LogoTyp>
           </LogoLink>
           <NavigationList>
-            <NavigationItem>
+            <li>
               <StyledNavLink to={toMovieList()}>Movies</StyledNavLink>
-            </NavigationItem>
-            <NavigationItem>
+            </li>
+            <li>
               <StyledNavLink to={toPeopleList()}>People</StyledNavLink>
-            </NavigationItem>
+            </li>
           </NavigationList>
         </Container>
         <Search placeholder={placeholder} />

@@ -1,15 +1,16 @@
 import { useSelector } from "react-redux";
-import { selectMoviesPage } from "../features/MovieList/movieListSlice";
+import { selectMoviesPage } from "../../features/MovieList/movieListSlice";
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router";
 
 import paginationParamName from "./paginationParamName";
-import { useQueryParam, useReplaceQueryParam } from "../Navigation/queryParam";
-import { selectPeoplePage } from "../features/PeopleList/peopleListSlice";
+import { useQueryParameter } from "./useQueryParameter";
+import { useReplaceQueryParameter } from "./useReplaceGueryParameter";
+import { selectPeoplePage } from "../../features/PeopleList/peopleListSlice";
 
 export const usePageButton = () => {
   const location = useLocation();
-  const replaceQueryParameter = useReplaceQueryParam();
+  const replaceQueryParameter = useReplaceQueryParameter();
 
   const moviePageFromStore = useSelector(selectMoviesPage);
   const peoplePageFormStore = useSelector(selectPeoplePage);
@@ -21,9 +22,9 @@ export const usePageButton = () => {
   const totalPages = totalPagesFromStore > 500 ? 500 : totalPagesFromStore;
 
   const [page, setPage] = useState(
-    parseInt(useQueryParam(paginationParamName)) || 1
+    parseInt(useQueryParameter(paginationParamName)) || 1
   );
-
+  
   useEffect(() => {
     replaceQueryParameter({ key: paginationParamName, value: page });
   }, [page]);

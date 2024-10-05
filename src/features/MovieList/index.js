@@ -14,9 +14,9 @@ import { Page } from "../../common/bothPageTypes/Page";
 import { Article } from "../../common/bothPageTypes/Article";
 
 import { Pagination } from "../../Pagination";
-import { useQueryParam } from "../../Navigation/queryParam";
-import paginationParamName from "../../Pagination/paginationParamName";
-import searchQueryName from "../../Navigation/searchQueryName";
+import { useQueryParameter } from "../../common/queries/useQueryParameter";
+import paginationParamName from "../../common/queries/paginationParamName";
+import searchQueryName from "../../common/queries/searchQueryName";
 
 export const MovieList = ({ genres }) => {
   const dispatch = useDispatch();
@@ -25,8 +25,8 @@ export const MovieList = ({ genres }) => {
   const movieList = useSelector(selectMovieList);
   const totalResults = useSelector(selectResult);
 
-  const page = useQueryParam(paginationParamName) || 1;
-  const query = useQueryParam(searchQueryName) || "";
+  const page = useQueryParameter(paginationParamName) || 1;
+  const query = useQueryParameter(searchQueryName) || "";
 
   const title =
     query !== ""

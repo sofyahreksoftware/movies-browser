@@ -17,7 +17,7 @@ export const Wrapper = styled.div`
   height: 100%;
   max-width: 1368px;
   margin: auto;
-  padding: 0 24px 0 24px;
+  padding: 0 24px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -26,7 +26,7 @@ export const Wrapper = styled.div`
     flex-direction: column;
     justify-content: center;
     gap: 24px;
-    padding: 0 16px 0 16px;
+    padding: 0 16px;
   }
 `;
 
@@ -53,8 +53,6 @@ export const NavigationList = styled.ul`
   }
 `;
 
-export const NavigationItem = styled.li``;
-
 export const StyledNavLink = styled(NavLink)`
   text-transform: uppercase;
   color: ${({ theme }) => theme.colors.white};
@@ -63,12 +61,12 @@ export const StyledNavLink = styled(NavLink)`
   line-height: 1.5;
   vertical-align: middle;
   text-decoration: none;
-  padding: 8px 24px 8px 24px;
+  padding: 8px 24px;
   border-radius: 24px;
 
   @media (max-width: ${({ theme }) => theme.media.mobile}px) {
     font-size: 12px;
-    padding: 8px 12px 8px 12px;
+    padding: 8px 12px;
     border-radius: 29px;
   }
 

@@ -1,13 +1,8 @@
 import { useLocation, useNavigate } from "react-router";
 
-export const useQueryParam = (key) => {
+export const useReplaceQueryParameter = () => {
   const location = useLocation();
-  return new URLSearchParams(location.search).get(key);
-};
-
-export const useReplaceQueryParam = () => {
-  const location = useLocation();
-  const navigation = useNavigate();
+  const navigate = useNavigate();
 
   return ({ key, value }) => {
     const searchParam = new URLSearchParams(location.search);
@@ -16,6 +11,6 @@ export const useReplaceQueryParam = () => {
     } else {
       searchParam.set(key, value);
     }
-    navigation(`${location.pathname}?${searchParam.toString()}`);
+    navigate(`${location.pathname}?${searchParam.toString()}`);
   };
 };

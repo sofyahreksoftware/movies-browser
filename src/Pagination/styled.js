@@ -8,12 +8,13 @@ export const Wrapper = styled.div`
   justify-content: center;
   margin-top: 40px;
   margin-bottom: 100px;
+  white-space: nowrap;
 `;
 
 export const Button = styled.button`
   display: flex;
   align-items: center;
-  padding: 8px 12px;
+  padding: 8px 16px;
   margin-right: 12px;
   background-color: ${({ theme }) => theme.colors.pattensBlue};
   border: none;
@@ -33,6 +34,7 @@ export const Button = styled.button`
   }
 
   @media (max-width: ${({ theme }) => theme.media.mobile}px) {
+    padding: 8px 12px;
     margin-right: 8px;
   }
 `;
@@ -45,10 +47,6 @@ export const ArrowIcon = styled(Arrow)`
     color: ${({ theme }) => theme.colors.waterloo};
   }
 
-  @media (max-width: ${({ theme }) => theme.media.mobile}px) {
-    display: block;
-  }
-
   ${({ $toNextPage }) =>
     $toNextPage &&
     css`
@@ -57,7 +55,7 @@ export const ArrowIcon = styled(Arrow)`
 `;
 
 export const ButtonText = styled.p`
-  margin: 0 4px 0 4px;
+  margin: 0 4px;
 
   @media (max-width: ${({ theme }) => theme.media.mobile}px) {
     display: none;
@@ -68,26 +66,17 @@ export const PageCounter = styled.div`
   margin: 0 24px 0 16px;
   color: ${({ theme }) => theme.colors.waterloo};
   font-size: 16px;
-  line-height: 150%;
+  line-height: 1.5;
 
   @media (max-width: ${({ theme }) => theme.media.mobile}px) {
     font-size: 10px;
-    line-height: 24px;
-    margin: 0 8px 0 8px;
+    line-height: 2.4;
+    margin: 0 8px;
   }
 `;
 
 export const PageNumbers = styled.span`
-  margin: 0 8px 0 8px;
+  margin: 0 8px;
   color: ${({ theme }) => theme.colors.woodSmoke};
   font-weight: 600;
-  font-size: 16px;
-  line-height: 150%;
-
-  @media (max-width: ${({ theme }) => theme.media.mobile}) {
-    font-weight: 600;
-    font-size: 10px;
-    line-height: 24px;
-    margin: 0 8px 0 8px;
-  }
 `;
