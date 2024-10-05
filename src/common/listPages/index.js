@@ -59,7 +59,12 @@ function List({
         header={title}
         query={query}
       >
-        <Article movies={list.results} genreList={genres} />
+        <Article
+          {...(entityName === "movies"
+            ? { movies: list.results }
+            : { people: list.results })}
+          genreList={genres}
+        />
         <Pagination />
       </Page>
     </main>
