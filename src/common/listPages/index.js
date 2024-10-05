@@ -1,11 +1,13 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Page } from "../../common/bothPageTypes/Page";
-import { Article } from "../../common/bothPageTypes/Article";
-import { Pagination } from "../../Pagination";
+
 import { useQueryParameter } from "../../common/queries/useQueryParameter";
 import paginationParamName from "../../common/queries/paginationParamName";
 import searchQueryName from "../../common/queries/searchQueryName";
+
+import { Page } from "../../common/bothPageTypes/Page";
+import { Article } from "../../common/bothPageTypes/Article";
+import { Pagination } from "../../Pagination";
 
 function List({
   fetch,
