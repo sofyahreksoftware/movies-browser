@@ -9,17 +9,15 @@ import {
   clearOnLeave,
 } from "./movieListSlice";
 
-export const MovieList = ({ genres }) => {
-  return (
-    <List
-      fetch={fetch}
-      fetchSearch={fetchSearch}
-      selectStatus={selectStatus}
-      selectList={selectMovieList}
-      selectResult={selectResult}
-      clearOnLeave={clearOnLeave}
-      genres={genres}
-      entityName={"movies"}
-    />
-  );
-};
+export const MovieList = ({ genres }) => (
+  <List
+    fetch={fetch}
+    fetchSearch={fetchSearch}
+    selectStatus={selectStatus}
+    selectList={selectMovieList}
+    selectResult={selectResult}
+    clearOnLeave={clearOnLeave}
+    genres={genres}
+    entityName={"movies"}
+  />
+);
