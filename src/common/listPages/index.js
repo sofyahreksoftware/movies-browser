@@ -39,7 +39,7 @@ function List({
     const options = {
       query: query,
       page: page,
-      type: "movie",
+      type: entityName === "movies" ? "movie" : "person",
     };
 
     if (query) {
