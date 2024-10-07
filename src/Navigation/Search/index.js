@@ -23,8 +23,9 @@ export const Search = ({ placeholder }) => {
   const onFocus = () => {
     if (location.pathname.startsWith("/movies/")) {
       history("/movies");
-    } else location.pathname.startsWith("/people/");
-    history("/people");
+    } else if (location.pathname.startsWith("/people/")) {
+      history("/people");
+    }
   };
 
   return (
