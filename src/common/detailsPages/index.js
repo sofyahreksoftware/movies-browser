@@ -37,7 +37,6 @@ function Details({
     return `${day}.${month}.${year}`;
   };
 
-  // Ensure cast and crew are arrays
   const cast = Array.isArray(credits.cast) ? credits.cast : [];
   const crew = Array.isArray(credits.crew) ? credits.crew : [];
 
