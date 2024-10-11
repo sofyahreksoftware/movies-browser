@@ -6,14 +6,15 @@
 
 ## Description
 
-Our **Movies Browser** offers access to _500 pages of popular movies and people_, with 20 movie/person tiles on each page.
-Each **Movie tile** _links to a movie page_.
-**The movie pages** _include comprehensive information about movies_ such as production location, release date, vote count, rating out of 10, and a description. Additionally, there are sections for the cast and crew, each composed of **tiles** that _link to individual person pages_.
-**The person pages** include information about the date and place of birth, a short autobiography, a list of films in which the person has appeared either in the cast or as part of the crew.
-We also have on our page a **list of persons** related to cinematography, also composed of **tiles** that _link to individual person pages_.
-A top-level **navigation menu** enables users to _switch between the movie list and the person list_.
-A dedicated **search engine** to _search for movies on the movie list movies on the movie list page and persons on the person list page_.
-A bottom-level **pagination** enables _moving between pages of movie list or person list_.
+Movies Browser is your gateway to the world of films and filmmakers. Explore thousands of movies and details about cast and crew through our easy-to-navigate site. Features include:
+
+- **Movie Browsing:** Discover new popular films by release date, rating, vote count, and more.
+- **Detailed Information:** Each movie page offers details on production locations, release dates, cast and crew.
+- **People Browsing:** Search and browse pages for actors and creators, featuring birthdates, biographies, and filmographies.
+- **Search Engine:** Easily find movies and people.
+- **Easy Navigation:** Navigate through lists with our intuitive menu and pagination.
+
+Visit us to experience the best available database of movies and movie-related personnel!
 
 ## Key Features in Action
 
