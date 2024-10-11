@@ -16,15 +16,13 @@ Movies Browser is your gateway to the world of films and filmmakers. Explore tho
 
 Visit us to experience the best available database of movies and movie-related personnel!
 
-## Key Features in Action
+## Visual Overview of Features
 
-![Movie List](src/assets/movieList.gif)
-![People List](src/assets/peopleList.gif)
-![Movie Page](src/assets/moviePage.gif)
-![Person Page](src/assets/personPage.gif)
-![Navigation](src/assets/navigation.gif)
-![Pagintion](src/assets/pagination.gif)
-![Search](src/assets/search.gif)
+![Movie List](./src/assets/movieList.png)
+![People List](./src/assets/peopleList.png)
+![Movie Page](./src/assets/moviePage.png)
+![PersonPage](./src/assets/personPage.png)
+
 
 ## Technologies
 
