@@ -36,7 +36,11 @@ function Details({
     const [year, month, day] = dateString.split("-");
     return `${day}.${month}.${year}`;
   };
-  console.log(details);
+
+  // Ensure cast and crew are arrays
+  const cast = Array.isArray(credits.cast) ? credits.cast : [];
+  const crew = Array.isArray(credits.crew) ? credits.crew : [];
+
   return (
     <section>
       <Page status={status}>
@@ -69,34 +73,33 @@ function Details({
           })}
         />
 
-        {credits.cast?.length !== 0 && (
+        {cast.length !== 0 && (
           <Article
             {...(entityType === "movie" && {
               title: "Cast",
-              people: credits.cast,
+              people: cast,
             })}
             {...(entityType === "person" && {
               title: "Movies - cast",
-              movies: credits.cast,
+              movies: cast,
               genreList: genres,
             })}
           />
         )}
 
-        {credits.crew?.length !== 0 &&
-          ({
-            ...(entityType === "movie" && {
+        {crew.length !== 0 && (
+          <Article
+            {...(entityType === "movie" && {
               title: "Crew",
-              people: credits.crew,
-            }),
-          },
-          {
-            ...(entityType === "person" && {
+              people: crew,
+            })}
+            {...(entityType === "person" && {
               title: "Movies - crew",
-              movies: credits.crew,
+              movies: crew,
               genreList: genres,
-            }),
-          })}
+            })}
+          />
+        )}
       </Page>
     </section>
   );

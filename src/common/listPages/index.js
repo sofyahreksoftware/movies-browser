@@ -51,7 +51,7 @@ function List({
     return () => {
       dispatch(clearOnLeave());
     };
-  }, [page, dispatch, query, clearOnLeave, fetch, fetchSearch]);
+  }, [page, dispatch, query, clearOnLeave, fetch, fetchSearch, entityName]);
 
   return (
     <main>
