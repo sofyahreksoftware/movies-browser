@@ -60,6 +60,7 @@ export const Wrapper = styled.article`
         "picture data"
         "picture description";
       grid-template-rows: unset;
+      grid-template-columns: auto 1fr;
       position: unset;
       max-width: 1368px;
       gap: 16px 40px;
@@ -123,6 +124,7 @@ export const Poster = styled.div`
       width: 314px;
       height: 464px;
       margin: unset;
+      padding-top: unset;
 
       @media (max-width: ${({ theme }) => theme.media.mobile}px) {
         width: 114px;
