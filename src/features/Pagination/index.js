@@ -1,4 +1,4 @@
-import { usePageButton } from "../common/queries/usePageButton";
+import { usePageButton } from "../../common/queries/usePageButton";
 import {
   Button,
   ButtonText,

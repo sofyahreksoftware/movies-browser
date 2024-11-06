@@ -7,7 +7,7 @@ import searchQueryName from "../../common/queries/searchQueryName";
 
 import { Page } from "../../common/bothPageTypes/Page";
 import { Article } from "../../common/bothPageTypes/Article";
-import { Pagination } from "../../Pagination";
+import { Pagination } from "../../features/Pagination";
 
 function List({
   fetch,

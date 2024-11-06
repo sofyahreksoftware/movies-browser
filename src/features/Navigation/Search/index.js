@@ -1,9 +1,9 @@
 import { useRef } from "react";
 import { useLocation, useNavigate } from "react-router";
 
-import searchQueryName from "../../common/queries/searchQueryName";
-import { useQueryParameter } from "../../common/queries/useQueryParameter";
-import { useReplaceQueryParameter } from "../../common/queries/useReplaceGueryParameter";
+import searchQueryName from "../../../common/queries/searchQueryName";
+import { useQueryParameter } from "../../../common/queries/useQueryParameter";
+import { useReplaceQueryParameter } from "../../../common/queries/useReplaceGueryParameter";
 import { SearchBox, SearchIcon, SearchForm } from "./styled";
 
 export const Search = ({ placeholder }) => {

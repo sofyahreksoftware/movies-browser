@@ -1,7 +1,8 @@
+import styled from "styled-components";
 import { Link, NavLink } from "react-router-dom";
 
-import { ReactComponent as Logo } from "../assets/Logo.svg";
-import styled from "styled-components";
+import { ReactComponent as Logo } from "../../assets/Logo.svg";
+
 
 export const NavigationBar = styled.nav`
   width: 100%;

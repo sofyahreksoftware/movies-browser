@@ -1,6 +1,6 @@
 import { useLocation } from "react-router";
 
-import { toMovieList, toPeopleList } from "../core/routes";
+import { toMovieList, toPeopleList } from "../../core/routes";
 import { Search } from "./Search";
 import {
   Container,

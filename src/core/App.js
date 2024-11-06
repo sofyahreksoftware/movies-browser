@@ -13,7 +13,7 @@ import {
   toPersonDetails,
   catchAllPath,
 } from "./routes";
-import { Navigation } from "../Navigation";
+import { Navigation } from "../features/Navigation";
 import { MovieList } from "../features/MovieList";
 import { PeopleList } from "../features/PeopleList";
 import { PersonDetails } from "../features/PersonDetails";

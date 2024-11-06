@@ -1,6 +1,6 @@
 import styled, { css } from "styled-components";
 
-import { ReactComponent as Arrow } from "../assets/arrowIcon.svg";
+import { ReactComponent as Arrow } from "../../assets/arrowIcon.svg";
 
 export const Wrapper = styled.div`
   display: flex;
