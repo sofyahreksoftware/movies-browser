@@ -43,15 +43,18 @@ interface Person {
   profile_path: string;
 }
 
+type Movies = Movie[];
+type People = Person[];
+
 interface MovieArticleProps {
   title: string;
-  movies: Movie[];
+  movies: Movies;
   genreList: Genres;
 }
 
 interface PersonArticleProps {
   title: string;
-  people: Person[];
+  people: People;
 }
 
 type ArticleProps = XOR<MovieArticleProps, PersonArticleProps>;
