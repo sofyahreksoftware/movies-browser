@@ -19,4 +19,4 @@ export const theme = {
     pattensBlue2: "#acc6fa",
     woodSmoke: "#18181B",
   },
-};
+} as const;
