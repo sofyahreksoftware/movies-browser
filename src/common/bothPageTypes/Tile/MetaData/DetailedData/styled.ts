@@ -1,5 +1,8 @@
 import styled, { css } from "styled-components";
 
+import { PersonDetailedProp } from "../../styledTypes";
+
+
 export const Detail = styled.dl`
   margin: 0 0 8px;
   display: flex;
@@ -16,7 +19,7 @@ export const Detail = styled.dl`
   }
 `;
 
-export const DetailLabel = styled.dt`
+export const DetailLabel = styled.dt<PersonDetailedProp>`
   color: ${({ theme }) => theme.colors.stormGray};
   white-space: nowrap;
 

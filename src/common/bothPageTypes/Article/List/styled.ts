@@ -1,6 +1,6 @@
 import styled, { css } from "styled-components";
 
-export const Wrapper = styled.ul`
+export const Wrapper = styled.ul<{ $small: boolean }>`
   list-style: none;
   padding: 0;
   margin: 0;

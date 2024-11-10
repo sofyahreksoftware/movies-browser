@@ -1,6 +1,8 @@
 import styled, { css } from "styled-components";
 
-export const Wrapper = styled.div`
+import { DetailedProp, TitleProps, WrapperExtendedProps } from "../styledTypes";
+
+export const Wrapper = styled.div<WrapperExtendedProps>`
   grid-area: data;
 
   ${({ $detailed }) =>
@@ -30,7 +32,7 @@ export const Wrapper = styled.div`
     `};
 `;
 
-export const Title = styled.h2`
+export const Title = styled.h2<TitleProps>`
   font-weight: 500;
   font-size: 22px;
   line-height: 1.3;
@@ -87,7 +89,7 @@ export const Title = styled.h2`
     `};
 `;
 
-export const Year = styled.span`
+export const Year = styled.span<DetailedProp>`
   font-size: 16px;
   line-height: 1.5;
   margin: 8px 0 0;
@@ -126,7 +128,7 @@ export const Role = styled(Year)`
   }
 `;
 
-export const Genres = styled.ul`
+export const Genres = styled.ul<DetailedProp>`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;

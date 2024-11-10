@@ -1,6 +1,8 @@
 import styled, { css } from "styled-components";
 
-export const Wrapper = styled.article`
+import { WrapperProps, PosterProps } from "./styledTypes";
+
+export const Wrapper = styled.article<WrapperProps>`
   display: grid;
   grid-template-areas:
     "picture"
@@ -83,7 +85,7 @@ export const Wrapper = styled.article`
     `}
 `;
 
-export const Poster = styled.div`
+export const Poster = styled.div<PosterProps>`
   grid-area: picture;
   margin: 0 auto;
   width: 100%;
@@ -113,7 +115,8 @@ export const Poster = styled.div`
     `}
  
   ${({ $noImage, $small }) =>
-    ($noImage, $small) &&
+    $noImage &&
+    $small &&
     css`
       aspect-ratio: 120 / 178;
     `}
