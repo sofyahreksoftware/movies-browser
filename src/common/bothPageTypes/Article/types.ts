@@ -4,52 +4,45 @@ interface Genres {
   [key: number]: string;
 }
 
-interface Movie {
-  adult: false;
+export interface Movie {
   backdrop_path: string;
   character: string;
-  credit_id: string;
   genre_ids: number[];
   id: number;
-  order: number;
-  original_language: string;
   original_title: string;
   overview: string;
-  popularity: number;
   poster_path: string;
-  release_date: string;
+  release_date: string; // from API
+  releaseDate: string; // optional alias for vote_average
+  year: number;
   title: string;
-  video: string;
-  vote_average: number;
+  vote_average: number; // from API
+  mark?: number; // optional alias for vote_average
   vote_count: number;
+  votes: number;
+  productionPlaces: string;
+  genres: Genres;
 }
 
-interface Person {
-  adult: boolean;
-  gender: number;
-  id: number;
-  credit_id: string;
-  department: string;
+export interface Person {
+  id: string;
   job: string;
-  known_for_department: string;
-  name: string;
-  original_name: string;
-  popularity: number;
   profile_path: string;
+  character: string;
+  dateOfBirth: string;
+  placeOfBirth: string;
 }
 
 type Movies = Movie[];
 type People = Person[];
 
- export interface MovieProps {
-  title: string;
+export interface MovieProps {
+  title?: string;
   movies: Movies;
   genreList: Genres;
 }
 
 export interface PeopleProps {
-  title: string;
+  title?: string;
   people: People;
 }
-
-

@@ -4,9 +4,25 @@ import { DetailedData } from "./DetailedData";
 import { RatingBox } from "./RatingBox";
 import { Wrapper, Title, Year, Role, Genres, Genre } from "./styled";
 
+import {
+  SmallProp,
+  DetailedProp,
+  PersonDetailedProp,
+  BackdropProp,
+} from "../styledTypes";
+
+import { Movie, Person } from "../../Article/types";
+
+type MetaDataProps = SmallProp &
+  DetailedProp &
+  PersonDetailedProp &
+  BackdropProp &
+  Movie &
+  Person;
+
 export const MetaData = ({
   title,
-  role,
+  character,
   year,
   productionPlaces,
   releaseDate,
@@ -19,7 +35,7 @@ export const MetaData = ({
   $detailed,
   $personDetailed,
   $backdrop,
-}) => (
+}: MetaDataProps) => (
   <Wrapper
     $detailed={$detailed}
     $personDetailed={$personDetailed}
@@ -27,7 +43,7 @@ export const MetaData = ({
   >
     {title && (
       <Title
-        as={($personDetailed || $backdrop) && "h1"}
+        as={$personDetailed || $backdrop ? "h1" : undefined}
         $small={$small}
         $detailed={$detailed}
         $personDetailed={$personDetailed}
@@ -36,7 +52,7 @@ export const MetaData = ({
         {title}
       </Title>
     )}
-    {role && <Role>{role}</Role>}
+    {character && <Role>{character}</Role>}
     {year && <Year $detailed={$detailed}> {year}</Year>}
     <DetailedData
       productionPlaces={productionPlaces}
@@ -46,9 +62,9 @@ export const MetaData = ({
       $personDetailed={$personDetailed}
     />
 
-    {genres && (
+    {Array.isArray(genres) && genres.length > 0 && (
       <Genres $detailed={$detailed}>
-        {genres?.map((genre) => (
+        {genres?.map((genre: string) => (
           <Genre key={nanoid()}>{genre}</Genre>
         ))}
       </Genres>
