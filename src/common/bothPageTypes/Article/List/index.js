@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { nanoid } from "@reduxjs/toolkit";
 
-import { getImageUrl } from "../../../../common/api/getImageUrl";
+import { getImageUrl } from "../../../api/getImageUrl";
 import { toPersonDetails, toMovieDetails } from "../../../../core/routes";
 
 import { Tile } from "../../Tile";
@@ -24,7 +24,7 @@ export const List = ({ people, movies, genreList }) => (
                   }),
                 })}
                 title={person.name}
-                role={person.character}
+                character={person.character}
               />
             </Item>
           </Link>

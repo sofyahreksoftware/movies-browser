@@ -5,10 +5,11 @@ import { Wrapper, Poster } from "./styled";
 import { MetaData } from "./MetaData";
 import { Description } from "./Description";
 
+
 export const Tile = ({
   poster,
   title,
-  role,
+  character,
   year,
   productionPlaces,
   releaseDate,
@@ -46,7 +47,7 @@ export const Tile = ({
 
         <MetaData
           title={title}
-          role={role}
+          character={character}
           year={year}
           productionPlaces={productionPlaces}
           releaseDate={releaseDate}
