@@ -1,8 +1,8 @@
 import styled, { css } from "styled-components";
 
-import { WrapperProps, PosterProps } from "./styledTypes";
+import { SmallProp, DetailedProp, NoImageProp, UrlProp } from "./styledTypes";
 
-export const Wrapper = styled.article<WrapperProps>`
+export const Wrapper = styled.article<SmallProp & DetailedProp>`
   display: grid;
   grid-template-areas:
     "picture"
@@ -85,7 +85,9 @@ export const Wrapper = styled.article<WrapperProps>`
     `}
 `;
 
-export const Poster = styled.div<PosterProps>`
+export const Poster = styled.div<
+  SmallProp & NoImageProp & UrlProp & DetailedProp
+>`
   grid-area: picture;
   margin: 0 auto;
   width: 100%;

@@ -1,9 +1,9 @@
 import styled, { css } from "styled-components";
 
 import { ReactComponent as Star } from "../../../../../assets/starIcon.svg";
-import { WrapperExtendedProps, BackdropProp, VotesProps } from "../../styledTypes";
+import { DetailedProp, HiddenProp, BackdropProp } from "../../styledTypes";
 
-export const Wrapper = styled.div<WrapperExtendedProps>`
+export const Wrapper = styled.div<DetailedProp & BackdropProp>`
   display: flex;
   flex-wrap: wrap;
   bottom: 16px;
@@ -31,7 +31,7 @@ export const Wrapper = styled.div<WrapperExtendedProps>`
     `}
 `;
 
-export const StarIcon = styled(Star)<BackdropProp>`
+export const StarIcon = styled(Star)<BackdropProp & HiddenProp>`
   height: auto;
 
   @media (max-width: ${({ theme }) => theme.media.mobile}px) {
@@ -94,7 +94,7 @@ export const MaxRating = styled.b<BackdropProp>`
     `}
 `;
 
-export const TotalVotes = styled.b<VotesProps>`
+export const TotalVotes = styled.b<DetailedProp & BackdropProp>`
   font-weight: 400;
   font-size: 16px;
   line-height: 1.5;
