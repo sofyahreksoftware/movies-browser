@@ -1,8 +1,15 @@
 import styled, { css } from "styled-components";
 
-import { SmallProp, BackdropProp, DetailedProp, PersonDetailedProp } from "../styledTypes";
+import {
+  SmallProp,
+  BackdropProp,
+  DetailedProp,
+  PersonDetailedProp,
+} from "../styledTypes";
 
-export const Wrapper = styled.div<DetailedProp & PersonDetailedProp & BackdropProp>`
+export const Wrapper = styled.div<
+  DetailedProp & PersonDetailedProp & BackdropProp
+>`
   grid-area: data;
 
   ${({ $detailed }) =>
@@ -32,7 +39,9 @@ export const Wrapper = styled.div<DetailedProp & PersonDetailedProp & BackdropPr
     `};
 `;
 
-export const Title = styled.h2<SmallProp & DetailedProp & PersonDetailedProp & BackdropProp>`
+export const Title = styled.h2<
+  SmallProp & DetailedProp & PersonDetailedProp & BackdropProp
+>`
   font-weight: 500;
   font-size: 22px;
   line-height: 1.3;
@@ -164,4 +173,3 @@ export const Genre = styled.li`
     line-height: 1.1;
   }
 `;
- 
