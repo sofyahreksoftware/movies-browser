@@ -1,9 +1,11 @@
+export type PersonDetailed = boolean | null;
+
 export interface DetailedProp {
   $detailed?: boolean;
 }
 
 export interface PersonDetailedProp {
-  $personDetailed?: boolean;
+  $personDetailed?: PersonDetailed;
 }
 
 export interface BackdropProp {

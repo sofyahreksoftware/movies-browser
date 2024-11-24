@@ -1,8 +1,14 @@
 export type XOR<T, U> = (T & Partial<U>) | (U & Partial<T>);
 
-interface Genres {
+export type ReleaseDateProp = string;
+export type DateOfBirthProp = string;
+export type PlaceOfBirthProp = string;
+export type ProductionPlace = { index: number; name: string };
+export type ProductionPlaces = ProductionPlace[];
+
+type Genres = {
   [key: number]: string;
-}
+};
 
 export interface Movie {
   backdrop_path: string;
@@ -13,14 +19,14 @@ export interface Movie {
   overview: string;
   poster_path: string;
   release_date: string; // from API
-  releaseDate: string; // optional alias for vote_average
+  releaseDate: ReleaseDateProp; // optional alias for vote_average
   year: number;
   title: string;
   vote_average: number; // from API
   mark?: number; // optional alias for vote_average
   vote_count: number;
   votes: number;
-  productionPlaces: string;
+  productionPlaces: ProductionPlaces;
   genres: Genres;
 }
 
@@ -29,8 +35,8 @@ export interface Person {
   job: string;
   profile_path: string;
   character: string;
-  dateOfBirth: string;
-  placeOfBirth: string;
+  dateOfBirth: DateOfBirthProp;
+  placeOfBirth: PlaceOfBirthProp;
 }
 
 type Movies = Movie[];
