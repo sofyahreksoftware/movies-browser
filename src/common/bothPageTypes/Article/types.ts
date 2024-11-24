@@ -18,7 +18,7 @@ export interface Movie {
   original_title: string;
   overview: string;
   poster_path: string;
-  release_date: string; // from API
+  release_date: ReleaseDateProp; // from API
   releaseDate: ReleaseDateProp; // optional alias for vote_average
   year: number;
   title: string;

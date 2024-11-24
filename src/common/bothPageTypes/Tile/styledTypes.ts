@@ -1,29 +1,29 @@
 export type PersonDetailed = boolean | null;
 
-export interface DetailedProp {
+export type DetailedProp = {
   $detailed?: boolean;
-}
+};
 
-export interface PersonDetailedProp {
+export type PersonDetailedProp = {
   $personDetailed?: PersonDetailed;
-}
+};
 
-export interface BackdropProp {
+export type BackdropProp = {
   $backdrop?: boolean;
-}
+};
 
-export interface HiddenProp {
+export type HiddenProp = {
   hidden: boolean;
-}
+};
 
-export interface SmallProp {
+export type SmallProp = {
   $small?: boolean;
-}
+};
 
-export interface NoImageProp {
+export type NoImageProp = {
   $noImage?: boolean;
-}
+};
 
-export interface UrlProp {
+export type UrlProp = {
   url?: string;
-}
+};
