@@ -47,7 +47,7 @@ export const DetailedData = ({
 
     {dateOfBirth && (
       <Detail>
-        <DetailLabel $personDetailed={$personDetailed as boolean | null}>
+        <DetailLabel $personDetailed={$personDetailed}>
           Date of birth:
         </DetailLabel>
         <DetailValue>{dateOfBirth}</DetailValue>
@@ -55,7 +55,7 @@ export const DetailedData = ({
     )}
     {placeOfBirth && (
       <Detail>
-        <DetailLabel $personDetailed={$personDetailed as boolean | null}>
+        <DetailLabel $personDetailed={$personDetailed}>
           Place of birth:
         </DetailLabel>
         <DetailValue>{placeOfBirth}</DetailValue>
