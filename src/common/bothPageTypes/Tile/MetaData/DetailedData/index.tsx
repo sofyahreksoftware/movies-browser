@@ -1,13 +1,13 @@
 import { Detail, DetailLabel, DetailValue } from "./styled";
 
-import { PersonDetailed } from "../../styledTypes";
+import { PersonDetailed } from "../../../styledTypes";
 import {
   ReleaseDateProp,
   DateOfBirthProp,
   PlaceOfBirthProp,
   ProductionPlace,
   ProductionPlaces,
-} from "../../../Article/types";
+} from "../../../types";
 
 interface DetailedDataProps {
   productionPlaces: ProductionPlaces;

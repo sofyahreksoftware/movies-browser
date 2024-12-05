@@ -14,8 +14,8 @@ import {
   MarkProp,
   VoteAverageProp,
   OverviewProp,
-} from "../Article/types";
-import { SmallProp, DetailedProp, PersonDetailed } from "./styledTypes";
+} from "../types";
+import { SmallProp, DetailedProp, PersonDetailed } from "../styledTypes";
 import { Wrapper, Poster } from "./styled";
 import { MetaData } from "./MetaData";
 import { Description } from "./Description";

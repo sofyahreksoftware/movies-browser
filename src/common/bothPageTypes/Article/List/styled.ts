@@ -1,6 +1,6 @@
 import styled, { css } from "styled-components";
 
-import { SmallProp } from "../../Tile/styledTypes";
+import { SmallProp } from "../../styledTypes";
 
 export const Wrapper = styled.ul<SmallProp>`
   list-style: none;

@@ -1,6 +1,6 @@
 import styled, { css } from "styled-components";
 
-import { PersonDetailedProp } from "../../styledTypes";
+import { PersonDetailedProp } from "../../../styledTypes";
 
 
 export const Detail = styled.dl`

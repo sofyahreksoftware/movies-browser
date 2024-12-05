@@ -5,7 +5,7 @@ import {
   BackdropProp,
   DetailedProp,
   PersonDetailedProp,
-} from "../styledTypes";
+} from "../../styledTypes";
 
 export const Wrapper = styled.div<
   DetailedProp & PersonDetailedProp & BackdropProp

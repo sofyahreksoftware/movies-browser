@@ -9,7 +9,7 @@ import {
   DetailedProp,
   PersonDetailedProp,
   BackdropProp,
-} from "../styledTypes";
+} from "../../styledTypes";
 
 import {
   NameTitleProp,
@@ -22,7 +22,7 @@ import {
   Genres as GenreProps, //to avoid conflict with Genres Styled Component
   MarkProp,
   VoteAverageProp,
-} from "../../Article/types";
+} from "../../types";
 
 interface MetaDataProps {
   title: NameTitleProp;

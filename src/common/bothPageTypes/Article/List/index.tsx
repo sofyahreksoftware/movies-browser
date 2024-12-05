@@ -3,7 +3,7 @@ import { nanoid } from "@reduxjs/toolkit";
 
 import { getImageUrl } from "../../../api/getImageUrl";
 import { toPersonDetails, toMovieDetails } from "../../../../core/routes";
-import { XOR, MovieProps, PeopleProps, Person, Movie } from "../types";
+import { XOR, MovieProps, PeopleProps, Person, Movie } from "../../types";
 
 import { Tile } from "../../Tile";
 

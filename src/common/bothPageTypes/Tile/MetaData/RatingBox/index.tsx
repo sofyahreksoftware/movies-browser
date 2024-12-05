@@ -1,12 +1,12 @@
 import { Wrapper, StarIcon, Rating, MaxRating, TotalVotes } from "./styled";
 
-import { VoteAverageProp, MarkProp } from "../../../Article/types";
+import { VoteAverageProp, MarkProp } from "../../../types";
 import {
   SmallProp,
   DetailedProp,
   PersonDetailedProp,
   BackdropProp,
-} from "../../styledTypes";
+} from "../../../styledTypes";
 
 interface RatingBoxProps {
   votes?: VoteAverageProp;

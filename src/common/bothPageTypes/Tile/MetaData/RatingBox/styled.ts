@@ -1,7 +1,7 @@
 import styled, { css } from "styled-components";
 
 import { ReactComponent as Star } from "../../../../../assets/starIcon.svg";
-import { DetailedProp, HiddenProp, BackdropProp } from "../../styledTypes";
+import { DetailedProp, HiddenProp, BackdropProp } from "../../../styledTypes";
 
 export const Wrapper = styled.div<DetailedProp & BackdropProp>`
   display: flex;

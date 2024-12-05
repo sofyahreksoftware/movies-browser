@@ -1,6 +1,6 @@
 import styled, { css } from "styled-components";
 
-import { SmallProp, DetailedProp, NoImageProp, UrlProp } from "./styledTypes";
+import { SmallProp, DetailedProp, NoImageProp, UrlProp } from "../styledTypes";
 
 export const Wrapper = styled.article<SmallProp & DetailedProp>`
   display: grid;
