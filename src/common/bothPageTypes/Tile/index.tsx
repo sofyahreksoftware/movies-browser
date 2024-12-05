@@ -1,10 +1,40 @@
 import { ReactComponent as PlaceholderPersonIcon } from "../../../assets/placeholderActorIcon.svg";
 import { ReactComponent as PlaceholderMovieIcon } from "../../../assets/placeholderMovieIcon.svg";
 
+import {
+  PathProp,
+  NameTitleProp,
+  CharacterProp,
+  ReleaseDateProp,
+  ProductionPlaces,
+  DateOfBirthProp,
+  PlaceOfBirthProp,
+  YearProp,
+  Genres,
+  MarkProp,
+  VoteAverageProp,
+  OverviewProp,
+} from "../Article/types";
+import { SmallProp, DetailedProp, PersonDetailed } from "./styledTypes";
 import { Wrapper, Poster } from "./styled";
 import { MetaData } from "./MetaData";
 import { Description } from "./Description";
 
+interface TileProps {
+  poster: PathProp;
+  title: NameTitleProp;
+  character?: CharacterProp;
+  year?: YearProp;
+  releaseDate?: ReleaseDateProp;
+  productionPlaces?: ProductionPlaces;
+  dateOfBirth?: DateOfBirthProp;
+  placeOfBirth?: PlaceOfBirthProp;
+  genres?: Genres;
+  mark?: MarkProp;
+  votes?: VoteAverageProp;
+  description?: OverviewProp;
+  $personDetailed?: PersonDetailed;
+}
 
 export const Tile = ({
   poster,
@@ -22,7 +52,7 @@ export const Tile = ({
   $small,
   $detailed,
   $personDetailed,
-}) => {
+}: TileProps & SmallProp & DetailedProp) => {
   const $noImage =
     !poster ||
     poster === "https://image.tmdb.org/t/p/w342/null" ||

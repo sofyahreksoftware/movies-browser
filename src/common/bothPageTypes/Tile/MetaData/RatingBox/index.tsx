@@ -1,5 +1,6 @@
 import { Wrapper, StarIcon, Rating, MaxRating, TotalVotes } from "./styled";
 
+import { VoteAverageProp, MarkProp } from "../../../Article/types";
 import {
   SmallProp,
   DetailedProp,
@@ -7,20 +8,10 @@ import {
   BackdropProp,
 } from "../../styledTypes";
 
-interface VotesProp {
-  votes: number;
+interface RatingBoxProps {
+  votes?: VoteAverageProp;
+  mark?: MarkProp;
 }
-
-interface MarkProp {
-  mark?: number;
-}
-
-type RatingBoxProps = SmallProp &
-  DetailedProp &
-  PersonDetailedProp &
-  BackdropProp &
-  VotesProp &
-  MarkProp;
 
 export const RatingBox = ({
   $small,
@@ -29,7 +20,11 @@ export const RatingBox = ({
   $backdrop,
   mark,
   votes,
-}: RatingBoxProps & MarkProp) => {
+}: SmallProp &
+  DetailedProp &
+  PersonDetailedProp &
+  BackdropProp &
+  RatingBoxProps) => {
   const shouldDisplay = !$small && !$personDetailed;
 
   return (

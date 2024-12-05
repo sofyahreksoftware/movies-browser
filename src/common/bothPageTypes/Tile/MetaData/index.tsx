@@ -11,14 +11,31 @@ import {
   BackdropProp,
 } from "../styledTypes";
 
-import { Movie, Person } from "../../Article/types";
+import {
+  NameTitleProp,
+  CharacterProp,
+  ReleaseDateProp,
+  ProductionPlaces,
+  DateOfBirthProp,
+  PlaceOfBirthProp,
+  YearProp,
+  Genres as GenreProps, //to avoid conflict with Genres Styled Component
+  MarkProp,
+  VoteAverageProp,
+} from "../../Article/types";
 
-type MetaDataProps = SmallProp &
-  DetailedProp &
-  PersonDetailedProp &
-  BackdropProp &
-  Movie &
-  Person;
+interface MetaDataProps {
+  title: NameTitleProp;
+  character: CharacterProp;
+  year: YearProp;
+  productionPlaces?: ProductionPlaces;
+  releaseDate: ReleaseDateProp;
+  dateOfBirth: DateOfBirthProp;
+  placeOfBirth: PlaceOfBirthProp;
+  genres?: GenreProps;
+  mark?: MarkProp;
+  votes?: VoteAverageProp;
+}
 
 export const MetaData = ({
   title,
@@ -35,7 +52,11 @@ export const MetaData = ({
   $detailed,
   $personDetailed,
   $backdrop,
-}: MetaDataProps) => (
+}: MetaDataProps &
+  SmallProp &
+  DetailedProp &
+  PersonDetailedProp &
+  BackdropProp) => (
   <Wrapper
     $detailed={$detailed}
     $personDetailed={$personDetailed}
@@ -64,7 +85,7 @@ export const MetaData = ({
 
     {Array.isArray(genres) && genres.length > 0 && (
       <Genres $detailed={$detailed}>
-        {genres?.map((genre: string) => (
+        {genres.map((genre: string) => (
           <Genre key={nanoid()}>{genre}</Genre>
         ))}
       </Genres>
