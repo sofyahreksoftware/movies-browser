@@ -1,4 +1,6 @@
-export type PersonDetailed = boolean | null;
+export type PersonDetailed = {
+  $personDetailed?: boolean;
+};
 
 export type DetailedProp = {
   $detailed?: boolean;
