@@ -7,7 +7,7 @@ interface LoadingPageProps {
 
 export const LoadingPage = ({ header }: LoadingPageProps) => (
   <Container>
-    <Header>{header && `Search results for "${header}"`}</Header>
+    {header && <Header>{`Search results for "${header}"`}</Header>}
     <IconContainer>
       <Icon />
     </IconContainer>
