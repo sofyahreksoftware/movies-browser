@@ -1,6 +1,6 @@
 import { Wrapper, StarIcon, Rating, MaxRating, TotalVotes } from "./styled";
 
-import { VoteAverageProp, MarkProp } from "../../../types";
+import { VoteAverageProp, MarkProp } from "../../../moviePersonTypes";
 import {
   SmallProp,
   DetailedProp,

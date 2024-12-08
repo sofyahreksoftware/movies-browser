@@ -22,7 +22,7 @@ import {
   Genres as GenreProps, //to avoid conflict with Genres Styled Component
   MarkProp,
   VoteAverageProp,
-} from "../../types";
+} from "../../moviePersonTypes";
 
 interface MetaDataProps {
   title: NameTitleProp;

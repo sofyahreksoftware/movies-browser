@@ -7,7 +7,7 @@ import {
   PlaceOfBirthProp,
   ProductionPlace,
   ProductionPlaces,
-} from "../../../types";
+} from "../../../moviePersonTypes";
 
 interface DetailedDataProps {
   productionPlaces: ProductionPlaces;

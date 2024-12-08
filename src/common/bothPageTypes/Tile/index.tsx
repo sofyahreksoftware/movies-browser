@@ -14,7 +14,7 @@ import {
   MarkProp,
   VoteAverageProp,
   OverviewProp,
-} from "../types";
+} from "../moviePersonTypes";
 import { SmallProp, DetailedProp, PersonDetailed } from "../styledTypes";
 import { Wrapper, Poster } from "./styled";
 import { MetaData } from "./MetaData";
