@@ -1,6 +1,6 @@
 import { List } from "./List";
 
-import { XOR, MovieProps, PeopleProps } from "../types";
+import { XOR, MovieProps, PeopleProps } from "../moviePersonTypes";
 import { Wrapper } from "./styled";
 import { Header } from "../Header";
 
