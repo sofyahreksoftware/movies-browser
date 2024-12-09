@@ -91,7 +91,7 @@ export const Tile = ({
           $personDetailed={$personDetailed}
         />
 
-        <Description description={description} />
+        {description && <Description description={description} />}
       </Wrapper>
     </>
   );
