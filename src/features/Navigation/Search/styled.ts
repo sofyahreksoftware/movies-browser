@@ -16,7 +16,7 @@ export const SearchBox = styled.div`
   }
 `;
 
-export const SearchForm = styled.input`
+export const SearchInput = styled.input`
   width: 80%;
   height: 100%;
   font-size: 16px;

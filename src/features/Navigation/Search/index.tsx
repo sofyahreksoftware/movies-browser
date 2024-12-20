@@ -4,7 +4,7 @@ import { useLocation, useNavigate } from "react-router";
 import searchQueryName from "../../../common/queries/searchQueryName";
 import { useQueryParameter } from "../../../common/queries/useQueryParameter";
 import { useReplaceQueryParameter } from "../../../common/queries/useReplaceGueryParameter";
-import { SearchBox, SearchIcon, SearchForm } from "./styled";
+import { SearchBox, SearchIcon, SearchInput } from "./styled";
 
 interface SearchProps {
   placeholder: string;
@@ -35,7 +35,7 @@ export const Search = ({ placeholder }: SearchProps) => {
   return (
     <SearchBox>
       <SearchIcon />
-      <SearchForm
+      <SearchInput
         ref={searchBarRef}
         placeholder={placeholder}
         value={query || ""}
