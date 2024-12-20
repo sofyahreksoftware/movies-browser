@@ -9,7 +9,7 @@ export const Background = styled.div`
   margin: 0;
 `;
 
-export const Poster = styled.div`
+export const Poster = styled.div<{ backdrop: string }>`
   width: 100%;
   height: 770px;
   position: relative;
