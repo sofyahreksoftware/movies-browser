@@ -19,7 +19,7 @@ export const Button = styled.button`
   background-color: ${({ theme }) => theme.colors.pattensBlue};
   border: none;
   border-radius: 5px;
-  color: ${({ theme }) => theme.colors.mineShaft};
+  color: ${({ theme }) => theme.colors.cornflowerBlue};
   transition: background-color 0.5s;
   cursor: pointer;
 
@@ -39,7 +39,10 @@ export const Button = styled.button`
   }
 `;
 
-export const ArrowIcon = styled(Arrow)`
+export const ArrowIcon = styled(Arrow)<{
+  $toNextPage?: boolean;
+  disabled?: boolean;
+}>`
   margin: 0 2px 0 4px;
   color: ${({ theme }) => theme.colors.cornflowerBlue};
 

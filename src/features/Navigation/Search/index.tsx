@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { ChangeEvent, useRef } from "react";
 import { useLocation, useNavigate } from "react-router";
 
 import searchQueryName from "../../../common/queries/searchQueryName";
@@ -6,14 +6,18 @@ import { useQueryParameter } from "../../../common/queries/useQueryParameter";
 import { useReplaceQueryParameter } from "../../../common/queries/useReplaceGueryParameter";
 import { SearchBox, SearchIcon, SearchForm } from "./styled";
 
-export const Search = ({ placeholder }) => {
+interface SearchProps {
+  placeholder: string;
+}
+
+export const Search = ({ placeholder }: SearchProps) => {
   const query = useQueryParameter(searchQueryName);
   const replaceQueryParameter = useReplaceQueryParameter();
-  const searchBarRef = useRef();
+  const searchBarRef = useRef<HTMLInputElement>(null);
   const location = useLocation();
   const history = useNavigate();
 
-  const onInputChange = ({ target }) => {
+  const onInputChange = ({ target }: ChangeEvent<HTMLInputElement>) => {
     replaceQueryParameter({
       key: searchQueryName,
       value: target.value.trim() !== "" ? target.value : "",
@@ -37,6 +41,7 @@ export const Search = ({ placeholder }) => {
         value={query || ""}
         onChange={onInputChange}
         onFocus={onFocus}
+        as="input"
       />
     </SearchBox>
   );
