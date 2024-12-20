@@ -26,12 +26,12 @@ import {
 
 interface MetaDataProps {
   title: NameTitleProp;
-  character: CharacterProp;
-  year: YearProp;
+  character?: CharacterProp;
+  year?: YearProp;
   productionPlaces?: ProductionPlaces;
-  releaseDate: ReleaseDateProp;
-  dateOfBirth: DateOfBirthProp;
-  placeOfBirth: PlaceOfBirthProp;
+  releaseDate?: ReleaseDateProp;
+  dateOfBirth?: DateOfBirthProp;
+  placeOfBirth?: PlaceOfBirthProp;
   genres?: GenreProps;
   mark?: MarkProp;
   votes?: VoteAverageProp;
