@@ -3,7 +3,13 @@ import { nanoid } from "@reduxjs/toolkit";
 
 import { getImageUrl } from "../../../api/getImageUrl";
 import { toPersonDetails, toMovieDetails } from "../../../../core/routes";
-import { XOR, MovieProps, PeopleProps, Person, Movie } from "../../moviePersonTypes";
+import {
+  XOR,
+  MovieProps,
+  PeopleProps,
+  Person,
+  Movie,
+} from "../../moviePersonTypes";
 
 import { Tile } from "../../Tile";
 
@@ -48,7 +54,7 @@ export const List = ({ people, movies, genreList }: ListProps) => (
                 genres={movie.genre_ids?.map(
                   (id) => genreList && genreList[id]
                 )}
-                mark={movie.vote_average?.toFixed(1)}
+                mark={Number(movie.vote_average?.toFixed(1))}
                 votes={movie.vote_count}
                 character={movie.character}
               />
