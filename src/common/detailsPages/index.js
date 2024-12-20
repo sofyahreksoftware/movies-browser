@@ -6,6 +6,7 @@ import { getImageUrl } from "../../common/api/getImageUrl";
 import { Page } from "../../common/bothPageTypes/Page";
 import { Tile } from "../../common/bothPageTypes/Tile";
 import { Article } from "../../common/bothPageTypes/Article";
+import { Backdrop } from "../../features/MovieDetails/Backdrop";
 
 function Details({
   fetch,
@@ -42,6 +43,7 @@ function Details({
 
   return (
     <section>
+      {entityType === "person" && <Backdrop movie={details} />}
       <Page status={status}>
         <Tile
           $detailed
@@ -71,7 +73,6 @@ function Details({
             description: details?.overview,
           })}
         />
-
         {cast.length !== 0 && (
           <Article
             {...(entityType === "movie" && {
@@ -85,7 +86,6 @@ function Details({
             })}
           />
         )}
-
         {crew.length !== 0 && (
           <Article
             {...(entityType === "movie" && {
