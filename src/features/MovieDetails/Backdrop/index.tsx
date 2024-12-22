@@ -8,27 +8,23 @@ interface BackDropProps {
   movie: Movie;
 }
 
-export const Backdrop = ({ movie }: BackDropProps) => {
-  console.log(movie.vote_average);
-  return (
-    movie?.backdrop_path && (
-      <>
-        <Background />
-        <Poster
-          backdrop={getImageUrl({
-            size: "/w1280",
-            path: `${movie?.backdrop_path}`,
-          })}
-        >
-          <MetaData
-            $detailed
-            $backdrop
-            title={movie?.original_title}
-            mark={movie.vote_average}
-            votes={movie.vote_average}
-          />
-        </Poster>
-      </>
-    )
+export const Backdrop = ({ movie }: BackDropProps) =>
+  movie?.backdrop_path && (
+    <>
+      <Background />
+      <Poster
+        backdrop={getImageUrl({
+          size: "/w1280",
+          path: `${movie?.backdrop_path}`,
+        })}
+      >
+        <MetaData
+          $detailed
+          $backdrop
+          title={movie?.original_title}
+          mark={movie.vote_average}
+          votes={movie.vote_average}
+        />
+      </Poster>
+    </>
   );
-};
