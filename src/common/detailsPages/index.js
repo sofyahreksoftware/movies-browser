@@ -1,11 +1,11 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 
-import { getImageUrl } from "../../common/api/getImageUrl";
+import { getImageUrl } from "../api/getImageUrl";
 
-import { Page } from "../../common/bothPageTypes/Page";
-import { Tile } from "../../common/bothPageTypes/Tile";
-import { Article } from "../../common/bothPageTypes/Article";
+import { Page } from "../bothPageTypes/Page";
+import { Tile } from "../bothPageTypes/Tile";
+import { Article } from "../bothPageTypes/Article";
 import { Backdrop } from "../../features/MovieDetails/Backdrop";
 
 function Details({
@@ -43,7 +43,7 @@ function Details({
 
   return (
     <section>
-      {entityType === "person" && <Backdrop movie={details} />}
+      {entityType === "movie" && <Backdrop movie={details} />}
       <Page status={status}>
         <Tile
           $detailed
