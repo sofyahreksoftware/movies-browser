@@ -2,6 +2,7 @@ import {takeLatest, call, put, delay} from "redux-saga/effects";
 
 import { demoDelay } from "../demoDelay";
 
+// interface DetailsSagaProps{getDetails: }
 export function* detailsSaga({getDetails, getCredits, actions}) {
     function* fetchDetailsHandler({payload}) {
         yield delay(demoDelay);

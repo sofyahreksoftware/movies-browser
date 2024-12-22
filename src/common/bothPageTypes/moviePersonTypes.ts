@@ -48,8 +48,8 @@ export interface Person {
   placeOfBirth: PlaceOfBirthProp;
 }
 
-type Movies = Movie[];
-type People = Person[];
+export type Movies = Movie[];
+export type People = Person[];
 
 export interface MovieProps {
   title?: NameTitleProp;
