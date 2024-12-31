@@ -18,6 +18,27 @@ export type IdProp = string;
 export type NameTitleProp = string;
 export type OverviewProp = string;
 
+export interface CastMember {
+  adult: boolean;
+  gender: number | null; // Możliwe wartości: 0, 1, 2, lub null
+  id: number;
+  known_for_department: string;
+  name: NameTitleProp;
+  original_name: NameTitleProp;
+  popularity: number;
+  profile_path: string | null;
+  credit_id: string;
+  order?: number;
+  cast_id?: number; // Nie zawsze występuje
+  character?: string; // Tylko dla obsady
+}
+
+export interface CrewMember
+  extends Omit<CastMember, "cast_id" | "character" | "order"> {
+  department: string;
+  job: string;
+}
+
 export interface Movie {
   backdrop_path: PathProp;
   character: CharacterProp;
@@ -50,6 +71,7 @@ export interface Person {
 
 export type Movies = Movie[];
 export type People = Person[];
+export type CastCrew = { cast: CastMember[]; crew: CrewMember[] };
 
 export interface MovieProps {
   title?: NameTitleProp;
