@@ -1,13 +1,11 @@
-export type PersonDetailed = {
-  $personDetailed?: boolean;
+export type PersonDetailedType = boolean;
+
+export type PersonDetailedProp = {
+  $personDetailed?: PersonDetailedType;
 };
 
 export type DetailedProp = {
   $detailed?: boolean;
-};
-
-export type PersonDetailedProp = {
-  $personDetailed?: PersonDetailed;
 };
 
 export type BackdropProp = {

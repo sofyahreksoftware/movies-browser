@@ -1,6 +1,6 @@
 import { Detail, DetailLabel, DetailValue } from "./styled";
 
-import { PersonDetailed } from "../../../styledTypes";
+import { PersonDetailedType } from "../../../styledTypes";
 import {
   ReleaseDateProp,
   DateOfBirthProp,
@@ -14,7 +14,7 @@ interface DetailedDataProps {
   releaseDate: ReleaseDateProp;
   dateOfBirth: DateOfBirthProp;
   placeOfBirth: PlaceOfBirthProp;
-  $personDetailed?: PersonDetailed;
+  $personDetailed?: PersonDetailedType;
 }
 
 export const DetailedData = ({
