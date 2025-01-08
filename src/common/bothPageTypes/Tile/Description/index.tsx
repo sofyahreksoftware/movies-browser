@@ -1,8 +1,8 @@
 import { StyledDescription } from "./styled";
-import { OverviewProp } from "../../moviePersonTypes";
+import { OverviewDescriptionProp } from "../../moviePersonTypes";
 
 interface DescriptionProps {
-  description: OverviewProp;
+  description: OverviewDescriptionProp;
 }
 
 export const Description = ({ description }: DescriptionProps) =>

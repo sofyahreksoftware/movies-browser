@@ -25,7 +25,7 @@ import {
 } from "../../moviePersonTypes";
 
 interface MetaDataProps {
-  title: NameTitleProp;
+  title?: NameTitleProp;
   character?: CharacterProp;
   year?: YearProp;
   productionPlaces?: ProductionPlaces;

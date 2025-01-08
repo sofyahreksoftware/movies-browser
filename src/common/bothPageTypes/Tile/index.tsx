@@ -13,16 +13,16 @@ import {
   Genres,
   MarkProp,
   VoteAverageProp,
-  OverviewProp,
+  OverviewDescriptionProp,
 } from "../moviePersonTypes";
-import { SmallProp, DetailedProp, PersonDetailed } from "../styledTypes";
+import { SmallProp, DetailedProp, PersonDetailedType } from "../styledTypes";
 import { Wrapper, Poster } from "./styled";
 import { MetaData } from "./MetaData";
 import { Description } from "./Description";
 
 interface TileProps {
-  poster: PathProp;
-  title: NameTitleProp;
+  poster?: PathProp;
+  title?: NameTitleProp;
   character?: CharacterProp;
   year?: YearProp;
   releaseDate?: ReleaseDateProp;
@@ -32,8 +32,8 @@ interface TileProps {
   genres?: Genres;
   mark?: MarkProp;
   votes?: VoteAverageProp;
-  description?: OverviewProp;
-  $personDetailed?: PersonDetailed;
+  description?: OverviewDescriptionProp;
+  $personDetailed?: PersonDetailedType;
 }
 
 export const Tile = ({
