@@ -18,6 +18,6 @@ export const PeopleList = ({ genres }) => (
     selectResult={selectResult}
     clearOnLeave={clearOnLeave}
     genres={genres}
-    entityName={"people"}
+    entityType={"person"}
   />
 );

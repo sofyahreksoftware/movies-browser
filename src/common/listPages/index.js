@@ -17,7 +17,7 @@ function List({
   selectResult,
   clearOnLeave,
   genres,
-  entityName,
+  entityType,
 }) {
   const dispatch = useDispatch();
 
@@ -27,6 +27,16 @@ function List({
 
   const page = useQueryParameter(paginationParamName) || 1;
   const query = useQueryParameter(searchQueryName) || "";
+
+  const getEntityName = (entityType) => {
+    if (entityType === "movie") {
+      return "movies";
+    } else if (entityType === "person") {
+      return "people";
+    }
+  };
+
+  const entityName = getEntityName(entityType);
 
   const title =
     query !== ""
@@ -62,6 +72,7 @@ function List({
         query={query}
       >
         <Article
+          entityType={entityType}
           {...(entityName === "movies"
             ? { movies: list.results }
             : { people: list.results })}

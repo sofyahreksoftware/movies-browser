@@ -18,6 +18,6 @@ export const MovieList = ({ genres }) => (
     selectResult={selectResult}
     clearOnLeave={clearOnLeave}
     genres={genres}
-    entityName={"movies"}
+    entityType={"movie"}
   />
 );
