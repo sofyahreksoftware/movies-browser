@@ -1,18 +1,46 @@
 import { List } from "./List";
 
-import { XOR, MovieProps, PeopleProps } from "../moviePersonTypes";
+import {
+  NameTitleProp,
+  People,
+  Movies,
+  Genres,
+  EntityTypeProp,
+} from "../moviePersonTypes";
 import { Wrapper } from "./styled";
 import { Header } from "../Header";
 
-type ArticleProps = XOR<MovieProps, PeopleProps>;
+interface ArticleProps {
+  title?: NameTitleProp;
+  people?: People;
+  movies?: Movies;
+  genreList?: Genres;
+  entityType: EntityTypeProp;
+}
 
-export const Article = ({ title, people, movies, genreList }: ArticleProps) => (
+export const Article = ({
+  entityType,
+  title,
+  people,
+  movies,
+  genreList,
+}: ArticleProps) => (
   <Wrapper>
     {title && <Header>{title}</Header>}
     {movies && genreList ? (
-      <List people={people} movies={movies} genreList={genreList} />
+      <List
+        people={people}
+        movies={movies}
+        genreList={genreList}
+        entityType={entityType}
+      />
     ) : people ? (
-      <List people={people} movies={movies} genreList={genreList} />
+      <List
+        people={people}
+        movies={movies}
+        genreList={genreList}
+        entityType={entityType}
+      />
     ) : null}
   </Wrapper>
 );
