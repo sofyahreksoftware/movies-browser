@@ -10,6 +10,9 @@ import {
   Person,
   Genres,
   EntityTypeProp,
+  CastCrew,
+  Movies,
+  People,
 } from "../bothPageTypes/moviePersonTypes";
 import { getImageUrl } from "../api/getImageUrl";
 
@@ -23,7 +26,7 @@ interface DetailsProps {
   clearOnLeave: ClearOnLeaveActionType;
   selectStatus: (state: RootState) => StatusProp;
   selectDetails: (state: RootState) => Movie | Person;
-  selectCredits: (state: RootState) => any;
+  selectCredits: (state: RootState) => CastCrew;
   id: IdProp;
   genres: Genres;
   entityType: EntityTypeProp;
@@ -62,10 +65,18 @@ function Details({
     };
   }, [dispatch, id, clearOnLeave, fetch]);
 
-  const cast = credits?.cast && Array.isArray(credits.cast) ? credits.cast : [];
-  const crew = credits?.crew && Array.isArray(credits.crew) ? credits.crew : [];
+  const cast = Array.isArray(credits?.cast)
+    ? isMovie(details)
+      ? (credits.cast as People)
+      : (credits.cast as Movies)
+    : [];
 
-  console.log(cast);
+  const crew = Array.isArray(credits?.crew)
+    ? isMovie(details)
+      ? (credits.crew as People)
+      : (credits.crew as Movies)
+    : [];
+
   return (
     <section>
       {entityType === "movie" && isMovie(details) && (
@@ -116,12 +127,12 @@ function Details({
           {...(entityType === "movie" &&
             isMovie(details) && {
               title: "Cast",
-              people: cast,
+              people: cast as People,
             })}
           {...(entityType === "person" &&
             !isMovie(details) && {
               title: "Movies - cast",
-              movies: cast,
+              movies: cast as Movies,
               genreList: genres,
             })}
         />
@@ -131,12 +142,12 @@ function Details({
           {...(entityType === "movie" &&
             isMovie(details) && {
               title: "Crew",
-              people: crew,
+              people: crew as Person[],
             })}
           {...(entityType === "person" &&
             !isMovie(details) && {
               title: "Movies - crew",
-              movies: crew,
+              movies: crew as Movie[],
               genreList: genres,
             })}
         />
@@ -144,4 +155,5 @@ function Details({
     </section>
   );
 }
+
 export default Details;

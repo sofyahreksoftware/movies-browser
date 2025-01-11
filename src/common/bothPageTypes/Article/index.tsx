@@ -1,5 +1,4 @@
 import { List } from "./List";
-
 import {
   NameTitleProp,
   People,
@@ -24,23 +23,20 @@ export const Article = ({
   people,
   movies,
   genreList,
-}: ArticleProps) => (
-  <Wrapper>
-    {title && <Header>{title}</Header>}
-    {movies && genreList ? (
-      <List
-        people={people}
-        movies={movies}
-        genreList={genreList}
-        entityType={entityType}
-      />
-    ) : people ? (
-      <List
-        people={people}
-        movies={movies}
-        genreList={genreList}
-        entityType={entityType}
-      />
-    ) : null}
-  </Wrapper>
-);
+}: ArticleProps) => {
+  const shouldRenderList = (movies && genreList) || people;
+
+  return (
+    <Wrapper>
+      {title && <Header>{title}</Header>}
+      {shouldRenderList && (
+        <List
+          people={people}
+          movies={movies}
+          genreList={genreList}
+          entityType={entityType}
+        />
+      )}
+    </Wrapper>
+  );
+};
