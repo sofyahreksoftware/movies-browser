@@ -21,13 +21,10 @@ export type EntityTypeProp = "movie" | "person";
 
 export interface Person {
   id: IdProp;
-
   name: NameTitleProp;
   profile_path: PathProp;
   character: CharacterProp;
-
   birthday: DateOfBirthProp;
-
   place_of_birth: PlaceOfBirthProp;
   biography: OverviewDescriptionProp;
   poster_path: PathProp;
@@ -44,11 +41,8 @@ export interface Movie {
   release_date: ReleaseDateProp; // from API
   title: NameTitleProp;
   vote_average: VoteAverageProp; // from API
-
   vote_count: VoteAverageProp;
-
   production_countries: ProductionPlaces;
-
   genres: Genres;
 }
 
