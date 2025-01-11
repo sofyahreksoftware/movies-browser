@@ -22,13 +22,12 @@ interface ListProps {
   genreList?: Genres;
   entityType: EntityTypeProp;
 }
-export const List = ({ entityType, people, movies, genreList }: ListProps) => {
+export const List = ({ people, movies, genreList }: ListProps) => {
   return (
     <>
       {people && (
         <Wrapper $small>
           {Array.isArray(people) &&
-            entityType === "person" &&
             people?.map((person: Person) => (
               <Link
                 to={toPersonDetails({ personId: person.id.toString() })}
@@ -53,7 +52,6 @@ export const List = ({ entityType, people, movies, genreList }: ListProps) => {
       {movies && (
         <Wrapper>
           {Array.isArray(movies) &&
-            entityType === "movie" &&
             movies?.map((movie: Movie) => (
               <Link
                 to={toMovieDetails({ movieId: movie.id.toString() })}
