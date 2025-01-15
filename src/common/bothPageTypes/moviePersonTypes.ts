@@ -9,10 +9,14 @@ export type CharacterProp = string | undefined;
 export type YearProp = string | undefined;
 export type MarkProp = number | undefined;
 export type VoteAverageProp = number | undefined;
+
 export type GenreProp = string;
-export type Genres = {
-  [key: number]: GenreProp;
-};
+export type GenreId = number;
+export type Genre = { id: GenreId; name: GenreProp };
+export type Genres = Genre[];
+export type GenresFromApi = { genres: Genre[] };
+export type GenreMap = { [key in GenreId]: GenreProp };
+
 export type PathProp = string | undefined;
 export type IdProp = string;
 export type NameTitleProp = string;

@@ -7,11 +7,19 @@ import {
   fetchGenresError,
 } from "./genresSlice";
 import { getGenres } from "./getGenres";
+import {
+  GenreMap,
+  Genres,
+  GenresFromApi,
+} from "../bothPageTypes/moviePersonTypes";
 
 function* fetchGenresHandler() {
   try {
-    const genres = yield call(getGenres);
-    const genreList = yield call(convertGenresArrayToObject, genres?.genres);
+    const genres: GenresFromApi = yield call(getGenres);
+    const genreList: GenreMap = yield call(
+      convertGenresArrayToObject,
+      genres?.genres
+    );
     yield put(fetchGenresSuccess({ genreList }));
   } catch {
     yield put(fetchGenresError());

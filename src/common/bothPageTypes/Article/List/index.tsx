@@ -4,10 +4,10 @@ import { toPersonDetails, toMovieDetails } from "../../../../core/routes";
 import {
   People,
   Movies,
-  Genres,
   Person,
   Movie,
   EntityTypeProp,
+  GenreMap,
 } from "../../moviePersonTypes";
 import { Tile } from "../../Tile";
 
@@ -16,7 +16,7 @@ import { Wrapper, Item } from "./styled";
 interface ListProps {
   people?: People;
   movies?: Movies;
-  genreList?: Genres;
+  genreList?: GenreMap;
   entityType: EntityTypeProp;
 }
 

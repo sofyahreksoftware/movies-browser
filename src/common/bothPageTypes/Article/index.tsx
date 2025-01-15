@@ -3,8 +3,8 @@ import {
   NameTitleProp,
   People,
   Movies,
-  Genres,
   EntityTypeProp,
+  GenreMap,
 } from "../moviePersonTypes";
 import { Wrapper } from "./styled";
 import { Header } from "../Header";
@@ -13,7 +13,7 @@ interface ArticleProps {
   title?: NameTitleProp;
   people?: People;
   movies?: Movies;
-  genreList?: Genres;
+  genreList?: GenreMap;
   entityType: EntityTypeProp;
 }
 

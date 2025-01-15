@@ -10,10 +10,10 @@ import {
   DateOfBirthProp,
   PlaceOfBirthProp,
   YearProp,
-  Genres,
   MarkProp,
   VoteAverageProp,
   OverviewDescriptionProp,
+  GenreMap,
 } from "../moviePersonTypes";
 import { SmallProp, DetailedProp, PersonDetailedType } from "../styledTypes";
 import { Wrapper, Poster } from "./styled";
@@ -29,7 +29,7 @@ interface TileProps {
   productionPlaces?: ProductionPlaces;
   dateOfBirth?: DateOfBirthProp;
   placeOfBirth?: PlaceOfBirthProp;
-  genres?: Genres;
+  genres?: GenreMap;
   mark?: MarkProp;
   votes?: VoteAverageProp;
   description?: OverviewDescriptionProp;

@@ -1,5 +1,5 @@
 import { StatusProp } from "./displayTypes";
-import { Movie, CastCrew } from "./moviePersonTypes";
+import { Movie, CastCrew, GenreMap } from "./moviePersonTypes";
 
 export interface MovieDetailsState {
   status: StatusProp;
@@ -7,6 +7,12 @@ export interface MovieDetailsState {
   credits: CastCrew;
 }
 
+export interface GenresState {
+  genres: GenreMap;
+  status: StatusProp;
+}
+
 export interface RootState {
   movieDetails: MovieDetailsState;
+  genres: GenresState;
 }

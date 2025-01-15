@@ -19,9 +19,10 @@ import {
   DateOfBirthProp,
   PlaceOfBirthProp,
   YearProp,
-  Genres as GenreProps, //to avoid conflict with Genres Styled Component
   MarkProp,
   VoteAverageProp,
+  GenreProp,
+  GenreMap,
 } from "../../moviePersonTypes";
 
 interface MetaDataProps {
@@ -32,7 +33,7 @@ interface MetaDataProps {
   releaseDate?: ReleaseDateProp;
   dateOfBirth?: DateOfBirthProp;
   placeOfBirth?: PlaceOfBirthProp;
-  genres?: GenreProps;
+  genres?: GenreMap;
   mark?: MarkProp;
   votes?: VoteAverageProp;
 }
@@ -85,7 +86,7 @@ export const MetaData = ({
 
     {Array.isArray(genres) && genres.length > 0 && (
       <Genres $detailed={$detailed}>
-        {genres.map((genre: string) => (
+        {genres.map((genre: GenreProp) => (
           <Genre key={nanoid()}>{genre}</Genre>
         ))}
       </Genres>

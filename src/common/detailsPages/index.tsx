@@ -8,11 +8,11 @@ import {
   IdProp,
   Movie,
   Person,
-  Genres,
   EntityTypeProp,
   CastCrew,
   Movies,
   People,
+  GenreMap,
 } from "../bothPageTypes/moviePersonTypes";
 import { getImageUrl } from "../api/getImageUrl";
 
@@ -28,7 +28,7 @@ interface DetailsProps {
   selectDetails: (state: RootState) => Movie | Person;
   selectCredits: (state: RootState) => CastCrew;
   id: IdProp;
-  genres: Genres;
+  genres: GenreMap;
   entityType: EntityTypeProp;
 }
 

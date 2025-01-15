@@ -1,7 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { RootState } from "../bothPageTypes/stateTypes";
 
 export const genresSlice = createSlice({
-  name: "genresSlice",
+  name: "genres",
   initialState: { genres: [], status: "initial" },
   reducers: {
     fetchGenres: (state) => {
@@ -25,9 +26,10 @@ export const genresSlice = createSlice({
   },
 });
 
-export const selectGenresState = (state) => state.genres;
+export const selectGenresState = (state: RootState) => state.genres;
 
-export const selectGenres = (state) => selectGenresState(state).genres;
+export const selectGenres = (state: RootState) =>
+  selectGenresState(state).genres;
 
 export const {
   fetchGenres,
